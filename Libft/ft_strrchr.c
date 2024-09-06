@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 12:43:56 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/04 13:43:30 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/06 09:49:31 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char    *ft_strrchr(const char *s, int c)
     return (buff);
 }
 
-#include <string.h>
 int main()
 {
     char s[] = "Hello!";
