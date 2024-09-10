@@ -14,25 +14,24 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*temp;
+	void *temp;
 	size_t			i;
 
 	if (nmemb == 0 || size == 0)
     {
-        //return (NULL);
         nmemb = 1;
         size = 1;
     }
-	temp = (unsigned char *)malloc(nmemb * size);
+	temp = malloc(nmemb * size);
 	if (temp == NULL)
 		return (0);
 	i = 0;
 	while (i < nmemb * size)
 	{
-		temp[i] = 0;
+		((unsigned char *)temp)[i] = 0;
 		i++;
 	}
-	return ((void	*)temp);
+	return (temp);
 }
 
 int	main(void)

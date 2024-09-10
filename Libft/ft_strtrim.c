@@ -29,14 +29,14 @@ int	ft_trim(char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new_s;
-	int		s_l;
-	int		e_l;
-	int		len;
-	int		i;
+	size_t s_l;
+	size_t e_l;
+	size_t len;
+	size_t i;
 
 	s_l = 0;
 	e_l = 0;
-	len = (int)ft_strlen(s1);
+	len = ft_strlen(s1);
 	i = 0;
 	while (s1[i] && ft_trim(s1[i], set) == 1)
 	{
