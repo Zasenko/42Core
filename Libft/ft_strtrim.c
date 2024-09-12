@@ -6,33 +6,30 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:33:37 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/06 13:55:24 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:18:46 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_trim(char c, char const *set)
+static int	ft_trim(char c, char const *set)
 {
-	int	i;
-
-	i = 0;
 	while (*set)
 	{
 		if (*set == c)
-			i = 1;
+			return (1);
 		set++;
 	}
-	return (i);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new_s;
-	size_t s_l;
-	size_t e_l;
-	size_t len;
-	size_t i;
+	size_t	s_l;
+	size_t	e_l;
+	size_t	len;
+	size_t	i;
 
 	s_l = 0;
 	e_l = 0;
@@ -59,7 +56,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 int	main(void)
 {
 	char *new;
-	new = ft_strtrim("00131241240   abS cdefe 454 434234234ghij11345345442", "0123456789");
+	new = ft_strtrim("00131241240   abS cdefe 454 434234234ghij11345345442",
+			"0123456789");
 	if (new)
 	{
 		printf("%s\n", new);

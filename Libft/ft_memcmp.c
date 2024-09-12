@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:03:13 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/05 10:37:42 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/10 09:49:01 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-#include <string.h>
+/*
 int	main(void)
 {
 	char s1[] = "Dima";
@@ -45,7 +44,7 @@ int	main(void)
 	char s7[] = "Dima";
 	char s8[] = "";
 
-    char s9[10];
+	char s9[10];
 	char s10[10];
 
 	printf("%d | %d\n", ft_memcmp(s1, s2, 4), memcmp(s1, s2, 4));
@@ -58,7 +57,7 @@ int	main(void)
 	printf("%d | %d\n", ft_memcmp(s5, s6, 1), memcmp(s5, s6, 1));
 
 	printf("%d | %d\n", ft_memcmp(s7, s8, 4), memcmp(s7, s8, 4));
-    printf("%d | %d\n", ft_memcmp(s9, s10, 4), memcmp(s9, s10, 4));
+	printf("%d | %d\n", ft_memcmp(s9, s10, 4), memcmp(s9, s10, 4));
 
 	int arr1[] = {1, 2, 3, 4, 5};
 	int arr2[] = {1, 2, 3, 4, 6};
@@ -115,4 +114,4 @@ int	main(void)
 	{
 		printf("First is greater than second.\n");
 	}
-}
+}*/

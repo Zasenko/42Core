@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:49:59 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/05 14:48:29 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:10:51 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void *temp;
-	size_t			i;
+	void	*temp;
 
 	if (nmemb == 0 || size == 0)
-    {
-        nmemb = 1;
-        size = 1;
-    }
-	temp = malloc(nmemb * size);
-	if (temp == NULL)
-		return (0);
-	i = 0;
-	while (i < nmemb * size)
 	{
-		((unsigned char *)temp)[i] = 0;
-		i++;
+		temp = malloc(0);
+		if (temp == NULL)
+			return (NULL);
+		ft_bzero(temp, 0);
+		return (temp);
 	}
-	return (temp);
+	else
+	{
+		temp = malloc(nmemb * size);
+		if (temp == NULL)
+			return (NULL);
+		ft_bzero(temp, nmemb * size);
+		return (temp);
+	}
 }
-
+/*
 int	main(void)
 {
 	int n = 5;
@@ -83,7 +83,7 @@ int	main(void)
 		printf("\nCan't allocate memory.\n");
 	free(number);
 
-    long *number2;
+	long *number2;
 	number2 = NULL;
 	if (number2 != NULL)
 		printf("Allocated 10 long integers.\n");
@@ -96,21 +96,21 @@ int	main(void)
 		printf("\nCan't allocate memory.\n");
 	free(number2);
 
-    printf("--------------\n");
+	printf("--------------\n");
 
-    int *pointer = (int *)calloc(0, 0);
+	int *pointer = (int *)calloc(0, 0);
    if (pointer == NULL) {
-      printf("Null pointer \n");
+		printf("Null pointer \n");
    } else {
-      printf("Address = %p\n", (void*)pointer);
+		printf("Address = %p\n", (void*)pointer);
    }
    free(pointer);
-   
+
    int *pointer2 = (int *)ft_calloc(0, 0);
    if (pointer2 == NULL) {
-      printf("Null pointer2 \n");
+		printf("Null pointer2 \n");
    } else {
-      printf("Address = %p\n", (void*)pointer2);
+		printf("Address = %p\n", (void*)pointer2);
    }
    free(pointer2);
-}
+}*/

@@ -6,20 +6,18 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:48:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/09 12:56:04 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:10:09 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_words_count(char const *s, char c)
+static int	ft_words_count(char const *s, char c)
 {
 	int	count;
-	int	i;
 	int	f;
 
 	count = 0;
-	i = 0;
 	f = 1;
 	while (*s)
 	{
@@ -38,7 +36,7 @@ int	ft_words_count(char const *s, char c)
 	return (count);
 }
 
-char	*ft_malloc_word(char const *s, char c)
+static char	*ft_malloc_word(char const *s, char c)
 {
 	char	*word;
 	int		i;
@@ -64,17 +62,21 @@ char	*ft_malloc_word(char const *s, char c)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+static void	ft_free_arr(char **arr, int i)
 {
-	char	**arr;
-	int		w_count;
-	int		i;
+	while (i >= 0)
+	{
+		free(arr[i]);
+		i--;
+	}
+	free(arr);
+}
+
+static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
+{
+	int	i;
 
 	i = 0;
-	w_count = ft_words_count(s, c);
-	arr = (char **)malloc((w_count + 1) * sizeof(char *));
-	if (arr == NULL)
-		return (NULL);
 	while (*s && i < w_count)
 	{
 		if (*s == c)
@@ -82,27 +84,37 @@ char	**ft_split(char const *s, char c)
 		else
 		{
 			arr[i] = ft_malloc_word(s, c);
-            if (arr[i] == NULL)
-            {
-                i--;                
-                while(i >= 0)
-                {
-                    free(arr[i]);
-                    i--;
-                }
-                free(arr);
-                return (NULL);
-            }
-            i++;
+			if (arr[i] == NULL)
+			{
+				ft_free_arr(arr, i--);
+				return (0);
+			}
+			i++;
 			s++;
-            while (*s != c && *s)
-                s++;
+			while (*s != c && *s)
+				s++;
 		}
 	}
-    arr[i] = NULL;
-	return (arr);
+	arr[i] = NULL;
+	return (1);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		w_count;
+
+	if (!s)
+		return (NULL);
+	w_count = ft_words_count(s, c);
+	arr = (char **)malloc((w_count + 1) * sizeof(char *));
+	if (arr == NULL)
+		return (NULL);
+	if (ft_malloc_words(s, w_count, c, arr) == 0)
+		return (NULL);
+	return (arr);
+}
+/*
 void	test_ft_split(char *s, char c, char **expected_result)
 {
 	char	**result;
@@ -150,36 +162,36 @@ int	main(void)
 	char s1[] = " hello world Dima";
 	char *expected1[] = {"hello", "world", "Dima", NULL};
 	test_ft_split(s1, ' ', expected1);
-    printf("------------\n");
-    printf("------------\n");
+	printf("------------\n");
+	printf("------------\n");
 
 	// Example string with multiple spaces
 	char s2[] = "  hello   world   ";
 	char *expected2[] = {"hello", "world", NULL};
 	test_ft_split(s2, ' ', expected2);
-    printf("------------\n");
-    printf("------------\n");
+	printf("------------\n");
+	printf("------------\n");
 
 	// Example string with no delimiters
 	char s3[] = "helloworld";
 	char *expected3[] = {"helloworld", NULL};
 	test_ft_split(s3, ' ', expected3);
-    printf("------------\n");
-    printf("------------\n");
+	printf("------------\n");
+	printf("------------\n");
 
 	// Example string that is empty
 	char s4[] = "";
 	char *expected4[] = {NULL};
 	test_ft_split(s4, ' ', expected4);
-    printf("------------\n");
-    printf("------------\n");
+	printf("------------\n");
+	printf("------------\n");
 
 	// Example with only delimiter characters
 	char s5[] = "      ";
 	char *expected5[] = {NULL};
 	test_ft_split(s5, ' ', expected5);
-    printf("------------\n");
-    printf("------------\n");
+	printf("------------\n");
+	printf("------------\n");
 
 	return (0);
-}
+}*/
