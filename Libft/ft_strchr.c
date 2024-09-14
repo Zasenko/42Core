@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 12:40:53 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 17:12:49 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:57:50 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 /*
+// cc -Wall -Wextra -Werror libft.h ft_strchr.c
 int	main(void)
 {
 	char str1[] = "Hello World";

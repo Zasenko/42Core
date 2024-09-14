@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:58:52 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 15:22:45 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:27:27 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_itoa.c 
 int	main(void)
 {
 	int num1 = 12345;

@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:09:41 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/10 12:23:45 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:02:55 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_putchar_fd.c ft_putnbr_fd.c
 int	main(void)
 {
 	ft_putnbr_fd(-2147483648, 1);

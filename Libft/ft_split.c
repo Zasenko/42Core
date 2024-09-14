@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:48:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 13:10:09 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:00:33 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ char	**ft_split(char const *s, char c)
 	return (arr);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_split.c
 void	test_ft_split(char *s, char c, char **expected_result)
 {
 	char	**result;
@@ -122,12 +123,10 @@ void	test_ft_split(char *s, char c, char **expected_result)
 
 	result = ft_split(s, c);
 	i = 0;
-	// Loop through both result and expected result to compare
 	printf("Testing string: \"%s\" with delimiter '%c'\n", s, c);
 	while (result[i])
 	{
 		printf("result[%d]: \"%s\"\n", i, result[i]);
-		// If an expected result exists, compare it
 		if (expected_result[i] == NULL || strcmp(result[i],
 				expected_result[i]) != 0)
 		{
@@ -137,16 +136,10 @@ void	test_ft_split(char *s, char c, char **expected_result)
 		}
 		i++;
 	}
-	// Ensure that the sizes match
 	if (expected_result[i] != NULL)
-	{
 		printf("Test failed: expected more elements in the result.\n");
-	}
 	else
-	{
 		printf("Test passed!\n");
-	}
-	// Free memory (assuming ft_split allocates memory)
 	i = 0;
 	while (result[i])
 	{
@@ -163,13 +156,11 @@ int	main(void)
 	char *expected1[] = {"hello", "world", "Dima", NULL};
 	test_ft_split(s1, ' ', expected1);
 	printf("------------\n");
-	printf("------------\n");
 
 	// Example string with multiple spaces
 	char s2[] = "  hello   world   ";
 	char *expected2[] = {"hello", "world", NULL};
 	test_ft_split(s2, ' ', expected2);
-	printf("------------\n");
 	printf("------------\n");
 
 	// Example string with no delimiters
@@ -177,20 +168,17 @@ int	main(void)
 	char *expected3[] = {"helloworld", NULL};
 	test_ft_split(s3, ' ', expected3);
 	printf("------------\n");
-	printf("------------\n");
 
 	// Example string that is empty
 	char s4[] = "";
 	char *expected4[] = {NULL};
 	test_ft_split(s4, ' ', expected4);
 	printf("------------\n");
-	printf("------------\n");
 
 	// Example with only delimiter characters
 	char s5[] = "      ";
 	char *expected5[] = {NULL};
 	test_ft_split(s5, ' ', expected5);
-	printf("------------\n");
 	printf("------------\n");
 
 	return (0);

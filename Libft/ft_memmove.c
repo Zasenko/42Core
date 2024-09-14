@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 10:19:53 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/10 09:49:06 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:06:32 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_memmove.c
 int	main(void)
 {
 	char src1[50] = "Hello,Dima!";
@@ -49,31 +50,18 @@ int	main(void)
 
 	ft_memmove(src1 + 3, src1, 4);
 	printf("%s\n", src1);
-
-	printf("--------------\n");
-
 	memmove(src11 + 3, src11, 4);
 	printf("%s\n", src11);
 
 	printf("--------------\n");
-	printf("--------------\n");
-
 	ft_memmove(src2 + 3, src2, 3);
 	printf("%s\n", src2);
-
-	printf("--------------\n");
-
 	memmove(src22 + 3, src22, 3);
 	printf("%s\n", src22);
 
 	printf("--------------\n");
-	printf("--------------\n");
-
 	ft_memmove(src3, src3, 3);
 	printf("%s\n", src3);
-
-	printf("--------------\n");
-
 	memmove(src33, src33, 3);
 	printf("%s\n", src33);
 }*/

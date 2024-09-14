@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:03:13 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/10 09:49:01 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:16:23 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_memcmp.c
 int	main(void)
 {
 	char s1[] = "Dima";

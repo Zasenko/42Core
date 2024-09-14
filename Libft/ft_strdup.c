@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 14:49:31 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 17:16:06 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:56:37 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ char	*ft_strdup(const char *s)
 	new[i] = '\0';
 	return (new);
 }
-
 /*
+//cc -Wall -Wextra -Werror libft.h ft_strdup.c ft_strlen.c
+
 int	main(void)
 {
 	char	source[] = "Hello";
 	char	*target;
 	char	*target2;
 
-	target = strdup(source);
+	target = ft_strdup(source);
 	printf("%s\n", target);
 	free(target);
 	target2 = strdup(source);

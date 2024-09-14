@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 09:49:19 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 16:42:16 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:30:22 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (sub_s);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_substr.c ft_strlen.c ft_strlcpy.c
 int	main(void)
 {
 	char s[] = "Hello, Dimitry!";

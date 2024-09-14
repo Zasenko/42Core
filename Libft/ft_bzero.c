@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 10:05:23 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 13:36:21 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:19:04 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_bzero.c ft_memset.c
 int	main(void)
 {
 	char c[] = "Hello!";

@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:49:15 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/10 09:48:58 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:17:03 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_memchr.c
 int	main(void)
 {
 	char s[] = "Hello!";

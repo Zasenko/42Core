@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:29:38 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 14:14:36 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:49:09 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (new_str);
 }
 /*
+// cc -Wall -Wextra -Werror libft.h ft_strmapi.c ft_strlen.c ft_strlcpy.c
+
 char	to_uppercase(unsigned int i, char c)
 {
 	(void)i;

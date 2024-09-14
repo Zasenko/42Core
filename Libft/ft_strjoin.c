@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:15:18 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 13:41:22 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:51:46 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (s_new);
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_strjoin.c ft_strlen.c
 int	main(void)
 {
 	char s1[] = "Hello,";
@@ -50,6 +51,8 @@ int	main(void)
 	{
 		printf("%s\n", new);
 		free(new);
+	} else {
+		printf("ERROR\n");
 	}
 
 	char s3[] = "Hello,";
@@ -59,6 +62,8 @@ int	main(void)
 	{
 		printf("%s\n", new);
 		free(new);
+	} else {
+		printf("ERROR\n");
 	}
 
 	new = ft_strjoin("HEY", NULL);
@@ -66,5 +71,7 @@ int	main(void)
 	{
 		printf("%s\n", new);
 		free(new);
+	} else {
+		printf("ERROR\n");
 	}
 }*/

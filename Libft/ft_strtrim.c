@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 11:33:37 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 13:18:46 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:52:46 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	return (new_s);
 }
-
 /*
+//cc -Wall -Wextra -Werror libft.h ft_strtrim.c ft_strlen.c
+ft_substr.c ft_strlcpy.c
+
 int	main(void)
 {
 	char *new;
-	new = ft_strtrim("00131241240   abS cdefe 454 434234234ghij11345345442",
+	new = ft_strtrim("00131241240abc cdefe 454 434234234ghij xyz11345345442",
 			"0123456789");
 	if (new)
 	{

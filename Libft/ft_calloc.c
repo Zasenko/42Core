@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 12:49:59 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/09/11 17:10:51 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:25:26 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 }
 /*
+//cc -Wall -Wextra -Werror libft.h ft_calloc.c ft_bzero.c ft_memset.c
 int	main(void)
 {
 	int n = 5;
@@ -41,10 +42,11 @@ int	main(void)
 	int *array2;
 
 	printf("--------------\n");
+
 	array = (int *)calloc(n, sizeof(int));
 	if (array == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
+		printf("Memory allocation failed!\n");
 		return (1);
 	}
 	printf("Array elements after calloc: ");
@@ -58,7 +60,7 @@ int	main(void)
 	array2 = (int *)ft_calloc(n, sizeof(int));
 	if (array2 == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed!\n");
+		printf("Memory allocation failed!\n");
 		return (1);
 	}
 	printf("Array elements after calloc: ");
@@ -70,28 +72,22 @@ int	main(void)
 	free(array2);
 
 	printf("--------------\n");
+
 	long *number;
 	number = NULL;
-	if (number != NULL)
-		printf("Allocated 10 long integers.\n");
-	else
-		printf("Can't allocate memory.\n");
 	number = (long *)calloc(10, sizeof(long));
 	if (number != NULL)
-		printf("Allocated 10 long integers.\n");
+		printf("Allocated.\n");
 	else
 		printf("\nCan't allocate memory.\n");
 	free(number);
 
 	long *number2;
 	number2 = NULL;
-	if (number2 != NULL)
-		printf("Allocated 10 long integers.\n");
-	else
-		printf("Can't allocate memory.\n");
+
 	number2 = (long *)ft_calloc(10, sizeof(long));
 	if (number2 != NULL)
-		printf("Allocated 10 long integers.\n");
+		printf("Allocated.\n");
 	else
 		printf("\nCan't allocate memory.\n");
 	free(number2);
@@ -99,18 +95,16 @@ int	main(void)
 	printf("--------------\n");
 
 	int *pointer = (int *)calloc(0, 0);
-   if (pointer == NULL) {
+	if (pointer == NULL)
 		printf("Null pointer \n");
-   } else {
-		printf("Address = %p\n", (void*)pointer);
-   }
-   free(pointer);
+	else
+		printf("Address = %p\n", (void *)pointer);
+	free(pointer);
 
-   int *pointer2 = (int *)ft_calloc(0, 0);
-   if (pointer2 == NULL) {
+	int *pointer2 = (int *)ft_calloc(0, 0);
+	if (pointer2 == NULL)
 		printf("Null pointer2 \n");
-   } else {
-		printf("Address = %p\n", (void*)pointer2);
-   }
-   free(pointer2);
+	else
+		printf("Address = %p\n", (void *)pointer2);
+	free(pointer2);
 }*/
