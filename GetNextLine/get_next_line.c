@@ -15,31 +15,49 @@
 // what if BUFFER_SIZE > then line
 // what if BUFFER_SIZE == 0?
 
-
-char	*get_next_line(int fd)
+char    *get_next_line(int fd)
 {
-    char *buf;
+    char    *buf;
+    int     n;
+
+    if (BUFFER_SIZE <= 0 || fd < 0)
+        return (NULL);
     buf = (char *)malloc((sizeof(char) * BUFFER_SIZE) + 1);
     if (buf == NULL)
         return (NULL);
-    
-    int n = read(fd, buf, sizeof(char) * BUFFER_SIZE);
-// if n == 0 end of file
-// if n == -1 error
-
+    n = read(fd, buf, sizeof(char) * BUFFER_SIZE);
+    if (n < 0)
+    {
+        *buf = NULL;
+        free(buf);
+        return (NULL);
+    }
+    else if (n == 0)
+    {
+        // if n == 0 end of file
+    }
+    else
+    {
+        *buf = NULL;
+        free(buf);
+        return (NULL);
+        // if n == -1 error
+    }
     printf("%d | c = %s\n", n, buf);
-    
     return (buf);
 }
 
 #include <fcntl.h>
 
-//cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c
-int	main(void)
+// cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c
+int main(void)
 {
-    char *c;
-    int fd = open("text.txt", O_RDONLY | O_CREAT);
-    if (fd == -1) {
+    char    *c;
+    int     fd;
+
+    fd = open("text.txt", O_RDONLY | O_CREAT);
+    if (fd == -1)
+    {
         printf("open error\n");
         return (1);
     }
@@ -67,21 +85,16 @@ int	main(void)
     // printf("%d | c = %s\n", i, c);
     // i = read(fd1, c, BUFFER_SIZE);
     // printf("%d | c = %s\n", i, c);
-
-
-    
-	// int fd = open("text.txt", O_RDONLY | O_CREAT);
+    // int fd = open("text.txt", O_RDONLY | O_CREAT);
     // if (fd == -1) {
     //     printf("open error\n");
     //     exit(1);
     // }
     // char *test = get_next_line(fd);
-    
-
     // if (close(fd) < 0) {
     //     printf("close error\n");
     //     exit(1);
     // }
     // printf("closed the fd.\n");
-    return 0;
+    return (0);
 }
