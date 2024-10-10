@@ -3,29 +3,46 @@
 void	ft_strcat(char *s1, char *s2, int n)
 {
 	// printf("--- ft_strcat(s1: %s, s2: %s)\n", s1, s2);
-	while (*s1)
-		s1++;
-	while (*s2 && n-- > 0)
-		*s1++ = *s2++;
-	*s1 = '\0';
+	
+	int i = 0;
+	int l = 0;
+	while (s1[i])
+		i++;
+	while (s2[l] && n-- > 0)
+	{
+		s1[i] = s2[l];
+		i++;
+		l++;
+	}
+	s1[i] = '\0';
 }
 
 void	ft_strcpy(char *dest, char *src)
 {
 	// printf("--- ft_strcpy(dest: %s, src: %s)\n", dest, src);
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
+	int i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 }
 
 void	ft_strlcpy(char *dest, char *src, int n)
 {
+	if (!src)
+		return ;
 	if (n <= 0)
 		return ;
 	// printf("--- ft_strlcpy(dest: %s, src: %s, n: %d)\n", dest, src, n);
-	while (*src && n-- > 0)
-		*dest++ = *src++;
-	*dest = '\0';
+	int i = 0;
+	while (src[i] && n-- > 0)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 }
 
 int	ft_len_till_new_line(char *str)

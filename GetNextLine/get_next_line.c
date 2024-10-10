@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:13:39 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/09 15:13:21 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:44:45 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_next_line(int fd)
 
 	char	*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 255)
 	{
 		return (NULL);
 	}
@@ -59,6 +59,7 @@ char	*get_next_line(int fd)
 			ft_strcpy(buf, buf + line_len);
 			// printf("--- sizeof(buf): %lu---\n", sizeof(buf));
 			// printf("--- size buf: %d---\n", buf_count);
+			printf("!!!!!!!!!!!!!!!!!!--%s--\n", line);
 			return (line);
 		}
 		else
@@ -123,6 +124,7 @@ char	*get_next_line(int fd)
 					free(buf);
 					new_buf = NULL;
 					buf = NULL;
+					printf("!!!!!!!!!!!!!!!!!!--%s--\n", line);
 					return (line);	
 				}
 				else
@@ -176,101 +178,101 @@ char	*get_next_line(int fd)
 	}
 }
 
-// #include <fcntl.h>
+#include <fcntl.h>
 
-// // cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c
-// int	main(void)
-// {
-// 	char	*c;
-// 	int		fd;
+// cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c
+int	main(void)
+{
+	char	*c;
+	int		fd;
 
-// 	fd = open("text.txt", O_RDONLY | O_CREAT);
-// 	if (fd == -1)
-// 	{
-// 		printf("open error\n");
-// 		return (1);
-// 	}
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	fd = open("text.txt", O_RDONLY | O_CREAT);
+	if (fd == -1)
+	{
+		printf("open error\n");
+		return (1);
+	}
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("\n----------\n");
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
+	printf("\n----- NEW LINE -----\n");
+	c = get_next_line(fd);
+	printf("\n----------\n");
+	printf("%s", c);
+	if (c)
+		free(c);
 	
-// 	if (close(fd) < 0)
-// 	{
-// 		printf("close error\n");
-// 		exit(1);
-// 	}
-// 	printf("closed the fd.\n");
-// 	return (0);
-// }
+	if (close(fd) < 0)
+	{
+		printf("close error\n");
+		exit(1);
+	}
+	printf("closed the fd.\n");
+	return (0);
+}
