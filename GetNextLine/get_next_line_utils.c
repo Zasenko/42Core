@@ -1,11 +1,12 @@
 #include "get_next_line.h"
 
-void	ft_strcat(char *s1, char *s2, int n)
+void ft_strcat(char *s1, char *s2, int n)
 {
-	// printf("--- ft_strcat(s1: %s, s2: %s)\n", s1, s2);
-	
 	int i = 0;
 	int l = 0;
+
+	if (!s1 || !s2)
+		return ;
 	while (s1[i])
 		i++;
 	while (s2[l] && n-- > 0)
@@ -17,25 +18,12 @@ void	ft_strcat(char *s1, char *s2, int n)
 	s1[i] = '\0';
 }
 
-void	ft_strcpy(char *dest, char *src)
-{
-	// printf("--- ft_strcpy(dest: %s, src: %s)\n", dest, src);
-	int i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-}
-
 void	ft_strlcpy(char *dest, char *src, int n)
 {
 	if (!src)
 		return ;
 	if (n <= 0)
 		return ;
-	// printf("--- ft_strlcpy(dest: %s, src: %s, n: %d)\n", dest, src, n);
 	int i = 0;
 	while (src[i] && n-- > 0)
 	{
@@ -48,27 +36,34 @@ void	ft_strlcpy(char *dest, char *src, int n)
 int	ft_len_till_new_line(char *str)
 {
 	int	count;
+	int	i;
 
+	if (!str)
+		return (-1);
 	count = 0;
-	while (*str && *str != '\n')
+	i = 0;
+	while (str[i] && str[i] != '\n')
 	{
 		count++;
-		str++;
+		i++;
 	}
-	if (*str == '\n')
+	if (str[i] == '\n')
 		count++;
 	return (count);
 }
 
 int	ft_is_new_line_in_buf(char *str)
 {
-	while (*str)
+	int i;
+
+	if (!str)
+		return (-1);
+	i = 0;
+	while (str[i])
 	{
-		if (*str == '\n')
-		{
+		if (str[i] == '\n')
 			return (1);
-		}
-		str++;
+		i++;
 	}
 	return (0);
 }
