@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:13:39 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/10 14:08:36 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:09:23 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,41 @@ int ft_strlen(char *str)
 	int i;
 
 	i = 0;
+	if (!str)
+		return (i);
 	while (str[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	l;
+	char	*s_new;
+	size_t	i;
+	size_t	f;
+
+	if (!s1 || !s2)
+		return (NULL);
+	l = ft_strlen(s1) + ft_strlen(s2);
+	if (l == 0)
+		return (NULL);
+	s_new = (char *)malloc((l + 1) * sizeof(char));
+	if (s_new == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		s_new[i] = s1[i];
+		i++;
+	}
+	f = 0;
+	while (s2[f])
+	{
+		s_new[i++] = s2[f++];
+	}
+	s_new[i] = '\0';
+	return (s_new);
 }
 
 char *ft_srtdub(char *str)
@@ -56,6 +88,8 @@ char *ft_get_line(char **buf)
 	int line_len;
 	char	*new_buf;
 	
+	line = NULL;
+	new_buf = NULL;
 	line_len = ft_len_till_new_line(*buf);
 	if (line_len < 0)
 	{
@@ -69,7 +103,11 @@ char *ft_get_line(char **buf)
 		return (NULL);
 	}
 	line[0] = '\0';
-	ft_strlcpy(line, *buf, line_len);
+	if (ft_strlcpy(line, *buf, line_len) == NULL)
+	{
+		ft_free(buf);
+		return (NULL);
+	}
 	new_buf = ft_srtdub(*buf + line_len);
 	ft_free(buf);
 	if (new_buf == NULL)
@@ -108,6 +146,10 @@ char *ft_add_info_to_buff(int fd, char **buf, int *buf_count)
 	int new_buf_len;
 	char *new_new_buf;
 	
+	new_buf = NULL;
+	new_new_buf = NULL;
+		
+	old_buf_len = ft_strlen(*buf);
 	new_buf = (char *)malloc((sizeof(char) * BUFFER_SIZE) + 1);
 	if (new_buf == NULL)
 	{
@@ -122,9 +164,9 @@ char *ft_add_info_to_buff(int fd, char **buf, int *buf_count)
 		ft_free(&new_buf);
 		return (NULL);
 	}
-	else if (new_buf_len == 0)
+	new_buf[new_buf_len] = '\0';
+	if (new_buf_len == 0)
 		return (ft_return_last_line(buf, new_buf));
-	old_buf_len = ft_strlen(*buf);
 	new_new_buf = (char *)malloc(sizeof(char) * (new_buf_len + old_buf_len + 1));
 	if (new_new_buf == NULL)
 	{
@@ -133,8 +175,18 @@ char *ft_add_info_to_buff(int fd, char **buf, int *buf_count)
 		return (NULL);
 	}
 	new_new_buf[0] = '\0';
-	ft_strlcpy(new_new_buf, *buf, old_buf_len);
-	ft_strcat(new_new_buf, new_buf, new_buf_len);
+	if (ft_strlcpy(new_new_buf, *buf, old_buf_len) == NULL)
+	{
+		ft_free(buf);
+		ft_free(&new_buf);
+		return (NULL);
+	}
+	if (ft_strcat(new_new_buf, new_buf, new_buf_len) == NULL)
+	{
+		ft_free(buf);
+		ft_free(&new_buf);
+		return (NULL);
+	}
 	ft_free(buf);
 	ft_free(&new_buf);
 	*buf = new_new_buf;
@@ -176,90 +228,26 @@ char	*get_next_line(int fd)
 	}
 }
 
-// #include <fcntl.h>
+#include <fcntl.h>
 
-// // cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c get_next_line
-// int	main(void)
-// {
-// 	char	*c;
-// 	int		fd;
+// cc -Wall -Wextra -Werror -D BUFFER_SIZE=4 get_next_line.c get_next_line
+int	main(void)
+{
+	char	*c;
+	int		fd;
 
-// 	fd = open("text.txt", O_RDONLY | O_CREAT);
-// 	if (fd == -1)
-// 	{
-// 		printf("open error\n");
-// 		return (1);
-// 	}
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-
-// 	printf("\n----- NEW LINE -----\n");
-// 	c = get_next_line(fd);
-// 	printf("%s", c);
-// 	if (c)
-// 		free(c);
-	
-// 	if (close(fd) < 0)
-// 	{
-// 		printf("close error\n");
-// 		exit(1);
-// 	}
-// 	printf("closed the fd.\n");
-// 	return (0);
-// }
+	fd = open("text.txt", O_RDONLY | O_CREAT);
+	if (fd == -1)
+	{
+		printf("open error\n");
+		return (1);
+	}
+	while ((c = get_next_line(fd)) != NULL)
+	{
+		printf("\n----- NEW LINE -----\n");
+		printf("%s", c);
+		free(c);
+	}
+	close(fd);
+	return (0);
+}

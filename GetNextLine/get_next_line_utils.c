@@ -1,12 +1,12 @@
 #include "get_next_line.h"
 
-void ft_strcat(char *s1, char *s2, int n)
+char *ft_strcat(char *s1, const char *s2, int n)
 {
 	int i = 0;
 	int l = 0;
 
-	if (!s1 || !s2)
-		return ;
+	if (!s1 || !s2 || n < 0)
+		return (NULL);
 	while (s1[i])
 		i++;
 	while (s2[l] && n-- > 0)
@@ -16,21 +16,23 @@ void ft_strcat(char *s1, char *s2, int n)
 		l++;
 	}
 	s1[i] = '\0';
+	return (s1);
 }
 
-void	ft_strlcpy(char *dest, char *src, int n)
+char	*ft_strlcpy(char *dest, char *src, int n)
 {
-	if (!src)
-		return ;
-	if (n <= 0)
-		return ;
-	int i = 0;
+	int i;
+
+	if (!src || n < 0)
+		return NULL;
+	i = 0;
 	while (src[i] && n-- > 0)
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
+	return(dest);
 }
 
 int	ft_len_till_new_line(char *str)
