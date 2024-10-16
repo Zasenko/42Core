@@ -6,33 +6,11 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:13:39 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/14 14:13:16 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:01:23 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_srtdub(char *str)
-{
-	char	*dub;
-	int		len;
-	int		i;
-
-	if (!str)
-		return (NULL);
-	len = ft_strlen(str);
-	dub = (char *)malloc(sizeof(char) * (len + 1));
-	if (dub == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		dub[i] = str[i];
-		i++;
-	}
-	dub[i] = '\0';
-	return (dub);
-}
 
 void	ft_free(char **s)
 {
@@ -46,36 +24,21 @@ char	*ft_get_line(char **buf)
 	int		line_len;
 	char	*new_buf;
 
-	// line = NULL;
-	// new_buf = NULL;
 	if (!buf || !*buf)
 		return (NULL);
-	line_len = ft_len_till_new_line(*buf);
+	line_len = nl_l(*buf, 1);
 	if (line_len < 0)
-	{
-		ft_free(buf);
-		return (NULL);
-	}
+		return (ft_free(buf), NULL);
 	line = (char *)malloc((sizeof(char) * line_len) + 1);
 	if (line == NULL)
-	{
-		ft_free(buf);
-		return (NULL);
-	}
+		return (ft_free(buf), NULL);
 	line[0] = '\0';
 	if (ft_strlcpy(line, *buf, line_len) == NULL)
-	{
-		ft_free(&line);
-		ft_free(buf);
-		return (NULL);
-	}
+		return (ft_free(&line), ft_free(buf), NULL);
 	new_buf = ft_srtdub(*buf + line_len);
 	ft_free(buf);
 	if (new_buf == NULL)
-	{
-		ft_free(&line);
-		return (NULL);
-	}
+		return (ft_free(&line), NULL);
 	*buf = new_buf;
 	return (line);
 }
@@ -87,7 +50,7 @@ char	*ft_return_last_line(char **buf)
 
 	if (!buf || !*buf)
 		return (NULL);
-	line_len = ft_strlen(*buf);
+	line_len = nl_l(*buf, 0);
 	if (line_len > 0)
 	{
 		line = ft_srtdub(*buf);
@@ -96,24 +59,45 @@ char	*ft_return_last_line(char **buf)
 			return (NULL);
 		return (line);
 	}
+	ft_free(buf);
+	return (NULL);
+}
+
+int	ft_add_from_buf(int fd, char **buf)
+{
+	int		tbl;
+	char	*tb;
+	char	*nb;
+
+	tb = (char *)malloc((sizeof(char) * BUFFER_SIZE) + 1);
+	if (tb == NULL)
+		return (ft_free(buf), -1);
+	tbl = read(fd, tb, sizeof(char) * BUFFER_SIZE);
+	if (tbl < 0)
+		return (ft_free(buf), ft_free(&tb), -1);
+	if (tbl == 0)
+		return (ft_free(&tb), 1);
 	else
 	{
+		tb[tbl] = '\0';
+		nb = (char *)malloc(sizeof(char) * (tbl + nl_l(*buf, 0) + 1));
+		if (nb == NULL)
+			return (ft_free(buf), ft_free(&tb), -1);
+		if (!ft_strlcpy(nb, *buf, nl_l(*buf, 0)) || !ft_strcat(nb, tb, tbl))
+			return (ft_free(buf), ft_free(&tb), -1);
 		ft_free(buf);
-		return (NULL);
+		ft_free(&tb);
+		*buf = nb;
 	}
+	return (0);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*buf;
 	int			buf_count;
-	int			f;
-	char		*new_buf;
-	int			new_buf_len;
-	char		*new_new_buf;
-	int			old_buf_len;
+	int			res;
 
-	f = 0;
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	if (buf == NULL)
@@ -123,72 +107,23 @@ char	*get_next_line(int fd)
 			return (NULL);
 		buf_count = read(fd, buf, sizeof(char) * BUFFER_SIZE);
 		if (buf_count <= 0)
-		{
-			ft_free(&buf);
-			return (NULL);
-		}
+			return (ft_free(&buf), NULL);
 		buf[buf_count] = '\0';
 	}
-	if (ft_is_new_line_in_buf(buf) == 1)
-		f = 1;
-	while (f == 0)
+	while (ft_is_new_line_in_buf(buf) == 0)
 	{
-		old_buf_len = ft_strlen(buf);
-		new_buf = (char *)malloc((sizeof(char) * BUFFER_SIZE) + 1);
-		if (new_buf == NULL)
-		{
-			ft_free(&buf);
-			return (NULL);
-		}
-		new_buf_len = read(fd, new_buf, sizeof(char) * BUFFER_SIZE);
-		if (new_buf_len < 0)
-		{
-			ft_free(&buf);
-			ft_free(&new_buf);
-			return (NULL);
-		}
-		if (new_buf_len == 0)
-		{
-			ft_free(&new_buf);
+		res = ft_add_from_buf(fd, &buf);
+		if (res == 1)
 			return (ft_return_last_line(&buf));
-		}
-		else
-		{
-			new_buf[new_buf_len] = '\0';
-			new_new_buf = (char *)malloc(sizeof(char) * (new_buf_len
-						+ old_buf_len + 1));
-			if (new_new_buf == NULL)
-			{
-				ft_free(&buf);
-				ft_free(&new_buf);
-				return (NULL);
-			}
-			new_new_buf[0] = '\0';
-			if (ft_strlcpy(new_new_buf, buf, old_buf_len) == NULL)
-			{
-				ft_free(&buf);
-				ft_free(&new_buf);
-				return (NULL);
-			}
-			if (ft_strcat(new_new_buf, new_buf, new_buf_len) == NULL)
-			{
-				ft_free(&buf);
-				ft_free(&new_buf);
-				return (NULL);
-			}
-			if (ft_is_new_line_in_buf(new_buf) == 1)
-				f = 1;
-			ft_free(&buf);
-			ft_free(&new_buf);
-			buf = new_new_buf;
-		}
+		if (res < 0)
+			return (NULL);
 	}
 	return (ft_get_line(&buf));
 }
 
 // #include <fcntl.h>
 
-// // cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line
+// // cc -Wall -Wextra -Werror -D BUFFER_SIZE=1
 // int	main(void)
 // {
 // 	char	*c;

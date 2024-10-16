@@ -1,22 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 12:46:59 by dzasenko          #+#    #+#             */
+/*   Updated: 2024/10/15 12:59:39 by dzasenko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int ft_strlen(char *str)
+char	*ft_strcat(char *s1, const char *s2, int n)
 {
-	int i;
+	int	i;
+	int	l;
 
 	i = 0;
-	if (!str)
-		return (i);
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char *ft_strcat(char *s1, const char *s2, int n)
-{
-	int i = 0;
-	int l = 0;
-
+	l = 0;
 	if (!s1 || !s2 || n < 0)
 		return (NULL);
 	while (s1[i])
@@ -33,10 +35,10 @@ char *ft_strcat(char *s1, const char *s2, int n)
 
 char	*ft_strlcpy(char *dest, char *src, int n)
 {
-	int i;
+	int	i;
 
 	if (!src || n < 0)
-		return NULL;
+		return (NULL);
 	i = 0;
 	while (src[i] && n-- > 0)
 	{
@@ -44,31 +46,61 @@ char	*ft_strlcpy(char *dest, char *src, int n)
 		i++;
 	}
 	dest[i] = '\0';
-	return(dest);
+	return (dest);
 }
 
-int	ft_len_till_new_line(char *str)
+char	*ft_srtdub(char *str)
+{
+	char	*dub;
+	int		len;
+	int		i;
+
+	if (!str)
+		return (NULL);
+	len = nl_l(str, 0);
+	dub = (char *)malloc(sizeof(char) * (len + 1));
+	if (dub == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		dub[i] = str[i];
+		i++;
+	}
+	dub[i] = '\0';
+	return (dub);
+}
+
+int	nl_l(char *str, int till_nl)
 {
 	int	count;
 	int	i;
 
-	if (!str)
-		return (-1);
-	count = 0;
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	if (!str)
+		return (i);
+	count = 0;
+	if (till_nl == 1)
 	{
-		count++;
-		i++;
+		while (str[i] && str[i] != '\n')
+		{
+			count++;
+			i++;
+		}
+		if (str[i] == '\n')
+			count++;
 	}
-	if (str[i] == '\n')
-		count++;
+	else
+	{
+		while (str[i++])
+			count++;
+	}
 	return (count);
 }
 
 int	ft_is_new_line_in_buf(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 		return (-1);
