@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c ft_split.c stack_creater.c
 OBJ = $(SRC:.c=.o)
