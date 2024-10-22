@@ -1,510 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/18 10:07:38 by dzasenko          #+#    #+#             */
+/*   Updated: 2024/10/22 13:39:30 by dzasenko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-// void free_char_arr(char **arr)
-// {
-// 	int i = 0;
-// 	if (*arr)
-// 	{
-// 		while (arr[i])
-// 		{
-// 			free(arr[i]);
-// 			arr[i] = NULL;
-// 			i++;
-// 		}
-// 		*arr = NULL;
-// 	}
-// }
-
-// int *ft_arg_2_int(char *arg)
-// {
-// 	int *num;
-// 	int i;
-// 	int len;
-
-// 	if (!arg)
-// 		return (NULL);
-// 	len = ft_strlen(arg);
-// 	if (len < 1)
-// 		return (NULL);
-// 	i = 0;
-// 	while (arg[i])
-// 	{
-// 		if (ft_isdigit(arg[i]) == 1 || (i == 0 && (arg[i] == '-' || arg[i] == '+') && len > 1))
-// 			i++;
-// 		else
-// 			return (NULL);
-// 	}
-// 	num = (int *)malloc(sizeof(int));
-// 	if (!num)
-// 		return (NULL);
-// 	*num = ft_atoi(arg);
-// 	return (num);
-// }
-
-// // {
-// //  char **arr;
-// //  arr = ft_split(arg, ' ');
-// //  if (!arr)
-// //  {
-// //      //!!!!!!!!!!!!!!!!!!!!!!! free
-// //      printf("Error\n");
-// //      return (-1);
-// //  }
-// //  return (0);
-// // }
-// void del_func(void *content)
-// {
-// 	free(content);
-// }
-
-// int **str_to_nums_arr(char *str)
-// {
-// 	char **arr;
-
-// 	char **arr = ft_split(str, ' ');
-// 	if (!arr)
-// 	{
-// 	}
-// }
-
-// int fill_stack_from_str(char *str, t_list **stack1)
-// {
-// 	char **arr = ft_split(str, ' ');
-// 	free(str);
-// 	if (!arr)
-// 		return (return_error());
-
-// 	for (int t = 0; arr[t]; t++)
-// 	{
-// 		int *num = ft_arg_2_int(arr[t]);
-// 		free(arr[t]);
-// 		if (!num)
-// 		{
-// 			ft_lstclear(stack1, del_func);
-// 			free(arr);
-// 			return (return_error());
-// 		}
-// 		t_list *new = ft_lstnew(num);
-// 		if (!new)
-// 		{
-// 			ft_lstclear(stack1, del_func);
-// 			free(arr);
-// 			return (return_error());
-// 		}
-// 		ft_lstadd_front(stack1, new);
-// 	}
-// 	free(arr);
-// 	return (0);
-// }
-// // int  create_stacks(int argv, char **argc, t_list **stack1)
-// // {
-// //  int i;
-// //  char *str;
-
-// //  i = 1;
-// //  if (argv < 2)
-// //      return (return_error());
-// //  else
-// //  {
-// //      str = (char *)malloc(sizeof(char));
-// //      if (!str)
-// //          return (return_error());
-// //      str[0] = '\0';
-// //      while (argc[i])
-// //      {
-// //          char *new_str = ft_strjoin_sep(str, argc[i], ' ');
-// //          if (str)
-// //          {
-// //              free(str);
-// //              str = NULL;
-// //          }
-// //          if (!new_str)
-// //              return (return_error());
-// //          str = new_str;
-// //          i++;
-// //      }
-// //      char **arr = ft_split(str, ' ');
-// //      if (str)
-// //      {
-// //          free(str);
-// //          str = NULL;
-// //      }
-// //      //----------
-// //      if (!arr)
-// //          return (return_error());
-
-// //      int t = 0;
-// //      while (arr[t])
-// //      {
-// //          int *num = ft_arg_2_int(arr[t]);
-// //          free(arr[t]);
-// //          arr[t] = NULL;
-// //          if (!num)
-// //          {
-// //              printf("ERROR 11111");
-// //              ft_lstclear(stack1, del_func);
-// //              if (arr)
-// //              {
-// //                  int s = 0;
-// //                  while (arr[s])
-// //                  {
-// //                      free(arr[s]);
-// //                      arr[s] = NULL;
-// //                      s++;
-// //                  }
-// //                  free(arr);
-// //                  arr = NULL;
-// //              }
-// //              return (-1);
-// //          }
-// //          t_list *new = ft_lstnew(num);
-// //          if (!new)
-// //          {
-// //              printf("ERROR 2222222");
-// //              if (arr)
-// //              {
-// //                  int s = 0;
-// //                  while (arr[s])
-// //                  {
-// //                      free(arr[s]);
-// //                      arr[s] = NULL;
-// //                      s++;
-// //                  }
-// //                  free(arr);
-// //                  arr = NULL;
-// //              }
-// //              return (-1);
-// //              ft_lstclear(stack1, del_func);
-// //              return (-1);
-// //          }
-// //          ft_lstadd_front(stack1, new);
-// //          t++;
-// //      }
-// //      if (arr)
-// //      {
-// //          int s = 0;
-// //          while (arr[s])
-// //          {
-// //              free(arr[s]);  // Освобождаем каждый элемент
-// //              arr[s] = NULL;
-// //              s++;
-// //          }
-// //          free(arr);  // Освобождаем сам массив
-// //          arr = NULL;
-// //      }
-
-// //      t_list *temp;
-// //      while (*stack1 != NULL)
-// //      {
-// //          temp = (*stack1)->next;
-// //          printf("test %d\n", *(int *)(*stack1)->content);
-// //          free((*stack1)->content);
-// //          (*stack1)->content = NULL;
-// //          (*stack1)->next = NULL;
-// //          free(*stack1);
-// //          *stack1 = temp;
-// //      }
-// //      if (*stack1)
-// //      {
-// //          printf("4 free arr\n");
-// //          free(*stack1);
-// //          *stack1 = NULL;
-// //      }
-// //      stack1 = NULL;
-// //  }
-// //  // //TODO!!!! Check the numbers in stack > 1!
-// //     // //TODO!!!! Check the numbers in stack is not the same!
-// //  return (0);
-// // }
-
-// void free_stack(t_list **stack1)
-// {
-// 	t_list *temp;
-// 	while (*stack1 != NULL)
-// 	{
-// 		temp = (*stack1)->next;
-// 		free((*stack1)->content);
-// 		free(*stack1);
-// 		*stack1 = temp;
-// 	}
-// }
-
-//-------------------------
-//-------------------------
-//-------------------------
-
-void free_int_arr(int **arr)
+//Swap the first 2 elements at the top of stack a.
+//Do nothing if there is only one or no elements.
+int swap(t_stack *stack)
 {
-	int i = 0;
-
-	if (arr != NULL)
-	{
-		while (arr[i])
-		{
-			free(arr[i]);
-			arr[i] = NULL;
-			i++;
-		}
-		free(arr);
-	}
-}
-
-void free_str_arr(char **arr)
-{
-	int i = 0;
-
-	if (arr != NULL)
-	{
-		while (arr[i])
-		{
-			free(arr[i]);
-			arr[i] = NULL;
-			i++;
-		}
-		free(arr);
-	}
-}
-
-void free_stack(t_stack **stack)
-{
-	t_stack *temp;
-
-	if (stack != NULL)
-	{
-		while (*stack != NULL)
-		{
-			temp = (*stack)->next;
-			if ((*stack)->num != NULL)
-			{
-				free((*stack)->num);
-				(*stack)->num = NULL;
-			}
-			(*stack)->next = NULL;
-			free(*stack);
-			*stack = temp;
-		}
-		*stack = NULL;
-	}
-}
-
-int *ft_atoi(const char *nptr)
-{
-	int i;
-	long sing;
-	long result;
-	int *num;
-
-	i = 0;
-	sing = +1;
-	result = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i++] == '-')
-			sing *= -1;
-	}
-	while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
-		result = result * 10 + (nptr[i++] - '0');
-	result = result * sing;
-	if (result < -2147483648 || result > 2147483647)
-		return (NULL);
-	num = (int *)malloc(sizeof(int));
-	if (!num)
-		return (NULL);
-	*num = result;
-	return (num);
-}
-
-int **arr_str_to_arr_int(char **arr_str)
-{
-	int **arr_i;
-	int i;
-	int count;
-
-	i = 0;
-	count = 0;
-	while (arr_str[i++])
-		count++;
-	arr_i = (int **)malloc(sizeof(int *) * (count + 1));
-	if (!arr_i)
-		return (NULL);
-	i = 0;
-	while (arr_str[i])
-	{
-		int *n = ft_atoi(arr_str[i]);
-		if (!n)
-		{
-			printf("Error 333\n");
-			return (free_int_arr(arr_i), NULL);
-		}
-		//*n = i;
-		arr_i[i] = n; // num //arr_str[i]
-		// to num (check min max)
-		i++;
-	}
-	arr_i[count] = NULL;
-	return (arr_i);
-}
-
-void stack_add_front(t_stack **stack, t_stack *new)
-{
-	if (new)
-	{
-		new->next = stack[0];
-		stack[0] = new;
-	}
-}
-
-t_stack *new_stack(int i)
-{
-	t_stack *stack;
-	int *num;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	num = (int *)malloc(sizeof(int));
-	if (!num)
-		return (free(stack), NULL);
-	*num = i;
-	stack->num = num;
-	stack->next = NULL;
-	//printf("NEW STASK: num: %d,next: %p\n", *(int *)(stack)->num , stack->next);
-	return (stack);
-}
-
-t_stack *arr_int_to_stack(int **arr)
-{
-	t_stack *stack;
-	t_stack *new;
-	int i;
-
-	stack = NULL;
-	i = 0;
-	while (arr[i])
-	{
-		//printf("arr st: %d\n", *(arr[i]));
-		new = new_stack(*(arr[i]));
-		if (!new)
-		{
-			//printf("NEW STASK ERROR\n");
-			return (free_stack(&stack), NULL);
-		}
-		stack_add_front(&stack, new);
-		i++;
-	}
-	return (stack);
-}
-
-int chech_int_arr(int **arr)
-{
-	int c;
-	int i;
-	int j;
-
-	c = 0;
-	while (arr[c])
-		c++;
+	int temp;
+	int temp2;
+	int c = stack_count(stack);
 	if (c < 2)
 		return (0);
-	i = 0;
-	while (i < c - 1 && arr[i])
-	{
-		j = i + 1;
-		while (arr[j])
-		{
-			if (*(arr[i]) == *(arr[j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	// error - return (0);
+	
+	temp = *(int *)(stack)->num;
+
+	temp2 = *(int *)(stack)->next->num;
+	*(int *)(stack)->num = temp2;
+	*(int *)(stack)->next->num = temp;
 	return (1);
 }
 
-t_stack *create_stacks(int argc, char **argv)
-{
-	char *str;
-	char **arr_str;
-	int **arr_i;
-	t_stack *stack;
-
-	if (argc < 2)
-		return (NULL);
-	str = args_to_str(argv);
-	if (!str)
-		return (NULL);
-
-	//printf("str: %s\n", str);
-
-	arr_str = ft_split(str, ' ');
-	free_str(&str);
-	if (!arr_str)
-		return (NULL);
-
-	int tr = 0;
-	while (arr_str[tr])
-	{
-		printf("%d arr_str: %s\n", tr, arr_str[tr]);
-		tr++;
-	}
-
-	arr_i = arr_str_to_arr_int(arr_str);
-	free_str_arr(arr_str);
-	if (!arr_i)
-		return (NULL);
-
-	int ta = 0;
-	while (arr_i[ta])
-	{
-		printf("%d arr_i: %d\n", ta, *(arr_i[ta]));
-		ta++;
-	}
-	printf("))))))))))))))))))\n");
-	if (chech_int_arr(arr_i) == 0)
-	{
-		printf("dddddddddddddddddd)\n");
-		return (free_int_arr(arr_i), NULL);
-	}
-
-	printf("ssssssssssssssss)\n");
-	stack = arr_int_to_stack(arr_i);
-	free_int_arr(arr_i);
-	
-	return (stack);
-}
 int main(int argc, char **argv)
 {
 	t_stack *stack1;
-//	t_stack *stack2;
-
-	// stack2 = (t_stack *)malloc(sizeof(t_stack));
-	// if (!stack2)
-	// 	return (return_error());
 	stack1 = create_stacks(argc, argv);
 	if (!stack1)
 		return (return_error());
-		//return (free(stack2), return_error());
 
-	printf("+++++++++++\n");
 	int ss = 0;
-	while (stack1 != NULL)
+	t_stack *temp = stack1;
+	while (temp != NULL)
 	{
-		// t_stack *temp = stack1->next;
-
-		printf("%d stack: %d\n", ss, *(int *)stack1->num);
-
-		stack1 = stack1->next;
+		printf("%d stack: %d\n", ss, *(int *)temp->num);
+		temp = temp->next;
 		ss++;
 	}
-	printf("ss: %d---\n", ss);
-	//stack1 = temp;
-	printf("---\n");
+	printf("---%d---\n", ss);
 
+
+	// if(swap(stack1) == 0)
+	// {
+	// 		free_stack(&stack1);
+	// 		return (-1);
+	// }
+
+	// ss = 0;
+	// temp = stack1;
+	// while (temp != NULL)
+	// {
+	// 	printf("%d stack: %d\n", ss, *(int *)temp->num);
+	// 	temp = temp->next;
+	// 	ss++;
+	// }
+	// printf("---%d---\n", ss);
 	free_stack(&stack1);
-//	free(stack2);
 	return (0);
 }
 
@@ -514,73 +73,58 @@ int return_error(void)
 	return (-1);
 }
 
-size_t ft_strlen(const char *s)
-{
-	size_t i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+// void sa(t_stack **stack1)
+// {
+	
+// }
 
-char *ft_strjoin_sep(char const *s1, char const *s2, char const sep)
-{
-	size_t l;
-	char *s_new;
-	size_t i;
-	size_t f;
+// void sb(void)
+// {
+	
+// }
 
-	if (!s1 || !s2)
-		return (NULL);
-	l = ft_strlen(s1) + ft_strlen(s2);
-	s_new = (char *)malloc((l + 2) * sizeof(char));
-	if (s_new == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		s_new[i] = s1[i];
-		i++;
-	}
-	s_new[i++] = sep;
-	f = 0;
-	while (s2[f])
-	{
-		s_new[i++] = s2[f++];
-	}
-	s_new[i] = '\0';
-	return (s_new);
-}
+// void ss(void)
+// {
+	
+// }
 
-void free_str(char **str)
-{
-	if (*str != NULL)
-	{
-		free(*str);
-		*str = NULL;
-	}
-}
+// void pa(void)
+// {
+	
+// }
 
-char *args_to_str(char **argv)
-{
-	char *str;
-	char *new_str;
-	int i;
+// void pb(void)
+// {
+	
+// }
 
-	str = (char *)malloc(sizeof(char));
-	if (!str || !argv || !*argv)
-		return (NULL);
-	str[0] = '\0';
-	i = 1;
-	while (argv[i])
-	{
-		new_str = ft_strjoin_sep(str, argv[i++], ' ');
-		free_str(&str);
-		str = NULL;
-		if (!new_str)
-			return (NULL);
-		str = new_str;
-	}
-	return (str);
-}
+// void ra(void)
+// {
+	
+// }
+
+// void rb(void)
+// {
+	
+// }
+
+// void rr(void)
+// {
+	
+// }
+
+// void rra(void)
+// {
+	
+// }
+
+// void rrb(void)
+// {
+	
+// }
+
+// void rrr(void)
+// {
+	
+// }
