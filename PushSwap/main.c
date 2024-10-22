@@ -287,6 +287,35 @@ void free_stack(t_stack **stack)
 	}
 }
 
+int *ft_atoi(const char *nptr)
+{
+	int i;
+	long sing;
+	long result;
+	int *num;
+
+	i = 0;
+	sing = +1;
+	result = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i++] == '-')
+			sing *= -1;
+	}
+	while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
+		result = result * 10 + (nptr[i++] - '0');
+	result = result * sing;
+	if (result < -2147483648 || result > 2147483647)
+		return (NULL);
+	num = (int *)malloc(sizeof(int));
+	if (!num)
+		return (NULL);
+	*num = result;
+	return (num);
+}
+
 int **arr_str_to_arr_int(char **arr_str)
 {
 	int **arr_i;
@@ -303,10 +332,13 @@ int **arr_str_to_arr_int(char **arr_str)
 	i = 0;
 	while (arr_str[i])
 	{
-		int *n = (int *)malloc(sizeof(int));
+		int *n = ft_atoi(arr_str[i]);
 		if (!n)
+		{
+			printf("Error 333\n");
 			return (free_int_arr(arr_i), NULL);
-		*n = i;
+		}
+		//*n = i;
 		arr_i[i] = n; // num //arr_str[i]
 		// to num (check min max)
 		i++;
@@ -367,12 +399,25 @@ t_stack *arr_int_to_stack(int **arr)
 
 int chech_int_arr(int **arr)
 {
-	int i = 0;
+	int c;
+	int i;
+	int j;
 
-	while (arr[i])
+	c = 0;
+	while (arr[c])
+		c++;
+	if (c < 2)
+		return (0);
+	i = 0;
+	while (i < c - 1 && arr[i])
 	{
-		if (*(arr[i]) < 0)
-			return (0);
+		j = i + 1;
+		while (arr[j])
+		{
+			if (*(arr[i]) == *(arr[j]))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	// error - return (0);
@@ -399,29 +444,35 @@ t_stack *create_stacks(int argc, char **argv)
 	if (!arr_str)
 		return (NULL);
 
-	// int tr = 0;
-	// while (arr_str[tr])
-	// {
-	// 	printf("%d arr_str: %s\n", tr, arr_str[tr]);
-	// 	tr++;
-	// }
+	int tr = 0;
+	while (arr_str[tr])
+	{
+		printf("%d arr_str: %s\n", tr, arr_str[tr]);
+		tr++;
+	}
 
 	arr_i = arr_str_to_arr_int(arr_str);
 	free_str_arr(arr_str);
 	if (!arr_i)
 		return (NULL);
 
-	// int ta = 0;
-	// while (arr_i[ta])
-	// {
-	// 	printf("%d arr_i: %d\n", ta, *(arr_i[ta]));
-	// 	ta++;
-	// }
-
+	int ta = 0;
+	while (arr_i[ta])
+	{
+		printf("%d arr_i: %d\n", ta, *(arr_i[ta]));
+		ta++;
+	}
+	printf("))))))))))))))))))\n");
 	if (chech_int_arr(arr_i) == 0)
+	{
+		printf("dddddddddddddddddd)\n");
 		return (free_int_arr(arr_i), NULL);
+	}
+
+	printf("ssssssssssssssss)\n");
 	stack = arr_int_to_stack(arr_i);
 	free_int_arr(arr_i);
+	
 	return (stack);
 }
 int main(int argc, char **argv)
@@ -521,7 +572,7 @@ char *args_to_str(char **argv)
 	if (!str || !argv || !*argv)
 		return (NULL);
 	str[0] = '\0';
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		new_str = ft_strjoin_sep(str, argv[i++], ' ');
