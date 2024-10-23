@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:08:09 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/22 14:08:51 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:18:38 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,43 +79,42 @@ char *args_to_str(char **argv)
 			return (NULL);
 		str = new_str;
 	}
-    printf("Resulting string: %s\n", str);
 	return (str);
 }
 
 void free_int_arr(int **arr)
 {
     int i = 0;
-    
-    printf("START free\n");
-    
+        
     if (arr)
     {
-        printf("-if (arr)-\n");
         while (arr[i])
         {
-
-            printf("free %d\n", *(arr[i]));
-            free(arr[i]);
-            arr[i] = NULL;
-            i++;
+			if (arr[i])
+			{
+				free(arr[i]);
+				arr[i] = NULL;
+			}
+			i++;
         }
         free(arr);
         arr = NULL;
     }
-    printf("FINISH free\n");
 }
 
 void free_str_arr(char **arr)
 {
 	int i = 0;
 
-	if (arr != NULL)
+	if (arr)
 	{
 		while (arr[i])
 		{
-			free(arr[i]);
-			arr[i] = NULL;
+			if (arr[i])
+			{
+				free(arr[i]);
+				arr[i] = NULL;	
+			}
 			i++;
 		}
 		free(arr);
@@ -154,6 +153,8 @@ int *ft_atoi(const char *nptr)
     i = 0;
     sing = +1;
     result = 0;
+	if (!nptr)
+		return (NULL);
     while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
         i++;
     if (nptr[i] == '-' || nptr[i] == '+')
@@ -164,15 +165,10 @@ int *ft_atoi(const char *nptr)
     while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
         result = result * 10 + (nptr[i++] - '0');
     result *= sing;
-
-    if (result < -2147483648 || result > 2147483647)
-        return (NULL);
-    
     num = (int *)malloc(sizeof(int));
-    if (num == NULL)
+    if (num == NULL || (result < -2147483648 || result > 2147483647))
         return (NULL);
     *num = (int)result;
-    printf("atoi final num: %d\n",*num);
     return (num);
 }
 
@@ -182,12 +178,8 @@ int **arr_str_to_arr_int(char **arr_str)
 	int i;
 	int count;
 
-    int f = 0;
-    while (arr_str[f])
-    {
-        printf("-arr_str_to_arr_int----: %s\n", arr_str[f]);
-        f++;
-    }
+	if (!arr_str)
+		return (NULL);
 	i = 0;
 	count = 0;
 	while (arr_str[i++])
@@ -195,19 +187,16 @@ int **arr_str_to_arr_int(char **arr_str)
 	arr_i = (int **)malloc(sizeof(int *) * (count + 1));
 	if (!arr_i)
 		return (NULL);
-    arr_i[count] = NULL;
+	i = 0;
+	while ( i <= count)
+		arr_i[i++] = NULL;
 	i = 0;
 	while (arr_str[i] != NULL)
 	{
-        printf("%d arr_str_to_arr_int----: %s\n",i, arr_str[i]);
 		int *n = ft_atoi(arr_str[i]);
 		if (!n)
-        {
-            printf("---if (!n)\n");
-            return (free_int_arr(arr_i), NULL);   
-        }
-		arr_i[i] = n;
-		i++;
+			return (free_int_arr(arr_i), NULL);   
+		arr_i[i++] = n;
 	}
 	return (arr_i);
 }
