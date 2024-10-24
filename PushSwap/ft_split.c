@@ -91,6 +91,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		w_count;
+	int i;
 
 	if (!s)
 		return (NULL);
@@ -98,6 +99,9 @@ char	**ft_split(char const *s, char c)
 	arr = (char **)malloc((w_count + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
+	i = 0;
+	while (i <= w_count)
+		arr[i++] = NULL;
 	if (ft_malloc_words(s, w_count, c, arr) == 0)
 		return (NULL);
 	return (arr);

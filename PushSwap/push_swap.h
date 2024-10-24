@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:07:57 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/22 12:25:07 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:20:37 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_stack
 {
-    void *num;
+    int *num;
     struct s_stack *next;
 } t_stack;
 
@@ -33,7 +33,7 @@ void free_int_arr(int **arr);
 void free_str_arr(char **arr);
 int *ft_atoi(const char *nptr);
 int **arr_str_to_arr_int(char **arr_str);
-int stack_count(t_stack *stack);
+int stack_count(t_stack **stack);
 t_stack	*stack_last(t_stack *stack);
 void stack_add_back(t_stack **stack, t_stack *new);
 void stack_add_front(t_stack **stack, t_stack *new);

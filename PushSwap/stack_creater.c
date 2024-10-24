@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:08:09 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/23 11:18:38 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:20:18 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,7 +210,7 @@ void stack_add_front(t_stack **stack, t_stack *new)
 	}
 }
 
-int stack_count(t_stack *stack)
+int stack_count(t_stack **stack)
 {
     t_stack *temp;
     int count;
@@ -218,7 +218,7 @@ int stack_count(t_stack *stack)
     count = 0;
 	if (!stack)
 		return (count);
-    temp = stack;
+    temp = stack[0];
 	while (temp != NULL)
     {
         temp = temp->next;
