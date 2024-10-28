@@ -1,39 +1,41 @@
-
-#include <stdlib.h>
-#include <stdio.h>
-
 typedef struct  s_point
 {
     int           x;
     int           y;
-}               t_point;
+}               t_point;    
 
-void fill(char **tab, t_point size, char color, int row, int col)
+void  fill(char **tab, t_point size, char color, int row, int col)
 {
-    // Check if current row and column values are out of bounds
-    if (row < 0 || col < 0 || row >= size.y || col >= size.x)
-        return;
-    
-    if (tab[row][col] == 'F' || tab[row][col] != color)
-        return;
+  if (row < 0 || row >= size.y || col < 0 || row >= size.x)
+    return;
 
+  if (tab[row][col] == color)
+  {
     tab[row][col] = 'F';
-
-    fill(tab, size, color, row -1, col); 
-    fill(tab, size, color, row +1, col); 
-    fill(tab, size, color, row, col - 1);
+    fill(tab, size, color, row + 1, col);
+    fill(tab, size, color, row - 1, col);
     fill(tab, size, color, row, col + 1);
+    fill(tab, size, color, row, col - 1);
+  }
 }
 
-// Function to initiate flood fill from a specified point
-void flood_fill(char **tab, t_point size, t_point begin)
+void  flood_fill(char **tab, t_point size, t_point begin)
 {
-    char color = tab[begin.y][begin.x]; // Get the character to fill around
-    fill(tab, size, color, begin.y, begin.x); // Start the flood fill from the specified point
+  if (!tab || !*tab)
+    return;
+
+  int row = begin.y;
+  int col = begin.x;
+  char color = tab[row][col];
+
+  fill(tab, size, color, row, col);
 }
 
 
-// char** make_area(char** zone, t_point size)4
+// #include <stdlib.h>
+// #include <stdio.h>
+
+// char** make_area(char** zone, t_point size)
 // {
 //   char** new;
 
