@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+extern int counter;
+
 t_stack	*stack_last_n(t_stack *stack, int count)
 {
 	t_stack	*temp;
@@ -34,19 +36,22 @@ static void	reverse_rotate(t_stack **stack)
 
 void	rra(t_stack **stack_a)
 {
-	printf("rra\n");
+	printf("rra | ");
 	reverse_rotate(stack_a);
+	counter++;
 }
 
 void	rrb(t_stack **stack_b)
 {
-	printf("rrb\n");
+	printf("rrb | ");
 	reverse_rotate(stack_b);
+	counter++;
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	printf("rrr\n");
+	printf("rrr | ");
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
+	counter++;
 }

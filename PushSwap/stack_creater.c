@@ -230,10 +230,10 @@ int stack_count(t_stack **stack)
 t_stack	*stack_last(t_stack *stack)
 {
     t_stack *temp;
-    
-    temp = stack;
-	if (!temp)
+
+	if (!stack)
 		return (NULL);
+	temp = stack;
 	while (temp->next != NULL)
 		temp = temp->next;
 	return (temp);
