@@ -27,7 +27,7 @@ void	sa(t_stack *stack_a)
 
 void	sb(t_stack *stack_b)
 {
-	printf("sa | ");
+	printf("sb | ");
 	swap(stack_b);
 	counter++;
 }

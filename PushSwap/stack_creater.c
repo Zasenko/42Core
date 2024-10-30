@@ -216,9 +216,9 @@ int stack_count(t_stack **stack)
     int count;
 
     count = 0;
-	if (!stack)
+	if (!stack || !*stack)
 		return (count);
-    temp = stack[0];
+    temp = *stack;
 	while (temp != NULL)
     {
         temp = temp->next;

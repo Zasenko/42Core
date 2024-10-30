@@ -68,6 +68,115 @@ int position_min(t_stack *stack, int num, int len)
 	return (len);
 }
 
+//	 1	2	2	3	3
+//	 3	3	1	1	2
+//	 2	1	3	2	1
+
+void sort_3(t_stack **stack, char c)
+{
+	int n1;
+	int n2;
+	int n3;
+
+	if (!stack || !*stack || stack_count(stack) != 3)
+		return;	
+	n1 = *((*stack)->num);
+	n2 = *((*stack)->next->num);
+	n3 = *((*stack)->next->next->num);
+
+	if (n1 < n2 && n2 > n3 && n1 < n3)
+	{
+		//	1
+		//	3
+		//	2
+		printf("------ sort 0.1 ------\n");
+		if (c == 'a')
+		{
+			rra(stack);
+			sa(*stack);
+		}
+		else
+		{
+			rb(stack);
+		}
+	}
+	else if (n1 < n2 && n2 > n3 && n1 > n3)
+	{
+		//	2
+		//	3
+		//	1
+		printf("------ sort 0.2 ------\n");
+		if (c == 'a')
+		{
+			rra(stack);
+		}
+		else
+		{
+			sb(*stack);
+		}
+	}
+	else if (n1 > n2 && n2 < n3 && n1 < n3)
+	{
+		//	2
+		//	1
+		//	3
+		printf("------ sort 0.3 ------\n");
+		if (c == 'a')
+		{
+			sa(*stack);
+		}
+		else
+		{
+			rrb(stack);
+		}
+	}
+	else if (n1 > n2 && n2 < n3 && n1 > n3)
+	{
+		//	3
+		//	1
+		//	2
+		printf("------ sort 0.4 ------\n");
+		if (c == 'a')
+		{
+			ra(stack);
+		}
+		else
+		{
+			sb(*stack);
+			rb(stack);
+		}
+	}
+	else if (n1 > n2 && n2 > n3 && n1 > n3)
+	{
+		//	3
+		//	2
+		//	1
+		printf("------ sort 0.5 ------\n");
+		if (c == 'a')
+		{
+			ra(stack);
+			sa(*stack);
+		}
+		else
+			return;
+	}
+	else
+	{
+		//	1
+		//	2
+		//	3
+		printf("------ sort 0.0 ------\n");
+
+		if (c == 'a')
+			return;
+		else
+		{
+			rb(stack);
+			rb(stack);
+		}
+	}
+}
+
 void sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int a_counter;
@@ -89,22 +198,13 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 	{
 		max = *((*stack_b)->next->num);
 		min = *((*stack_b)->num);
-		if (*((*stack_a)->num) < *((*stack_a)->next->num))
-		{
-			ss(*stack_a, *stack_b);
-		}
-		else
-			sb(*stack_b);
 	}
 	else
 	{
 		max = *((*stack_b)->num);
 		min = *((*stack_b)->next->num);
-		// if (*((*stack_a)->num)  *((*stack_a)->next->num))
-		// {
-		//  ss(*stack_a, *stack_b);
-		// }
 	}
+
 
 	while (a_counter > 3)
 	{
@@ -119,7 +219,7 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 		{
 			// printf("------20.1------\n");
 			min = *((*stack_b)->num);
-			rb(stack_b);
+			// rb(stack_b);
 			// if (*((*stack_a)->num) < *((*stack_a)->next->num))
 			// {
 			//  ss(*stack_a, *stack_b);
@@ -133,7 +233,10 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 			max = *((*stack_b)->num);
 		}
 
-		printf("-stack_b-\n");
+		if (b_counter == 3)
+			sort_3(stack_b, 'b');
+
+		printf("\n-stack_b-\n");
 		print_stack(*stack_b);
 
 		printf("max = %d, min = %d\n", max, min);
@@ -306,11 +409,10 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 					}
 				}
 			}
-		printf("--- stack_a after ---\n");
+		printf("\n--- stack_a after ---\n");
 		print_stack(*stack_a);
 		printf("--- stack_b after ---\n");
 		print_stack(*stack_b);
-		printf("-------------- moves: %d --------------\n", counter);
 		}
 		else
 		{
@@ -357,14 +459,50 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 		}
 	}
 
+	printf("\n------ sort 3 a ------\n");
+	sort_3(stack_a, 'a');
+	printf("\n--- stack_a after ---\n");
+	print_stack(*stack_a);
 
+	int count_3 = 0;
+
+	printf("\n=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=//=/=/=/\n");
+	printf("------ sort 3.1 ------\n");
 	while (b_counter > 0)
 	{
-		// printf("------40.1------\n");
-
-		pa(stack_a, stack_b);
-		b_counter--;
+		t_stack *last = stack_last(*stack_a);
+		if (*(last->num) > *((*stack_b)->num) && count_3 < 3)
+		{
+			rra(stack_a);
+			count_3++;
+		}
+		else
+		{
+			pa(stack_a, stack_b);
+			b_counter--;
+		}
 	}
+	
+	printf("\n--- stack_a after ---\n");
+	print_stack(*stack_a);
+	printf("--- stack_b after ---\n");
+	print_stack(*stack_b);
+
+	printf("\n=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=//=/=/=/\n");
+	printf("------ sort 3.2 ------\n");
+	t_stack *last_a = stack_last(*stack_a);
+	while (*(last_a->num) < *((*stack_a)->num))
+	{
+		rra(stack_a);
+		last_a = stack_last(*stack_a);
+	}
+
+	
+	printf("\n--- stack_a after ---\n");
+	print_stack(*stack_a);
+	printf("--- stack_b after ---\n");
+	print_stack(*stack_b);
+	printf("\n=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=//=/=/=/\n");
 }
 // 5 4 9 6 11 7 8 1 2 14 3 13 12 15 10
 //  80 main copy
@@ -373,7 +511,14 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 // 64
 // 52
 
+// 4 19 13 15 17 2 3 6 8 14 7 1 18 12 9 20 10 5 16 11
+// 75
+
 // 10 14 17 3 5 11 6 2 20 13 16 15 7 4 8 12 19 9 1 18
+// 92
+
+// 7 19 2 8 20 5 15 10 18 17 13 16 11 3 4 14 12 6 9 1
+// 74
 
 // 19 68 98 49 85 52 40 63 97 11 24 9 42 65 70 15 84 86 56 80 38 73 10 78 14 45 26 67 66 3 57 96 59 76 22 41 17 79 91 30 54 82 99 88 92 95 16 71 48 2 93 27 8 20 4 5 13 55 47 1 90 75 23 25 28 89 61 72 12 21 29 60 32 100 46 83 33 50 87 64 58 51 6 43 74 81 39 53 31 18 69 37 36 62 7 44 77 35 34 94
 //
