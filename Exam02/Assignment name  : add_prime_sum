@@ -1,0 +1,95 @@
+Assignment name  : add_prime_sum
+Expected files   : add_prime_sum.c
+Allowed functions: write, exit
+--------------------------------------------------------------------------------
+
+Write a program that takes a positive integer as argument and displays the sum
+of all prime numbers inferior or equal to it followed by a newline.
+
+If the number of arguments is not 1, or the argument is not a positive number,
+just display 0 followed by a newline.
+
+Yes, the examples are right.
+
+Examples:
+
+$>./add_prime_sum 5
+10
+$>./add_prime_sum 7 | cat -e
+17$
+$>./add_prime_sum | cat -e
+0$
+$>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putstring(char *s)
+{
+	int i = 0;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+}
+
+int atoi(char *s)
+{
+	int num = 0;
+	int sign = 1;
+
+	int i = 0;
+
+	if (!s)
+		return 0;
+
+	while (s[i] && (s[i] == ' ' || s[i] == '\t')
+		i++;
+	if (s[i] && s[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	if (s[i] && s[i] == '+')
+		i++;
+	int g = 0;
+	while (s[i] && (s[i] >= '0' && s[i] <= '9')
+	{
+		num = (num * 10) + (s[i] - '0');
+		i++;
+	}
+	return (num * sign);
+}
+
+void ft_putnb(int num)
+{
+	if (num < 10)
+		ft_putchar(num + '0');
+	else {
+		ft_putnb(num / 10);
+		ft_putchar((num % 10) + '0');
+	}
+}
+
+int main(int argc, char **argv)
+{
+	if (argc != 2)
+		ft_putstring("0\n");
+	int num = atoi(argv[1]);
+	if (num < 2)
+		ft_putstring("0\n");
+	int count = 2;
+	int sum = 0;
+	while (count <= num)
+	{
+		if (num % count == 0)
+			sum = sum + count;
+		count++;
+	}
+	ft_putnb(sum);
+	ft_putchar('\n');
+	return;
+}
