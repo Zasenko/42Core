@@ -32,14 +32,16 @@ static void	push(t_stack **stack_1, t_stack **stack_2)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	printf("pa | ");
+	//printf("pa | ");
+	printf("pa\n");
 	push(stack_b, stack_a);
 	counter++;
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	printf("pb | ");
+	//printf("pb | ");
+	printf("pb\n");
 	push(stack_a, stack_b);
 	counter++;
 }
