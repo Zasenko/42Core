@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzasenko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 11:21:31 by dzasenko          #+#    #+#             */
+/*   Updated: 2024/11/06 11:21:34 by dzasenko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
+//TODO: Delete counter + printf
 extern int counter;
 
 t_stack	*stack_last_n(t_stack *stack, int count)
@@ -7,7 +20,7 @@ t_stack	*stack_last_n(t_stack *stack, int count)
 	t_stack	*temp;
 
 	temp = stack;
-	if (!temp)
+	if (!temp || count <= 0)
 		return (NULL);
 	while (temp->next != NULL && count--)
 		temp = temp->next;

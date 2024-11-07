@@ -130,11 +130,6 @@ void free_stack(t_stack **stack)
 		while (*stack != NULL)
 		{
 			temp = (*stack)->next;
-			if ((*stack)->num != NULL)
-			{
-				free((*stack)->num);
-				(*stack)->num = NULL;
-			}
 			(*stack)->next = NULL;
 			free(*stack);
 			*stack = temp;
@@ -256,19 +251,11 @@ void stack_add_back(t_stack **stack, t_stack *new)
 t_stack *new_stack(int i)
 {
 	t_stack *stack;
-	int *num;
-
-	num = (int *)malloc(sizeof(int));
-	if (!num)
-		return (NULL);
-	*num = i;
+	
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
-	{
-        free(num);
-        return (NULL);
-    }
-	stack->num = num;
+		return (NULL);
+	stack->num = i;
 	stack->next = NULL;
 	return (stack);
 }
@@ -292,7 +279,7 @@ t_stack *arr_int_to_stack(int **arr)
 	return (stack);
 }
 
-int chech_int_arr(int **arr)
+int check_int_arr(int **arr)
 {
 	int c;
 	int i;
@@ -338,7 +325,7 @@ t_stack *create_stacks(int argc, char **argv)
 	free_str_arr(arr_str);
 	if (!arr_i)
 		return (NULL);
-	if (chech_int_arr(arr_i) == 0)
+	if (check_int_arr(arr_i) == 0)
 		return (free_int_arr(arr_i), NULL);
 	stack = arr_int_to_stack(arr_i);
 	free_int_arr(arr_i);
