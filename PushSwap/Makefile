@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c ft_split.c stack_creater.c \
 swap.c push.c rotate.c reverse_rotate.c \
-sort.c
+sort2.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -584,7 +584,7 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
 	print_stack(*stack_a);
 	printf("--- stack_b after ---\n");
 	print_stack(*stack_b);
-	printf("\n=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=//=/=/=/\n");
+	printf("--- COUNTER: %d ---\n", counter);
 }
 
 /*
