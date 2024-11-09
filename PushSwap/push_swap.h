@@ -35,7 +35,7 @@ void				free_int_arr(int **arr);
 void				free_str_arr(char **arr);
 int					*ft_atoi(const char *nptr);
 int					**arr_str_to_arr_int(char **arr_str);
-int					stack_count(t_stack **stack);
+int					stack_count(t_stack *stack);
 t_stack				*stack_last(t_stack *stack);
 t_stack				*stack_last_n(t_stack *stack, int count);
 void				stack_add_back(t_stack **stack, t_stack *new);

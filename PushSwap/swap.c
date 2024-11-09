@@ -22,7 +22,7 @@ static void	swap(t_stack *stack)
 
 	if (!stack)
 		return ;
-	c = stack_count(&stack);
+	c = stack_count(stack);
 	if (c < 2)
 		return ;
 	temp = stack->num;

@@ -205,15 +205,15 @@ void stack_add_front(t_stack **stack, t_stack *new)
 	}
 }
 
-int stack_count(t_stack **stack)
+int stack_count(t_stack *stack)
 {
     t_stack *temp;
     int count;
 
     count = 0;
-	if (!stack || !*stack)
+	if (!stack)
 		return (count);
-    temp = *stack;
+    temp = stack;
 	while (temp != NULL)
     {
         temp = temp->next;

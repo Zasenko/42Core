@@ -23,7 +23,7 @@ static void	rotate(t_stack **stack)
 
 	if (!stack || !*stack)
 		return ;
-	count = stack_count(stack);
+	count = stack_count(*stack);
 	if (count < 2)
 		return ;
 	last = stack_last(*stack);

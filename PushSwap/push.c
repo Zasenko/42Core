@@ -22,7 +22,7 @@ static void	push(t_stack **stack_1, t_stack **stack_2)
 
 	if (!stack_1)
 		return ;
-	c = stack_count(stack_1);
+	c = stack_count(*stack_1);
 	if (c < 1)
 		return ;
 	temp1 = stack_1[0];
