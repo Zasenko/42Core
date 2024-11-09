@@ -1,36 +1,10 @@
---- stack_a ---
-0: 2
-1: 9
-2: 10
-3: 7
-4: 25
-5: 19
-6: 21
-7: 5
-8: 11
-9: 16
-10: 6
-11: 15
-12: 29
-13: 28
-14: 22
-15: 4
-16: 26
-17: 18
-18: 13
-19: 3
-20: 1
-21: 30
-22: 17
-23: 23
-24: 12
-25: 8
-26: 20
-27: 24
-28: 27
-29: 14
---- stack_b---
+make rerra
 pb
+rra
+rra
+rra
+rra
+rra
 rra
 rra
 rra
@@ -43,27 +17,6 @@ rra
 rra
 pb
 rra
-pb
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-pb
 rra
 pb
 rra
@@ -73,14 +26,9 @@ rra
 rra
 rra
 rra
-pb
-rra
-pb
 rra
 rra
 rra
-rra
-pb
 rra
 rra
 rra
@@ -90,12 +38,379 @@ rra
 rra
 rra
 pb
+sb
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+ra
+ra
 pb
 pb
+sb
 rra
 rra
 rra
 rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
 pb
 ra
 pb
@@ -104,1188 +419,1828 @@ ra
 ra
 ra
 ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+pb
+sb
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+pb
+rra
+pb
+sb
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+pb
+ss
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
 pb
 ra
 pb
 ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+sb
 pb
 ra
 ra
 ra
+ra
+ra
 pb
+sb
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+pb
+ss
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+pb
+sb
 ra
 ra
 pb
 ra
 ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
 pb
 pb
+sb
+pb
+ss
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+pb
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+pb
+sb
+pb
+sb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+pb
+sb
+ra
+ra
+pb
+sb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+sb
+pb
+sb
+ra
+ra
+pb
+ss
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ss
+ra
 ra
 pb
 ra
 pb
+sb
+rra
+rra
+rra
+rra
+rra
 pb
-
--- stack_a after range sort --
-0: 30
-1: 27
-2: 29
-
--- stack_b after range sort --
-0: 26
-1: 28
-2: 25
-3: 24
-4: 23
-5: 22
-6: 21
-7: 20
-8: 17
-9: 18
-10: 19
-11: 14
-12: 15
-13: 16
-14: 11
-15: 13
-16: 12
-17: 8
-18: 9
-19: 10
-20: 7
-21: 5
-22: 6
-23: 4
-24: 3
-25: 1
-26: 2
-
------ SORT BACK -----
+rra
+rra
+pb
+sb
+rra
+rra
+pb
+rra
+pb
+ss
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+rra
+rra
+pb
+rra
+pb
+ss
+rra
+rra
+rra
+rra
+pb
+ss
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+rra
+rra
+pb
+ss
+rra
+pb
+sb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+sb
+pb
 ra
-
--- stack_a after SORT 3 --
-0: 27
-1: 29
-2: 30
---- for NUM 26 ---
---- 1.1 ---
-max_a position: 2, counter / 2: 1
---- 1.1.2 ---
+pb
+sb
+ra
+ra
+ra
+pb
+pb
+sb
+pb
+ss
+pb
+ss
+pb
+sb
+ra
+ra
+ra
+ra
+pb
+sb
+ra
+ra
+pb
+sb
+pb
+ss
+pb
+ss
+ra
+ra
+pb
+ra
+pb
+ss
+pb
+ss
+ra
+ra
+ra
+pb
+ss
+pb
+ss
+pb
+ss
+pb
+sb
+ra
+ra
+pb
+sb
+pb
+sb
+pb
+pb
+pb
+pb
+pb
+pb
+ss
+pb
+sb
+pb
+ss
+pb
+ss
+pb
+ss
+pb
+ss
+pb
+pb
+pb
+pb
+ss
+pb
+ra
+ra
+pa
 rra
 pa
-
--- stack_a after range sort --
-0: 26
-1: 30
-2: 27
-3: 29
-
--- stack_b after range sort --
-0: 28
-1: 25
-2: 24
-3: 23
-4: 22
-5: 21
-6: 20
-7: 17
-8: 18
-9: 19
-10: 14
-11: 15
-12: 16
-13: 11
-14: 13
-15: 12
-16: 8
-17: 9
-18: 10
-19: 7
-20: 5
-21: 6
-22: 4
-23: 3
-24: 1
-25: 2
---- for NUM 28 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 28
-1: 26
-2: 30
-3: 27
-4: 29
-
--- stack_b after range sort --
-0: 25
-1: 24
-2: 23
-3: 22
-4: 21
-5: 20
-6: 17
-7: 18
-8: 19
-9: 14
-10: 15
-11: 16
-12: 11
-13: 13
-14: 12
-15: 8
-16: 9
-17: 10
-18: 7
-19: 5
-20: 6
-21: 4
-22: 3
-23: 1
-24: 2
---- for NUM 25 ---
---- 1.1 ---
-max_a position: 2, counter / 2: 2
---- 1.1.1 ---
 ra
 ra
 pa
-
--- stack_a after range sort --
-0: 25
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-
--- stack_b after range sort --
-0: 24
-1: 23
-2: 22
-3: 21
-4: 20
-5: 17
-6: 18
-7: 19
-8: 14
-9: 15
-10: 16
-11: 11
-12: 13
-13: 12
-14: 8
-15: 9
-16: 10
-17: 7
-18: 5
-19: 6
-20: 4
-21: 3
-22: 1
-23: 2
---- for NUM 24 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 3
---- 1.1.1 ---
+rra
+rra
+pa
+rra
+pa
+pa
+rra
+rra
+rra
+pa
+pa
+pa
 ra
 pa
-
--- stack_a after range sort --
-0: 24
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-
--- stack_b after range sort --
-0: 23
-1: 22
-2: 21
-3: 20
-4: 17
-5: 18
-6: 19
-7: 14
-8: 15
-9: 16
-10: 11
-11: 13
-12: 12
-13: 8
-14: 9
-15: 10
-16: 7
-17: 5
-18: 6
-19: 4
-20: 3
-21: 1
-22: 2
---- for NUM 23 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 3
---- 1.1.1 ---
+rra
+rra
+pa
+ra
 ra
 pa
-
--- stack_a after range sort --
-0: 23
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-
--- stack_b after range sort --
-0: 22
-1: 21
-2: 20
-3: 17
-4: 18
-5: 19
-6: 14
-7: 15
-8: 16
-9: 11
-10: 13
-11: 12
-12: 8
-13: 9
-14: 10
-15: 7
-16: 5
-17: 6
-18: 4
-19: 3
-20: 1
-21: 2
---- for NUM 22 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 4
---- 1.1.1 ---
+ra
+ra
+ra
+ra
+ra
+ra
 ra
 pa
-
--- stack_a after range sort --
-0: 22
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-
--- stack_b after range sort --
-0: 21
-1: 20
-2: 17
-3: 18
-4: 19
-5: 14
-6: 15
-7: 16
-8: 11
-9: 13
-10: 12
-11: 8
-12: 9
-13: 10
-14: 7
-15: 5
-16: 6
-17: 4
-18: 3
-19: 1
-20: 2
---- for NUM 21 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 4
---- 1.1.1 ---
+rra
+pa
+rra
+pa
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+pa
+pa
+pa
 ra
 pa
-
--- stack_a after range sort --
-0: 21
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-
--- stack_b after range sort --
-0: 20
-1: 17
-2: 18
-3: 19
-4: 14
-5: 15
-6: 16
-7: 11
-8: 13
-9: 12
-10: 8
-11: 9
-12: 10
-13: 7
-14: 5
-15: 6
-16: 4
-17: 3
-18: 1
-19: 2
---- for NUM 20 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 5
---- 1.1.1 ---
+rra
+pa
+ra
+ra
 ra
 pa
-
--- stack_a after range sort --
-0: 20
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-
--- stack_b after range sort --
-0: 17
-1: 18
-2: 19
-3: 14
-4: 15
-5: 16
-6: 11
-7: 13
-8: 12
-9: 8
-10: 9
-11: 10
-12: 7
-13: 5
-14: 6
-15: 4
-16: 3
-17: 1
-18: 2
---- for NUM 17 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 5
---- 1.1.1 ---
+ra
 ra
 pa
-
--- stack_a after range sort --
-0: 17
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-
--- stack_b after range sort --
-0: 18
-1: 19
-2: 14
-3: 15
-4: 16
-5: 11
-6: 13
-7: 12
-8: 8
-9: 9
-10: 10
-11: 7
-12: 5
-13: 6
-14: 4
-15: 3
-16: 1
-17: 2
---- for NUM 18 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
+ra
 pa
-
--- stack_a after range sort --
-0: 18
-1: 17
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-
--- stack_b after range sort --
-0: 19
-1: 14
-2: 15
-3: 16
-4: 11
-5: 13
-6: 12
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+pa
+ra
+ra
+pa
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+pa
+pa
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+ra
+pa
+rra
+rra
+pa
+ra
+ra
+pa
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+rra
+pa
+ra
+ra
+pa
+pa
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+pa
+pa
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+pa
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+ra
+pa
+rra
+rra
+pa
+ra
+ra
+ra
+pa
+rra
+pa
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+pa
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+pa
+ra
+ra
+pa
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+pa
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+pa
+rra
+pa
+pa
+ra
+pa
+ra
+ra
+pa
+rra
+pa
+ra
+ra
+pa
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+ra
+ra
+pa
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+ra
+pa
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+pa
+pa
+rra
+pa
+ra
+ra
+pa
+rra
+pa
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+pa
+ra
+ra
+pa
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+pa
+pa
+pa
+pa
+ra
+ra
+ra
+pa
+rra
+pa
+pa
+ra
+ra
+pa
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+pa
+rra
+rra
+pa
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+pa
+ra
+pa
+ra
+pa
+rra
+rra
+pa
+ra
+ra
+pa
+rra
+rra
+pa
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+pa
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+pa
+pa
+pa
+rra
+pa
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+pa
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+pa
+rra
+rra
+rra
+rra
+rra
+0: 1
+1: 2
+2: 3
+3: 4
+4: 5
+5: 6
+6: 7
 7: 8
 8: 9
 9: 10
-10: 7
-11: 5
-12: 6
-13: 4
-14: 3
-15: 1
-16: 2
---- for NUM 19 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 19
-1: 18
-2: 17
-3: 30
-4: 27
-5: 29
-6: 28
-7: 26
-8: 25
-9: 24
-10: 23
-11: 22
-12: 21
-13: 20
-
--- stack_b after range sort --
-0: 14
-1: 15
-2: 16
-3: 11
-4: 13
-5: 12
-6: 8
-7: 9
-8: 10
-9: 7
-10: 5
-11: 6
-12: 4
-13: 3
-14: 1
-15: 2
---- for NUM 14 ---
---- 1.1 ---
-max_a position: 3, counter / 2: 7
---- 1.1.1 ---
-ra
-ra
-ra
-pa
-
--- stack_a after range sort --
-0: 14
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-
--- stack_b after range sort --
-0: 15
-1: 16
-2: 11
-3: 13
-4: 12
-5: 8
-6: 9
-7: 10
-8: 7
-9: 5
-10: 6
-11: 4
-12: 3
-13: 1
-14: 2
---- for NUM 15 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 15
-1: 14
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-
--- stack_b after range sort --
-0: 16
-1: 11
-2: 13
-3: 12
-4: 8
-5: 9
-6: 10
-7: 7
-8: 5
-9: 6
-10: 4
-11: 3
-12: 1
-13: 2
---- for NUM 16 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 16
-1: 15
-2: 14
-3: 30
-4: 27
-5: 29
-6: 28
-7: 26
-8: 25
-9: 24
-10: 23
-11: 22
-12: 21
-13: 20
-14: 19
-15: 18
+10: 11
+11: 12
+12: 13
+13: 14
+14: 15
+15: 16
 16: 17
-
--- stack_b after range sort --
-0: 11
-1: 13
-2: 12
-3: 8
-4: 9
-5: 10
-6: 7
-7: 5
-8: 6
-9: 4
-10: 3
-11: 1
-12: 2
---- for NUM 11 ---
---- 1.1 ---
-max_a position: 3, counter / 2: 8
---- 1.1.1 ---
-ra
-ra
-ra
-pa
-
--- stack_a after range sort --
-0: 11
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-
--- stack_b after range sort --
-0: 13
-1: 12
-2: 8
-3: 9
-4: 10
-5: 7
-6: 5
-7: 6
-8: 4
-9: 3
-10: 1
-11: 2
---- for NUM 13 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 13
-1: 11
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-
--- stack_b after range sort --
-0: 12
-1: 8
-2: 9
-3: 10
-4: 7
-5: 5
-6: 6
-7: 4
-8: 3
-9: 1
-10: 2
---- for NUM 12 ---
---- 1.2 ---
---- 1.2.1 ---
---- 1.2.1.1 ---
-ra
-pa
-
--- stack_a after range sort --
-0: 12
-1: 11
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-19: 13
-
--- stack_b after range sort --
-0: 8
-1: 9
-2: 10
-3: 7
-4: 5
-5: 6
-6: 4
-7: 3
-8: 1
-9: 2
---- for NUM 8 ---
---- 1.1 ---
-max_a position: 2, counter / 2: 10
---- 1.1.1 ---
-ra
-ra
-pa
-
--- stack_a after range sort --
-0: 8
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-
--- stack_b after range sort --
-0: 9
-1: 10
-2: 7
-3: 5
-4: 6
-5: 4
-6: 3
-7: 1
-8: 2
---- for NUM 9 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 9
-1: 8
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-19: 13
-20: 12
-21: 11
-
--- stack_b after range sort --
-0: 10
-1: 7
-2: 5
-3: 6
-4: 4
-5: 3
-6: 1
-7: 2
---- for NUM 10 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 10
-1: 9
-2: 8
-3: 30
-4: 27
-5: 29
-6: 28
-7: 26
-8: 25
-9: 24
-10: 23
-11: 22
-12: 21
-13: 20
-14: 19
-15: 18
-16: 17
-17: 16
-18: 15
-19: 14
-20: 13
-21: 12
-22: 11
-
--- stack_b after range sort --
-0: 7
-1: 5
-2: 6
-3: 4
-4: 3
-5: 1
-6: 2
---- for NUM 7 ---
---- 1.1 ---
-max_a position: 3, counter / 2: 11
---- 1.1.1 ---
-ra
-ra
-ra
-pa
-
--- stack_a after range sort --
-0: 7
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-21: 10
-22: 9
-23: 8
-
--- stack_b after range sort --
-0: 5
-1: 6
-2: 4
-3: 3
-4: 1
-5: 2
---- for NUM 5 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 12
---- 1.1.1 ---
-ra
-pa
-
--- stack_a after range sort --
-0: 5
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-21: 10
-22: 9
-23: 8
-24: 7
-
--- stack_b after range sort --
-0: 6
-1: 4
-2: 3
-3: 1
-4: 2
---- for NUM 6 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 6
-1: 5
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-19: 13
-20: 12
-21: 11
-22: 10
-23: 9
-24: 8
-25: 7
-
--- stack_b after range sort --
-0: 4
-1: 3
-2: 1
-3: 2
---- for NUM 4 ---
---- 1.1 ---
-max_a position: 2, counter / 2: 13
---- 1.1.1 ---
-ra
-ra
-pa
-
--- stack_a after range sort --
-0: 4
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-21: 10
-22: 9
-23: 8
-24: 7
-25: 6
-26: 5
-
--- stack_b after range sort --
-0: 3
-1: 1
-2: 2
---- for NUM 3 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 13
---- 1.1.1 ---
-ra
-pa
-
--- stack_a after range sort --
-0: 3
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-21: 10
-22: 9
-23: 8
-24: 7
-25: 6
-26: 5
-27: 4
-
--- stack_b after range sort --
-0: 1
-1: 2
---- for NUM 1 ---
---- 1.1 ---
-max_a position: 1, counter / 2: 14
---- 1.1.1 ---
-ra
-pa
-
--- stack_a after range sort --
-0: 1
-1: 30
-2: 27
-3: 29
-4: 28
-5: 26
-6: 25
-7: 24
-8: 23
-9: 22
-10: 21
-11: 20
-12: 19
-13: 18
-14: 17
-15: 16
-16: 15
-17: 14
-18: 13
-19: 12
-20: 11
-21: 10
-22: 9
-23: 8
-24: 7
-25: 6
-26: 5
-27: 4
-28: 3
-
--- stack_b after range sort --
-0: 2
---- for NUM 2 ---
---- 1.2 ---
---- 1.2.2 ---
---- 1.2.2.2 ---
---- 1.2.2.2.1 ERROR ---
-pa
-
--- stack_a after range sort --
-0: 2
-1: 1
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-19: 13
-20: 12
-21: 11
-22: 10
-23: 9
-24: 8
-25: 7
-26: 6
-27: 5
-28: 4
-29: 3
-
--- stack_b after range sort --
---- stack_a after---
-0: 2
-1: 1
-2: 30
-3: 27
-4: 29
-5: 28
-6: 26
-7: 25
-8: 24
-9: 23
-10: 22
-11: 21
-12: 20
-13: 19
-14: 18
-15: 17
-16: 16
-17: 15
-18: 14
-19: 13
-20: 12
-21: 11
-22: 10
-23: 9
-24: 8
-25: 7
-26: 6
-27: 5
-28: 4
-29: 3
---- stack_b after---
---- COUNTER: 149 ---
+17: 18
+18: 19
+19: 20
+20: 21
+21: 22
+22: 23
+23: 24
+24: 25
+25: 26
+26: 27
+27: 28
+28: 29
+29: 30
+30: 31
+31: 32
+32: 33
+33: 34
+34: 35
+35: 36
+36: 37
+37: 38
+38: 39
+39: 40
+40: 41
+41: 42
+42: 43
+43: 44
+44: 45
+45: 46
+46: 47
+47: 48
+48: 49
+49: 50
+50: 51
+51: 52
+52: 53
+53: 54
+54: 55
+55: 56
+56: 57
+57: 58
+58: 59
+59: 60
+60: 61
+61: 62
+62: 63
+63: 64
+64: 65
+65: 66
+66: 67
+67: 68
+68: 69
+69: 70
+70: 71
+71: 72
+72: 73
+73: 74
+74: 75
+75: 76
+76: 77
+77: 78
+78: 79
+79: 80
+80: 81
+81: 82
+82: 83
+83: 84
+84: 85
+85: 86
+86: 87
+87: 88
+88: 89
+89: 90
+90: 91
+91: 92
+92: 93
+93: 94
+94: 95
+95: 96
+96: 97
+97: 98
+98: 99
+99: 100
+100: 101
+101: 102
+102: 103
+103: 104
+104: 105
+105: 106
+106: 107
+107: 108
+108: 109
+109: 110
+110: 111
+111: 112
+112: 113
+113: 114
+114: 115
+115: 116
+116: 117
+117: 118
+118: 119
+119: 120
+120: 121
+121: 122
+122: 123
+123: 124
+124: 125
+125: 126
+126: 127
+127: 128
+128: 129
+129: 130
+130: 131
+131: 132
+132: 133
+133: 134
+134: 135
+135: 136
+136: 137
+137: 138
+138: 139
+139: 140
+140: 141
+141: 142
+142: 143
+143: 144
+144: 145
+145: 146
+146: 147
+147: 148
+148: 149
+149: 150
+150: 151
+151: 152
+152: 153
+153: 154
+154: 155
+155: 156
+156: 157
+157: 158
+158: 159
+159: 160
+160: 161
+161: 162
+162: 163
+163: 164
+164: 165
+165: 166
+166: 167
+167: 168
+168: 169
+169: 170
+170: 171
+171: 172
+172: 173
+173: 174
+174: 175
+175: 176
+176: 177
+177: 178
+178: 179
+179: 180
+180: 181
+181: 182
+182: 183
+183: 184
+184: 185
+185: 186
+186: 187
+187: 188
+188: 189
+189: 190
+190: 191
+191: 192
+192: 193
+193: 194
+194: 195
+195: 196
+196: 197
+197: 198
+198: 199
+199: 200
+--- COUNTER: 2045 ---

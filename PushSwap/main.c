@@ -34,10 +34,10 @@ int main(int argc, char **argv)
 	sort_stack(&stack_a, &stack_b);
 
 	// printf("--- stack_a after---\n");
-	// print_stack(stack_a);
+	print_stack(stack_a);
 	// printf("--- stack_b after---\n");
-	// print_stack(stack_b);
-	// printf("--- COUNTER: %d ---\n", counter);
+	//print_stack(stack_b);
+	printf("--- COUNTER: %d ---\n", counter);
 
 	free_stack(&stack_b);
 	free_stack(&stack_a);
