@@ -1,2246 +1,661 @@
-make rerra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-pb
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-ra
-ra
-pb
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-pb
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-pb
-sb
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-pb
-rra
-pb
-sb
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-pb
-ss
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-pb
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-pb
-ss
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-pb
-pb
-sb
-pb
-ss
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-pb
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-pb
-sb
-pb
-sb
-pb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-pb
-sb
-ra
-ra
-pb
-sb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-sb
-pb
-sb
-ra
-ra
-pb
-ss
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pb
-ss
-ra
-ra
-pb
-ra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-pb
-rra
-rra
-pb
-sb
-rra
-rra
-pb
-rra
-pb
-ss
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-rra
-rra
-pb
-rra
-pb
-ss
-rra
-rra
-rra
-rra
-pb
-ss
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-rra
-rra
-pb
-ss
-rra
-pb
-sb
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pb
-sb
-pb
-ra
-pb
-sb
-ra
-ra
-ra
-pb
-pb
-sb
-pb
-ss
-pb
-ss
-pb
-sb
-ra
-ra
-ra
-ra
-pb
-sb
-ra
-ra
-pb
-sb
-pb
-ss
-pb
-ss
-ra
-ra
-pb
-ra
-pb
-ss
-pb
-ss
-ra
-ra
-ra
-pb
-ss
-pb
-ss
-pb
-ss
-pb
-sb
-ra
-ra
-pb
-sb
-pb
-sb
-pb
-pb
-pb
-pb
-pb
-pb
-ss
-pb
-sb
-pb
-ss
-pb
-ss
-pb
-ss
-pb
-ss
-pb
-pb
-pb
-pb
-ss
-pb
-ra
-ra
-pa
-rra
-pa
-ra
-ra
-pa
-rra
-rra
-pa
-rra
-pa
-pa
-rra
-rra
-rra
-pa
-pa
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-rra
-pa
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-pa
-pa
-pa
-ra
-pa
-rra
-pa
-ra
-ra
-ra
-pa
-ra
-ra
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-pa
-ra
-ra
-pa
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-pa
-pa
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-pa
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-rra
-pa
-ra
-ra
-pa
-pa
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-pa
-ra
-pa
-ra
-ra
-pa
-ra
-ra
-pa
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-ra
-pa
-rra
-pa
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-pa
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-pa
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-pa
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-pa
-rra
-pa
-pa
-ra
-pa
-ra
-ra
-pa
-rra
-pa
-ra
-ra
-pa
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-ra
-ra
-pa
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-pa
-pa
-rra
-pa
-ra
-ra
-pa
-rra
-pa
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-ra
-ra
-pa
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-pa
-pa
-pa
-pa
-ra
-ra
-ra
-pa
-rra
-pa
-pa
-ra
-ra
-pa
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-pa
-rra
-rra
-pa
-ra
-pa
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-pa
-ra
-pa
-ra
-pa
-rra
-rra
-pa
-ra
-ra
-pa
-rra
-rra
-pa
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-pa
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-pa
-pa
-pa
-rra
-pa
-pa
-ra
-ra
-ra
-pa
-ra
-ra
-pa
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-pa
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-rra
-pa
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-pa
-rra
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-pa
-rra
-rra
-rra
-rra
-rra
+------ RANGE 0 ------
+count: 3, in range 1 - 3
+top moves: 3, btm moves: 2 | top pos: 3, btm pos: 18 | a_count: 20
+--- 222 ---
+rra
+rra
+pb
+
+-- stack_a after --
+0: 4
+1: 5
+2: 16
+3: 7
+4: 2
+5: 14
+6: 12
+7: 20
+8: 3
+9: 13
+10: 18
+11: 15
+12: 9
+13: 17
+14: 10
+15: 19
+16: 11
+17: 8
+18: 6
+
+-- stack_b after --
 0: 1
-1: 2
-2: 3
-3: 4
-4: 5
-5: 6
-6: 7
-7: 8
-8: 9
+stack b: min: 1, max: 1
+===================================
+top moves: 4, btm moves: 11 | top pos: 4, btm pos: 8 | a_count: 19
+--- 111 ---
+ra
+ra
+ra
+ra
+pb
+
+-- stack_a after --
+0: 14
+1: 12
+2: 20
+3: 3
+4: 13
+5: 18
+6: 15
+7: 9
+8: 17
 9: 10
+10: 19
+11: 11
+12: 8
+13: 6
+14: 4
+15: 5
+16: 16
+17: 7
+
+-- stack_b after --
+0: 2
+1: 1
+stack b: min: 1, max: 2
+===================================
+top moves: 3, btm moves: 15 | top pos: 3, btm pos: 3 | a_count: 18
+--- 111 ---
+- push_num: 3
+-- position for 3 in sort_stack --
+stack: min: 1, max: 2 | count: 2
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 2
+ra
+ra
+ra
+pb
+
+-- stack_a after --
+0: 13
+1: 18
+2: 15
+3: 9
+4: 17
+5: 10
+6: 19
+7: 11
+8: 8
+9: 6
+10: 4
+11: 5
+12: 16
+13: 7
+14: 14
+15: 12
+16: 20
+
+-- stack_b after --
+0: 3
+1: 2
+2: 1
+stack b: min: 1, max: 3
+===================================
+------ RANGE 1 ------
+count: 2, in range 3 - 5
+top moves: 10, btm moves: 6 | top pos: 10, btm pos: 11 | a_count: 17
+--- 222 ---
+- push_num: 5
+-- position for 5 in sort_stack --
+stack: min: 1, max: 3 | count: 3
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves3: 
+rrr
+rrr
+rrr
+rra
+rra
+rra
+pb
+
+-- stack_a after --
+0: 16
+1: 7
+2: 14
+3: 12
+4: 20
+5: 13
+6: 18
+7: 15
+8: 9
+9: 17
+10: 10
+11: 19
+12: 11
+13: 8
+14: 6
+15: 4
+
+-- stack_b after --
+0: 5
+1: 3
+2: 2
+3: 1
+stack b: min: 1, max: 5
+===================================
+top moves: 15, btm moves: 1 | top pos: 15, btm pos: 15 | a_count: 16
+--- 222 ---
+- push_num: 4
+-- position for 4 in sort_stack --
+stack: min: 1, max: 5 | count: 4
+--- 2 ---
+- pos_in_b: 1
+--- top moves: 1, btm moves3: 
+rra
+rb
+pb
+
+-- stack_a after --
+0: 16
+1: 7
+2: 14
+3: 12
+4: 20
+5: 13
+6: 18
+7: 15
+8: 9
+9: 17
+10: 10
+11: 19
+12: 11
+13: 8
+14: 6
+
+-- stack_b after --
+0: 4
+1: 3
+2: 2
+3: 1
+4: 5
+stack b: min: 1, max: 5
+===================================
+------ RANGE 2 ------
+count: 2, in range 5 - 7
+top moves: 1, btm moves: 1 | top pos: 1, btm pos: 14 | a_count: 15
+--- 111 ---
+- push_num: 7
+-- position for 7 in sort_stack --
+stack: min: 1, max: 5 | count: 5
+--- 1 ---
+- pos_in_b: 4
+--- top moves: 4, btm moves: 1
+ra
+rrb
+pb
+
+-- stack_a after --
+0: 14
+1: 12
+2: 20
+3: 13
+4: 18
+5: 15
+6: 9
+7: 17
+8: 10
+9: 19
 10: 11
-11: 12
-12: 13
-13: 14
+11: 8
+12: 6
+13: 16
+
+-- stack_b after --
+0: 7
+1: 5
+2: 4
+3: 3
+4: 2
+5: 1
+stack b: min: 1, max: 7
+===================================
+top moves: 12, btm moves: 2 | top pos: 12, btm pos: 12 | a_count: 14
+--- 222 ---
+- push_num: 6
+-- position for 6 in sort_stack --
+stack: min: 1, max: 7 | count: 6
+--- 2 ---
+- pos_in_b: 1
+--- top moves: 1, btm moves5: 
+rra
+rra
+rb
+pb
+
+-- stack_a after --
+0: 16
+1: 14
+2: 12
+3: 20
+4: 13
+5: 18
+6: 15
+7: 9
+8: 17
+9: 10
+10: 19
+11: 11
+12: 8
+
+-- stack_b after --
+0: 6
+1: 5
+2: 4
+3: 3
+4: 2
+5: 1
+6: 7
+stack b: min: 1, max: 7
+===================================
+------ RANGE 3 ------
+count: 2, in range 7 - 9
+top moves: 7, btm moves: 1 | top pos: 7, btm pos: 12 | a_count: 13
+--- 222 ---
+- push_num: 8
+-- position for 8 in sort_stack --
+stack: min: 1, max: 7 | count: 7
+--- 1 ---
+- pos_in_b: 6
+--- top moves: 6, btm moves1: 
+rrr
+pb
+
+-- stack_a after --
+0: 16
+1: 14
+2: 12
+3: 20
+4: 13
+5: 18
+6: 15
+7: 9
+8: 17
+9: 10
+10: 19
+11: 11
+
+-- stack_b after --
+0: 8
+1: 7
+2: 6
+3: 5
+4: 4
+5: 3
+6: 2
+7: 1
+stack b: min: 1, max: 8
+===================================
+top moves: 7, btm moves: 5 | top pos: 7, btm pos: 7 | a_count: 12
+--- 222 ---
+- push_num: 9
+-- position for 9 in sort_stack --
+stack: min: 1, max: 8 | count: 8
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves8: 
+rra
+rra
+rra
+rra
+rra
+pb
+
+-- stack_a after --
+0: 17
+1: 10
+2: 19
+3: 11
+4: 16
+5: 14
+6: 12
+7: 20
+8: 13
+9: 18
+10: 15
+
+-- stack_b after --
+0: 9
+1: 8
+2: 7
+3: 6
+4: 5
+5: 4
+6: 3
+7: 2
+8: 1
+stack b: min: 1, max: 9
+===================================
+------ RANGE 4 ------
+count: 2, in range 9 - 11
+top moves: 1, btm moves: 8 | top pos: 1, btm pos: 3 | a_count: 11
+--- 111 ---
+- push_num: 10
+-- position for 10 in sort_stack --
+stack: min: 1, max: 9 | count: 9
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 9
+ra
+pb
+
+-- stack_a after --
+0: 19
+1: 11
+2: 16
+3: 14
+4: 12
+5: 20
+6: 13
+7: 18
+8: 15
+9: 17
+
+-- stack_b after --
+0: 10
+1: 9
+2: 8
+3: 7
+4: 6
+5: 5
+6: 4
+7: 3
+8: 2
+9: 1
+stack b: min: 1, max: 10
+===================================
+top moves: 1, btm moves: 9 | top pos: 1, btm pos: 1 | a_count: 10
+--- 111 ---
+- push_num: 11
+-- position for 11 in sort_stack --
+stack: min: 1, max: 10 | count: 10
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 10
+ra
+pb
+
+-- stack_a after --
+0: 16
+1: 14
+2: 12
+3: 20
+4: 13
+5: 18
+6: 15
+7: 17
+8: 19
+
+-- stack_b after --
+0: 11
+1: 10
+2: 9
+3: 8
+4: 7
+5: 6
+6: 5
+7: 4
+8: 3
+9: 2
+10: 1
+stack b: min: 1, max: 11
+===================================
+------ RANGE 5 ------
+count: 2, in range 11 - 13
+top moves: 2, btm moves: 5 | top pos: 2, btm pos: 4 | a_count: 9
+--- 111 ---
+- push_num: 12
+-- position for 12 in sort_stack --
+stack: min: 1, max: 11 | count: 11
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 11
+ra
+ra
+pb
+
+-- stack_a after --
+0: 20
+1: 13
+2: 18
+3: 15
+4: 17
+5: 19
+6: 16
+7: 14
+
+-- stack_b after --
+0: 12
+1: 11
+2: 10
+3: 9
+4: 8
+5: 7
+6: 6
+7: 5
+8: 4
+9: 3
+10: 2
+11: 1
+stack b: min: 1, max: 12
+===================================
+top moves: 1, btm moves: 7 | top pos: 1, btm pos: 1 | a_count: 8
+--- 111 ---
+- push_num: 13
+-- position for 13 in sort_stack --
+stack: min: 1, max: 12 | count: 12
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 12
+ra
+pb
+
+-- stack_a after --
+0: 18
+1: 15
+2: 17
+3: 19
+4: 16
+5: 14
+6: 20
+
+-- stack_b after --
+0: 13
+1: 12
+2: 11
+3: 10
+4: 9
+5: 8
+6: 7
+7: 6
+8: 5
+9: 4
+10: 3
+11: 2
+12: 1
+stack b: min: 1, max: 13
+===================================
+------ RANGE 6 ------
+count: 2, in range 13 - 15
+top moves: 1, btm moves: 2 | top pos: 1, btm pos: 5 | a_count: 7
+--- 111 ---
+- push_num: 15
+-- position for 15 in sort_stack --
+stack: min: 1, max: 13 | count: 13
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 13
+ra
+pb
+
+-- stack_a after --
+0: 17
+1: 19
+2: 16
+3: 14
+4: 20
+5: 18
+
+-- stack_b after --
+0: 15
+1: 13
+2: 12
+3: 11
+4: 10
+5: 9
+6: 8
+7: 7
+8: 6
+9: 5
+10: 4
+11: 3
+12: 2
+13: 1
+stack b: min: 1, max: 15
+===================================
+top moves: 3, btm moves: 3 | top pos: 3, btm pos: 3 | a_count: 6
+--- 111 ---
+- push_num: 14
+-- position for 14 in sort_stack --
+stack: min: 1, max: 15 | count: 14
+--- 2 ---
+- pos_in_b: 1
+--- top moves: 1, btm moves: 13
+rr
+ra
+ra
+pb
+
+-- stack_a after --
+0: 20
+1: 18
+2: 17
+3: 19
+4: 16
+
+-- stack_b after --
+0: 14
+1: 13
+2: 12
+3: 11
+4: 10
+5: 9
+6: 8
+7: 7
+8: 6
+9: 5
+10: 4
+11: 3
+12: 2
+13: 1
 14: 15
-15: 16
-16: 17
-17: 18
-18: 19
-19: 20
-20: 21
-21: 22
-22: 23
-23: 24
-24: 25
-25: 26
-26: 27
-27: 28
-28: 29
-29: 30
-30: 31
-31: 32
-32: 33
-33: 34
-34: 35
-35: 36
-36: 37
-37: 38
-38: 39
-39: 40
-40: 41
-41: 42
-42: 43
-43: 44
-44: 45
-45: 46
-46: 47
-47: 48
-48: 49
-49: 50
-50: 51
-51: 52
-52: 53
-53: 54
-54: 55
-55: 56
-56: 57
-57: 58
-58: 59
-59: 60
-60: 61
-61: 62
-62: 63
-63: 64
-64: 65
-65: 66
-66: 67
-67: 68
-68: 69
-69: 70
-70: 71
-71: 72
-72: 73
-73: 74
-74: 75
-75: 76
-76: 77
-77: 78
-78: 79
-79: 80
-80: 81
-81: 82
-82: 83
-83: 84
-84: 85
-85: 86
-86: 87
-87: 88
-88: 89
-89: 90
-90: 91
-91: 92
-92: 93
-93: 94
-94: 95
-95: 96
-96: 97
-97: 98
-98: 99
-99: 100
-100: 101
-101: 102
-102: 103
-103: 104
-104: 105
-105: 106
-106: 107
-107: 108
-108: 109
-109: 110
-110: 111
-111: 112
-112: 113
-113: 114
-114: 115
-115: 116
-116: 117
-117: 118
-118: 119
-119: 120
-120: 121
-121: 122
-122: 123
-123: 124
-124: 125
-125: 126
-126: 127
-127: 128
-128: 129
-129: 130
-130: 131
-131: 132
-132: 133
-133: 134
-134: 135
-135: 136
-136: 137
-137: 138
-138: 139
-139: 140
-140: 141
-141: 142
-142: 143
-143: 144
-144: 145
-145: 146
-146: 147
-147: 148
-148: 149
-149: 150
-150: 151
-151: 152
-152: 153
-153: 154
-154: 155
-155: 156
-156: 157
-157: 158
-158: 159
-159: 160
-160: 161
-161: 162
-162: 163
-163: 164
-164: 165
-165: 166
-166: 167
-167: 168
-168: 169
-169: 170
-170: 171
-171: 172
-172: 173
-173: 174
-174: 175
-175: 176
-176: 177
-177: 178
-178: 179
-179: 180
-180: 181
-181: 182
-182: 183
-183: 184
-184: 185
-185: 186
-186: 187
-187: 188
-188: 189
-189: 190
-190: 191
-191: 192
-192: 193
-193: 194
-194: 195
-195: 196
-196: 197
-197: 198
-198: 199
-199: 200
---- COUNTER: 2045 ---
+stack b: min: 1, max: 15
+===================================
+------ RANGE 7 ------
+count: 2, in range 15 - 17
+top moves: 2, btm moves: 1 | top pos: 2, btm pos: 4 | a_count: 5
+--- 222 ---
+- push_num: 16
+-- position for 16 in sort_stack --
+stack: min: 1, max: 15 | count: 15
+--- 1 ---
+- pos_in_b: 14
+--- top moves: 14, btm moves1: 
+rrr
+pb
+
+-- stack_a after --
+0: 20
+1: 18
+2: 17
+3: 19
+
+-- stack_b after --
+0: 16
+1: 15
+2: 14
+3: 13
+4: 12
+5: 11
+6: 10
+7: 9
+8: 8
+9: 7
+10: 6
+11: 5
+12: 4
+13: 3
+14: 2
+15: 1
+stack b: min: 1, max: 16
+===================================
+top moves: 2, btm moves: 2 | top pos: 2, btm pos: 2 | a_count: 4
+--- 111 ---
+- push_num: 17
+-- position for 17 in sort_stack --
+stack: min: 1, max: 16 | count: 16
+--- 1 ---
+- pos_in_b: 0
+--- top moves: 0, btm moves: 16
+ra
+ra
+pb
+
+-- stack_a after --
+0: 19
+1: 20
+2: 18
+
+-- stack_b after --
+0: 17
+1: 16
+2: 15
+3: 14
+4: 13
+5: 12
+6: 11
+7: 10
+8: 9
+9: 8
+10: 7
+11: 6
+12: 5
+13: 4
+14: 3
+15: 2
+16: 1
+stack b: min: 1, max: 17
+===================================
+------ RANGE 8 ------
+count: 2, in range 17 - 19
+------ RANGE 9 ------
+count: 2, in range 19 - 20
+rra
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+pa
