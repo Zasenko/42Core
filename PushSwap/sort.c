@@ -146,6 +146,23 @@ int sort_stack_top_greater_n_pos(t_stack *stack, int num)
 {
     t_stack *tmp = stack;
     int i = 0;
+
+    if (!tmp)
+        return (-1);
+    while (tmp && num > tmp->num)
+    {
+        tmp = tmp->next;
+        i++;
+    }
+    return i;
+}
+int sort_stack_top_less_n_pos(t_stack *stack, int num)
+{
+    t_stack *tmp = stack;
+    int i = 0;
+
+    if (!tmp)
+        return (-1);
     while (tmp && num < tmp->num)
     {
         tmp = tmp->next;
@@ -158,13 +175,13 @@ int sort_stack_btm_greater_n_pos(t_stack *stack, int num, int len)
 {
     t_stack *last = stack_last(stack);
     if (!last)
-        return (0);
-    while (len && last->num < num)
+        return (-1);
+    while (len && last->num > num)
     {
         len--;
         last = stack_last_n(stack, len - 1);
     }
-    return (len);
+    return (len);//+ // return 0 - ERROR????
 }
 
 void sort_3(t_stack **stack, char c)
@@ -399,21 +416,21 @@ void sort_stack(t_stack **stack_a, t_stack **stack_b)
     }
 
     
-    printf("\n-- stack_a after range sort --\n");
-    print_stack(*stack_a);
-    printf("\n-- stack_b after range sort --\n");
-    print_stack(*stack_b);
+    // printf("\n-- stack_a after range sort --\n");
+    // print_stack(*stack_a);
+    // printf("\n-- stack_b after range sort --\n");
+    // print_stack(*stack_b);
 
     sort_back(stack_a, stack_b);
 }
 
 void sort_back(t_stack **stack_a, t_stack **stack_b)
 {
-    printf("\n----- SORT BACK -----\n");
+    //printf("\n----- SORT BACK -----\n");
     sort_3(stack_a, 'a');
 
-    printf("\n-- stack_a after SORT 3 --\n");
-    print_stack(*stack_a);
+   // printf("\n-- stack_a after SORT 3 --\n");
+   // print_stack(*stack_a);
 
     int min_a = stack_min_n(*stack_a);
     int max_a = stack_max_n(*stack_a);
@@ -422,17 +439,17 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
 
     while (*stack_b)
     {
-        printf("--- for NUM %d ---\n", (*stack_b)->num);
+       // printf("--- for NUM %d ---\n", (*stack_b)->num);
         if ((*stack_b)->num < min_a || (*stack_b)->num > max_a)
         {
-            printf("--- 1.1 ---\n");
-            int pos_exact = stack_n_pos(*stack_a, max_a);
-            printf("max_a position: %d, counter / 2: %d\n", pos_exact, a_count / 2);
-            if (pos_exact < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == pos_exact))
+            //printf("--- 1 ---\n");
+            int position = stack_n_pos(*stack_a, min_a); //+
+         //   printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+            if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
             {
-                printf("--- 1.1.1 ---\n");
+               // printf("--- + ! 1.1.1 ---\n");
                 int i = 0;
-                while (i < pos_exact)
+                while (i < position)
                 {
                     ra(stack_a);
                     i++;
@@ -440,9 +457,9 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
             }
             else
             {
-                printf("--- 1.1.2 ---\n");
+            //    printf("--- ! 1.1.2 ---\n");
                 int i = 0;
-                while (i < a_count - pos_exact)
+                while (i < a_count - position)
                 {
                     rra(stack_a);
                     i++;
@@ -451,44 +468,56 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
         }
         else
         {
-            printf("--- 1.2 ---\n");
+            //printf("--- 2 ---\n");
             if ((*stack_b)->num < (*stack_a)->num)
             {
-                printf("--- 1.2.1 ---\n");
-                int max_a_pos = sort_stack_top_greater_n_pos(*stack_a, (*stack_b)->num);
-                /////printf("b top > position: %d, counter / 2: %d\n", max_b_pos, b_counter / 2);
-                if (max_a_pos < (a_count / 2) || (a_count % 2 != 0 && (a_count / 2) == max_a_pos))
+               // printf("--- 2.1 ---\n");
+
+                t_stack *last = stack_last(*stack_a);
+                if (last)
                 {
-                    printf("--- 1.2.1.1 ---\n");
-                    int i = 0;
-                    while (i < max_a_pos)
+                    if (last->num > (*stack_b)->num)
                     {
-                        ra(stack_a);
-                        i++;
+                        //printf("--- 2.1.1 ---\n");
+                        int position = sort_stack_btm_greater_n_pos(*stack_a, (*stack_b)->num, a_count);
+                        //printf("position: %d, count: %d, counter / 2: %d\n", position, a_count, a_count / 2);
+
+                        if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
+                        {
+                           // printf("--- + 2.1.1.11 ---\n");
+                            int i = 0;
+                            while (i < position)
+                            {
+                                ra(stack_a);
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                           // printf("--- + 2.1.1.22 ---\n");
+                            int i = 0;
+                            while (i < a_count - position)
+                            {
+                                rra(stack_a);
+                                i++;
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    printf("--- 1.2.1.2 ---\n");
-                    int i = 0;
-                    while (i < a_count - max_a_pos)
+                    else
                     {
-                        rra(stack_a);
-                        i++;
+                       // printf("--- ! 2.1.2 no move needed ---\n");
                     }
                 }
             }
             else
             {
-                printf("--- 1.2.2 ---\n");
-                int min_pos = sort_stack_btm_greater_n_pos(*stack_a, (*stack_b)->num, a_count);
-                /////printf("b btm > position: %d, counter / 2: %d\n", min_pos, b_counter / 2);
-                if (min_pos < a_count / 2 || (a_count % 2 != 0 && a_count / 2 == min_pos))
+                int position = sort_stack_top_greater_n_pos(*stack_a, (*stack_b)->num);
+                //printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+                if (position < a_count / 2 || (a_count % 2 != 0 && a_count / 2 == position))
                 {
-                    printf("--- 1.2.2.1 ---\n");
-
+                    //printf("--- ! 2.2.1 ---\n");
                     int i = 0;
-                    while (i < min_pos)
+                    while (i < position)
                     {
                         ra(stack_a);
                         i++;
@@ -496,32 +525,35 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
                 }
                 else
                 {
-                    printf("--- 1.2.2.2 ---\n");
-                    t_stack *l = stack_last(*stack_a);
-                    if (l)
+                    t_stack *stack_a_last = stack_last(*stack_a);
+                    if (stack_a_last)
                     {
-                      /////printf("------2.2.2.1------\n");
-                      /////printf("stack_last num: %d\n", l->num);
-                      if (l->num < (*stack_b)->num)
-                      {
-                          printf("--- 1.2.2.2.1 ---\n");
-                          int s = a_count - min_pos;
-                          int i = 0;
-                          while (i < s)
-                          {
-                              rra(stack_a);
-                              i++;
-                          }
+                        if (stack_a_last->num < (*stack_b)->num)
+                        {
+                        //    printf("--- ! 2.2.2.1 ---\n");
+                            int s = a_count - position;
+                            int i = 0;
+                            while (i < s)
+                            {
+                                rra(stack_a);
+                                i++;
+                            }
                         }
                         else
                         {
-                            printf("--- 1.2.2.2.1 ERROR ---\n");
+                           // printf("--- + 2.2.2.2 ---\n");
+                            int s = a_count - position;
+                            int i = 0;
+                            while (i < s)
+                            {
+                                rra(stack_a);
+                                i++;
+                            }
                         }
                     }
                 }
             }
         }
-
         pa(stack_a, stack_b);
         a_count++;
         
@@ -535,13 +567,35 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
             max_a = (*stack_a)->num;
         }
 
-        printf("\n-- stack_a after range sort --\n");
-        print_stack(*stack_a);
-        printf("\n-- stack_b after range sort --\n");
-        print_stack(*stack_b);
+        //printf("\n-- stack_a after sort --\n");
+        //print_stack(*stack_a);
+        // printf("\n-- stack_b after sort --\n");
+        // print_stack(*stack_b);
     }
 
+    //printf("--- 0000 last ---\n");
 
+    //TODO!!!!! doublicate
+    int position = stack_n_pos(*stack_a, min_a); //+
+    //printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+    if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
+    {
+        int i = 0;
+        while (i < position)
+        {
+            ra(stack_a);
+            i++;
+        }
+    }
+    else
+    {
+        int i = 0;
+        while (i < a_count - position)
+        {
+            rra(stack_a);
+            i++;
+        }
+    }
 }
 
 void test_alg(t_stack **stack_a, t_stack **stack_b)
