@@ -31,13 +31,13 @@ int main(int argc, char **argv)
 	// printf("--- stack_b---\n");
 	// print_stack(stack_b);
 
-	sort_stack(&stack_a, &stack_b);
+	sort(&stack_a, &stack_b);
 
 	// printf("--- stack_a after---\n");
-	// print_stack(stack_a);
+	 print_stack(stack_a);
 	// // printf("--- stack_b after---\n");
 	// // print_stack(stack_b);
-	//  printf("--- COUNTER: %d ---\n", counter);
+	  printf("--- COUNTER: %d ---\n", counter);
 
 	free_stack(&stack_b);
 	free_stack(&stack_a);
