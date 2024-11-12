@@ -20,6 +20,9 @@ typedef struct s_stack
 {
 	int				num;
 	struct s_stack	*next;
+	int moves;
+	int is_top_a;
+	int is_top_b;
 }					t_stack;
 
 void print_stack(t_stack *stack); // TODO: Delete

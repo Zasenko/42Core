@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:57:49 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/11/08 14:23:46 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:29:14 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 extern int counter;
 
 int pos_for_n_in_sort_stack(t_stack *stack, int num, int min, int max, int count);
-
 void sort_back(t_stack **stack_a, t_stack **stack_b);
 
 int moves_in_b(t_stack **stack_a, t_stack **stack_b, int min_b, int max_b, int b_counter);
@@ -84,8 +83,8 @@ int unsort_stack_btm_greater_n_pos(t_stack *stack, int num, int len)
 
 int unsort_stack_top_pos_between(t_stack *stack, int min, int max)
 {
- //printf("----- unsort_stack_top_pos_between ------\n");
- //printf("min: %d, max: %d\n", min, max);
+ /////printf("----- unsort_stack_top_pos_between ------\n");
+ /////printf("min: %d, max: %d\n", min, max);
     t_stack *tmp = stack;
 
     if (!tmp)
@@ -95,7 +94,7 @@ int unsort_stack_top_pos_between(t_stack *stack, int min, int max)
     {
         if (tmp->num >= min && tmp->num <= max)
         {
-            //printf("last->num: %d, i: %d\n", tmp->num, i);
+            /////printf("last->num: %d, i: %d\n", tmp->num, i);
             return i;
         }
         tmp = tmp->next;
@@ -106,14 +105,14 @@ int unsort_stack_top_pos_between(t_stack *stack, int min, int max)
 
 int unsort_stack_btm_pos_between(t_stack *stack, int min, int max, int len)
 {
-    ///printf("----- unsort_stack_btm_pos_between ------\n");
-    ///printf("min: %d, max: %d, len: %d\n", min, max, len);
+    ///////printf("----- unsort_stack_btm_pos_between ------\n");
+    ///////printf("min: %d, max: %d, len: %d\n", min, max, len);
 
     t_stack *last = stack_last(stack);
 
     if (!last)
     {
-    //  /printf("Error !last\n");
+    //  /////printf("Error !last\n");
         return (0);
     }
 
@@ -121,7 +120,7 @@ int unsort_stack_btm_pos_between(t_stack *stack, int min, int max, int len)
     {
         if (last->num >= min && last->num <= max)
         {
-        //  /printf("last->num: %d, len: %d\n", last->num, len);
+        //  /////printf("last->num: %d, len: %d\n", last->num, len);
             return --len;
         }
         len--;
@@ -143,16 +142,17 @@ int stack_n_pos(t_stack *stack, int num)
     }
     return i;
 }
+
 int num_in_stack_by_pos(t_stack *stack, int pos)
 {
     t_stack *tmp = stack;
     if (!tmp)
         return -1;
     int i = 0;
-    printf("-i: %d, pos: %d\n", i, pos);
+    ////printf("-i: %d, pos: %d\n", i, pos);
     while (i < pos)
     {
-        //printf("--i: %d, pos: %d\n", i, pos);
+        ////printf("--i: %d, pos: %d\n", i, pos);
         tmp = tmp->next;
         i++;
     }
@@ -207,12 +207,12 @@ int sort_stack_btm_greater_n_pos222(t_stack *stack, int num, int len)
     t_stack *last = stack_last(stack);
     if (!last)
         return (-1);
-    printf("num: %d, len: %d\n", num, len);
+    //printf("num: %d, len: %d\n", num, len);
     if (last->num < num)
     {
         while (len && last->num > num)
         {
-            printf("--num: %d, len: %d\n", num, len);
+            //printf("--num: %d, len: %d\n", num, len);
             len--;
             last = stack_last_n(stack, len - 1);
         }
@@ -229,12 +229,12 @@ int sort_stack_btm_greater_n_pos333(t_stack *stack, int num, int len)
     t_stack *last = stack_last(stack);
     if (!last)
         return (-1);
-    printf("num: %d, len: %d, last num: %d\n", num, len, last->num);
+    //printf("num: %d, len: %d, last num: %d\n", num, len, last->num);
     if (last->num < num)
     {
         while (len && last->num > num)
         {
-            printf("--num: %d, len: %d\n", num, len);
+            //printf("--num: %d, len: %d\n", num, len);
             len--;
             last = stack_last_n(stack, len - 1);
         }
@@ -247,12 +247,12 @@ int sort_stack_btm_less_n_pos333(t_stack *stack, int num, int len)
     t_stack *last = stack_last(stack);
     if (!last)
         return (-1);
-    printf("num: %d, len: %d, last num: %d\n", num, len, last->num);
+    //printf("num: %d, len: %d, last num: %d\n", num, len, last->num);
     if (last->num < num)
     {
         while (len && last->num < num)
         {
-            printf("--num: %d, len: %d\n", num, len);
+            //printf("--num: %d, len: %d\n", num, len);
             len--;
             last = stack_last_n(stack, len - 1);
         }
@@ -277,7 +277,7 @@ void sort_3(t_stack **stack, char c)
         //  1
         //  3
         //  2
-        ///printf("------ sort 0.1 ------\n");
+        ///////printf("------ sort 0.1 ------\n");
         if (c == 'a')
         {
             rra(stack);
@@ -293,7 +293,7 @@ void sort_3(t_stack **stack, char c)
         //  2
         //  3
         //  1
-        ///printf("------ sort 0.2 ------\n");
+        ///////printf("------ sort 0.2 ------\n");
         if (c == 'a')
         {
             rra(stack);
@@ -308,7 +308,7 @@ void sort_3(t_stack **stack, char c)
         //  2
         //  1
         //  3
-        ///printf("------ sort 0.3 ------\n");
+        ///////printf("------ sort 0.3 ------\n");
         if (c == 'a')
         {
             sa(*stack);
@@ -323,7 +323,7 @@ void sort_3(t_stack **stack, char c)
         //  3
         //  1
         //  2
-        ///printf("------ sort 0.4 ------\n");
+        ///////printf("------ sort 0.4 ------\n");
         if (c == 'a')
         {
             ra(stack);
@@ -339,7 +339,7 @@ void sort_3(t_stack **stack, char c)
         //  3
         //  2
         //  1
-        ///printf("------ sort 0.5 ------\n");
+        ///////printf("------ sort 0.5 ------\n");
         if (c == 'a')
         {
             ra(stack);
@@ -353,7 +353,7 @@ void sort_3(t_stack **stack, char c)
         //  1
         //  2
         //  3
-        ///printf("------ sort 0.0 ------\n");
+        ///////printf("------ sort 0.0 ------\n");
 
         if (c == 'a')
             return;
@@ -409,7 +409,7 @@ void set_min_max(t_stack *stack, int *min, int *max)
         *max = stack->num;
 }
 
-void push_b(t_stack *stack_a, t_stack *stack_b, int *a_count, int *b_count)
+void push_b(t_stack **stack_a, t_stack **stack_b, int *a_count, int *b_count)
 {
     if (!stack_a || !stack_b || !a_count || !b_count)
         return;
@@ -417,58 +417,217 @@ void push_b(t_stack *stack_a, t_stack *stack_b, int *a_count, int *b_count)
     *a_count -= 1;
     *b_count += 1;
 }
-int find_cheapest(int num, int top_moves, int btm_moves)
+
+int moves_top_top(int top_a, int top_b)
 {
-
-    //int pos_in_b = pos_for_n_in_sort_stack(*stack_b, push_num, b_min, b_max, b_count);
-
-    if (top_moves < btm_moves)
-    {
-        // temp->moves =
-    }
-    else if (btm_moves < top_moves)
-    {
-        // temp->moves =
-    }
-    else // btm_moves == top_moves (i)
-    {
-        // temp->moves =
-    }
+    if (top_a >= top_b)
+        return top_a;
+    return top_b;
 }
 
-void set_cheapest_position(t_stack *stack_a, t_stack *stack_b, int a_count)
+int moves_btm_btm(int btm_a, int btm_b)
 {
-    t_stack *temp;
-    int i;
-    int btm_moves;
+    if (btm_a >= btm_b)
+        return btm_a;
+    return btm_b;
+}
+int moves_top_btm(int top_a, int btm_b)
+{
+    return top_a + btm_b;
+}
+int moves_btm_top(int btm_a, int top_b)
+{
+    return btm_a + top_b;
+}
 
-    i = 0;
+void set_minimum_moves(t_stack *temp, int top_moves_a, int btm_moves_a, int top_moves_b, int btm_moves_b)
+{
+    //printf("-- set minimum moves --\n");
+    //printf("for NUMBER: %d\n", temp->num);
+    //printf("top_moves_a: %d, btm_moves_a: %d, top_moves_b: %d, btm_moves_b: %d\n", top_moves_a, btm_moves_a, top_moves_b, btm_moves_b);
+    int min_move = 0;
+    
+    min_move = moves_top_top(top_moves_a, top_moves_b);
+    //printf("moves_top_top: %d\n", min_move);
+
+    temp->is_top_a = 1;
+    temp->is_top_b = 1;
+        
+    int min_btm_btm = moves_btm_btm(btm_moves_a, btm_moves_b);
+    //printf("moves_btm_btm: %d\n", min_btm_btm);
+    if (min_move > min_btm_btm)
+    {
+        
+        min_move = min_btm_btm;
+        temp->is_top_a = 0;
+        temp->is_top_b = 0;
+    }
+    
+    int min_top_btm = moves_top_btm(top_moves_a, btm_moves_b);
+    //printf("moves_top_btm: %d\n", min_top_btm);
+    if (min_move > min_top_btm)
+    {
+        min_move = min_top_btm;
+        temp->is_top_a = 1;
+        temp->is_top_b = 0;
+    }
+    
+    int min_btm_top = moves_btm_top(btm_moves_a, top_moves_b);
+    //printf("moves_btm_top: %d\n", min_btm_top);
+    if (min_move > min_btm_top)
+    {
+        min_move = min_btm_top;
+        temp->is_top_a = 0;
+        temp->is_top_b = 1;
+    }
+    
+    //printf("min_move: %d\n", min_move);
+    temp->moves = min_move;
+}
+
+void set_cheapest_position(t_stack *stack_a, t_stack *stack_b, int a_count, int b_count, int b_min, int b_max)
+{
+    //printf("-- set cheapest position --\n");
+    
+    t_stack *temp;
+    int top_moves_a;
+    int btm_moves_a;
+    int top_moves_b;
+    int btm_moves_b;
+
+    top_moves_a = 0;
     temp = stack_a;
     while (temp)
     {
-        btm_moves = a_count - i;
-        if (btm_moves == a_count)
-            btm_moves = 0;
-        if (i < btm_moves)
+        btm_moves_a = a_count - top_moves_a;
+        if (btm_moves_a == a_count)
+            btm_moves_a = 0;
+        top_moves_b = pos_for_n_in_sort_stack(stack_b, temp->num, b_min, b_max, b_count);
+        btm_moves_b = b_count - top_moves_b;
+        if (btm_moves_b == b_count)
+            btm_moves_b = 0;
+        set_minimum_moves(temp, top_moves_a, btm_moves_a, top_moves_b, btm_moves_b);
+        temp = temp->next;
+        top_moves_a++;
+    }
+}
+
+int find_cheapest_position(t_stack *stack_a, t_stack *stack_b, int a_count, int b_count, int b_min, int b_max)
+{
+    //printf("-- find cheapest position --\n");
+    set_cheapest_position(stack_a, stack_b, a_count, b_count, b_min, b_max);
+
+    int i = 0;
+    t_stack *temp = stack_a;
+    int min = temp->moves;
+    int min_i = 0;
+    
+    while (temp)
+    {
+        if (temp->moves < min)
         {
-            //temp->moves = 
-        }
-        else if (btm_moves < i)
-        {
-            // temp->moves =
-        }
-        else // btm_moves == top_moves (i)
-        {
-            // temp->moves =
+            min = temp->moves;
+            min_i = i;
         }
         i++;
         temp = temp->next;
     }
+    return min_i;
 }
 
-int find_cheapest_position(t_stack *stack_a, t_stack *stack_b, int a_count)
+t_stack *item_in_stack_by_pos(t_stack *stack, int pos)
 {
-    set_cheapest_position(stack_a, stack_b, a_count);
+    t_stack *tmp = stack;
+    if (!tmp)
+        return NULL;
+    int i = 0;
+    ////printf("-i: %d, pos: %d\n", i, pos);
+    while (i < pos)
+    {
+        ////printf("--i: %d, pos: %d\n", i, pos);
+        tmp = tmp->next;
+        i++;
+    }
+    return tmp;
+}
+
+void rotate_stacks(t_stack push_item, int position, t_stack **stack_a, t_stack **stack_b, int a_count, int b_count, int b_min, int b_max)
+{
+    int top_moves_a;
+    int btm_moves_a;
+    int top_moves_b;
+    int btm_moves_b;
+
+    top_moves_a = position;
+    btm_moves_a = a_count - position;
+    if (btm_moves_a == a_count)
+            btm_moves_a = 0;
+
+    top_moves_b = pos_for_n_in_sort_stack(*stack_b, push_item.num, b_min, b_max, b_count);
+    btm_moves_b = b_count - top_moves_b;
+    if (btm_moves_b == b_count)
+        btm_moves_b = 0;
+    
+    if (push_item.is_top_a && push_item.is_top_b)
+    {
+        if (top_moves_a >= top_moves_b)
+        {
+            while (top_moves_a-- > 0)
+            {
+                if (top_moves_b-- > 0)
+                    rr(stack_a, stack_b);
+                else
+                    ra(stack_a);
+            }
+        }
+        else
+        {
+            while (top_moves_b-- > 0)
+            {
+                if (top_moves_a-- > 0)
+                    rr(stack_a, stack_b);
+                else
+                    rb(stack_b);
+            }
+        }
+    }
+    else if (!push_item.is_top_a && !push_item.is_top_b)
+    {
+        if (btm_moves_a >= btm_moves_b)
+        {
+            while (btm_moves_a-- > 0)
+            {
+                if (btm_moves_b-- > 0)
+                    rrr(stack_a, stack_b);
+                else
+                    rra(stack_a);
+            }
+        }
+        else
+        {
+            while (btm_moves_b-- > 0)
+            {
+                if (btm_moves_a-- > 0)
+                    rrr(stack_a, stack_b);
+                else
+                    rrb(stack_b);
+            }
+        }
+    }
+    else if (push_item.is_top_a && !push_item.is_top_b)
+    {
+        while (top_moves_a-- > 0)
+            ra(stack_a);
+        while (btm_moves_b-- > 0)
+            rrb(stack_b); 
+    }
+    else if (!push_item.is_top_a && push_item.is_top_b)
+    {
+        while (top_moves_b-- > 0)
+            rb(stack_b);
+        while (btm_moves_a-- > 0)
+            rra(stack_a); 
+    }
 }
 
 void test(t_stack **stack_a, t_stack **stack_b)
@@ -484,414 +643,41 @@ void test(t_stack **stack_a, t_stack **stack_b)
     b_max = -2147483648;
     while (a_count > 3)
     {
-        if (b_count > 2)
-        {
-            // find cheaper position for each element in A
-            // rotate for this position
-        }
-        push_b(*stack_a, *stack_b, &a_count, &b_count);
-        set_min_max(stack_b, b_min, b_max);
-    }
-    //sort back
-}
+        //printf("======================================\n");
+        //printf("a_count: %d, b_count: %d, b_min: %d, b_max: %d\n", a_count, b_count, b_min, b_max);
 
-void sort_stack(t_stack **stack_a, t_stack **stack_b, int r_c)
-{
-    int max = stack_max_n(*stack_a);
-    int min = stack_min_n(*stack_a);
-    int all_range =  stack_range(min, max);// todo not INT, UNSIGN INT OR LONG!!!!!
-    int range = all_range / r_c;
-
-    int count = 0;
-    int i = 0;
-    
-    int a_count = stack_count(*stack_a);
-    int b_count = stack_count(*stack_b);
-    // /printf("max: %d, min: %d, all_range: %d, range: %d, a_count: %d\n", max, min, all_range, range, a_count);
-
-    int b_min = 2147483647;
-    int b_max = -2147483648;
-
-    while (i < r_c)
-    {
-        printf("------ RANGE %d ------\n", i);
-        if (i == r_c - 1)
+        if (b_count > 1)
         {
-            count = count_n_in_range_in_stask(*stack_a, min + (range * i), max);
-            printf("count: %d, in range %d - %d\n", count, min + (range * i), max);
-        }
-        else
-        {
-            count = count_n_in_range_in_stask(*stack_a, min + (range * i), min + (range * (i + 1)));
-            printf("count: %d, in range %d - %d\n", count, min + (range * i), min + (range * (i + 1)));
-        }
-        if (count > 0)//todo удалить этот if else?
-        {
-            while (count > 0 && a_count > 3)
+            //printf("- b_count > 1 -\n");
+            int position = find_cheapest_position(*stack_a, *stack_b, a_count, b_count, b_min, b_max);
+            t_stack *push_item = item_in_stack_by_pos(*stack_a, position);
+            //printf("CHEAPEST POSITION: %d\n", position);
+            if(push_item)
             {
-                printf("------ numbers: %d ------\n", count);
-                
-                int top_pos;
-                int btm_pos;
-                if (i == r_c - 1)
-                {
-                    top_pos = unsort_stack_top_pos_between(*stack_a, min + (range * i), max);
-                    btm_pos = unsort_stack_btm_pos_between(*stack_a, min + (range * i), max, a_count);
-                }
-                else
-                {
-                    top_pos = unsort_stack_top_pos_between(*stack_a, min + (range * i), min + (range * (i + 1)));
-                    btm_pos = unsort_stack_btm_pos_between(*stack_a, min + (range * i), min + (range * (i + 1)), a_count);
-                }
-                printf("top moves: %d, btm moves: %d | top pos: %d, btm pos: %d | a_count: %d\n", top_pos, a_count - btm_pos, top_pos, btm_pos, a_count);
-
-                if (btm_pos == 0 || top_pos == -1)
-                {
-                    printf("numbers NOT FOUND\n");
-                    break;
-                }
-                else if (top_pos < a_count - btm_pos)
-                {
-                    printf("--- 1 ---\n");
-                    
-                    if (b_count > 1)
-                    {
-                        int push_num = num_in_stack_by_pos(*stack_a, top_pos);
-                        printf("- PUSH: %d\n", push_num);
-                        int pos_in_b = pos_for_n_in_sort_stack(*stack_b, push_num, b_min, b_max, b_count);
-                        printf("- pos_in_b: %d\n", pos_in_b);
-
-                        int in_a_top_moves = pos_in_b;
-                        int in_a_btm_moves = b_count - pos_in_b == b_count ? 0 : b_count - pos_in_b;
-                        
-                        printf("- IN B - top moves: %d, btm moves: %d\n", in_a_top_moves, in_a_btm_moves);
-
-                        if (in_a_top_moves <= top_pos || in_a_top_moves <= in_a_btm_moves || (in_a_top_moves - top_pos <= in_a_btm_moves))
-                        {
-                            if (top_pos >= in_a_top_moves)
-                            {
-                                while (top_pos-- > 0)
-                                {
-                                    if (in_a_top_moves-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        ra(stack_a);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                while (in_a_top_moves-- > 0)
-                                {
-                                    if (top_pos-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        rb(stack_b);
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            while (top_pos-- > 0)
-                            {
-                                ra(stack_a);
-                            }
-                            while (in_a_btm_moves > 0)
-                            {
-                                    rrb(stack_b);
-                                    in_a_btm_moves--;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        while (top_pos-- > 0)
-                        {
-                            ra(stack_a);
-                        }
-                    }
-                }
-                else if (top_pos == a_count - btm_pos)
-                {
-                    printf("--- 69 ---\n");
-                    if (b_count > 1)
-                    {
-                        int push_num = num_in_stack_by_pos(*stack_a, top_pos);
-                        printf("- PUSH: %d\n", push_num);
-                        int pos_in_b = pos_for_n_in_sort_stack(*stack_b, push_num, b_min, b_max, b_count);
-                        // printf("- pos_in_b: %d\n", pos_in_b);
-                        int in_b_top_moves = pos_in_b;
-                        int in_b_btm_moves = b_count - pos_in_b == b_count ? 0 : b_count - pos_in_b;
-                        printf("- IN B - top moves: %d, btm moves: %d\n", in_b_top_moves, in_b_btm_moves);
-
-                        if (in_b_top_moves < in_b_btm_moves)
-                        {
-                            if (top_pos >= in_b_top_moves)
-                            {
-                                while (top_pos-- > 0)
-                                {
-                                    if (in_b_top_moves-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        ra(stack_a);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                while (in_b_top_moves-- > 0)
-                                {
-                                    if (top_pos-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        rb(stack_b);
-                                    }
-                                }
-                            }
-                        }
-                        else if (in_b_top_moves == in_b_btm_moves)
-                        {
-                            if (top_pos >= in_b_top_moves)
-                            {
-                                while (top_pos-- > 0)
-                                {
-                                    if (in_b_top_moves-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        ra(stack_a);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                while (in_b_top_moves-- > 0)
-                                {
-                                    if (top_pos-- > 0)
-                                    {
-                                        rr(stack_a, stack_b);
-                                    }
-                                    else
-                                    {
-                                        rb(stack_b);
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (a_count - btm_pos >= in_b_btm_moves)
-                            {
-                                // //print_stack(*stack_b);
-                                while ((a_count - btm_pos) > 0)
-                                {
-
-                                    if (in_b_btm_moves > 0)
-                                    {
-                                        // printf("\na move count: %d | b move count: %d\n-- stack_b after rrr --\n", (a_count - btm_pos), in_b_btm_moves);
-                                        rrr(stack_a, stack_b);
-                                        btm_pos++;
-                                        in_b_btm_moves--;
-                                        // //print_stack(*stack_b);
-                                    }
-                                    else
-                                    {
-                                        // printf("\na move count: %d | b move count: %d\n", (a_count - btm_pos), in_b_btm_moves);
-                                        rra(stack_a);
-                                        btm_pos++;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                while (in_b_btm_moves > 0)
-                                {
-                                    if ((a_count - btm_pos) > 0)
-                                    {
-                                        rrr(stack_a, stack_b);
-                                        btm_pos++;
-                                        in_b_btm_moves--;
-                                    }
-                                    else
-                                    {
-                                        rrb(stack_b);
-                                        in_b_btm_moves--;
-                                    }
-                                }
-                            }
-                        }
-
-                            
-                    }
-                    
-                    else
-                    {
-                        while (top_pos-- > 0)
-                        {
-                            ra(stack_a);
-                        }
-                    }
-                }
-                else if (top_pos > a_count - btm_pos)
-                {
-                    printf("--- 2 ---\n");
-                    
-                    if (b_count > 1)
-                    {
-                        int push_num = num_in_stack_by_pos(*stack_a, btm_pos);
-                        printf("- PUSH: %d\n", push_num);
-                        int pos_in_b = pos_for_n_in_sort_stack(*stack_b, push_num, b_min, b_max, b_count);
-                       // printf("- pos_in_b: %d\n", pos_in_b);
-
-                        int in_b_top_moves = pos_in_b;
-                        int in_b_btm_moves = b_count - pos_in_b == b_count ? 0 : b_count - pos_in_b;
-                        
-                        printf("- IN B - top moves: %d, btm moves: %d\n", in_b_top_moves, in_b_btm_moves);
-
-                        if (in_b_btm_moves <= (a_count - btm_pos) || in_b_btm_moves <= in_b_top_moves || (in_b_btm_moves - (a_count - btm_pos) <= in_b_top_moves))
-                        {
-                            printf("- 1 -\n");
-                            if (a_count - btm_pos >= in_b_btm_moves)
-                            {
-                                printf("- 2 -\n");
-                                while ((a_count - btm_pos) > 0)
-                                {
-
-                                    if (in_b_btm_moves > 0)
-                                    {
-                                        printf("\na move count: %d | b move count: %d\n-- stack_b after rrr --\n", (a_count - btm_pos), in_b_btm_moves);
-                                        rrr(stack_a, stack_b);
-                                        btm_pos++;
-                                        in_b_btm_moves--;
-                                        ////print_stack(*stack_b);
-                                    }
-                                    else
-                                    {
-                                        printf("\na move count: %d | b move count: %d\n", (a_count - btm_pos), in_b_btm_moves);
-                                        rra(stack_a);
-                                        btm_pos++;
-                                    }
-                                    
-                                }
-                            }
-                            else
-                            {
-                                printf("- 3 -\n");
-                                while (in_b_btm_moves > 0)
-                                {
-                                    if ((a_count - btm_pos) > 0)
-                                    {
-                                        rrr(stack_a, stack_b);
-                                        btm_pos++;
-                                        in_b_btm_moves--;
-                                    }
-                                    else
-                                    {
-                                        rrb(stack_b);
-                                        in_b_btm_moves--;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            printf("- +4 -\n");
-                            while ((a_count - btm_pos) > 0)
-                            {
-                                rra(stack_a);
-                                btm_pos++;
-                            }
-                            while (in_b_top_moves-- > 0)
-                            {
-                                rb(stack_b);
-                            }
-
-                
-                        }
-                    }
-                    else
-                    {
-                        while ((a_count - btm_pos) > 0)
-                        {
-                            rra(stack_a);
-                            btm_pos++;
-                        }
-                    }
-
-                    printf("\n-- stack_b after all ratations --\n");
-                    ////print_stack(*stack_b);
-
-                    // if (b_count == 2)
-                    // {
-                    //     if ((*stack_b)->num < (*stack_b)->next->num)
-                    // }
-                    
-                }
-
-                pb(stack_a, stack_b);
-                a_count--;
-                b_count++;
-                if ((*stack_b)->num < b_min)
-                    b_min = (*stack_b)->num;
-                if ((*stack_b)->num > b_max)
-                    b_max = (*stack_b)->num;
-                count--;
-
-                // if (a_count > 3)
-                // {
-                //     if ((*stack_a)->num > (*stack_a)->next->num)
-                //         sa(*stack_a);
-
-                //     // else if ((*stack_a)->num > (*stack_a)->next->num)
-                //     //     sb(*stack_b);
-                // }
-
-                printf("\n-- stack_a after --\n");
-                print_stack(*stack_a);
-                printf("\n-- stack_b after --\n");
-                print_stack(*stack_b);
-               // printf("stack b: min: %d, max: %d\n", b_min, b_max);
-                printf("===================================\n");
+                rotate_stacks(*push_item, position, stack_a, stack_b, a_count, b_count, b_min, b_max);
+                //printf("--- stack_a after ROTATE ---\n");
+	            //print_stack(*stack_a);
+	            //printf("--- stack_b after ROTATE ---\n");
+	            //print_stack(*stack_b);
             }
         }
-        else// todo удалить этот if else?
-        {
-            printf("-NO numbers in range\n");            
-        }
-        i++;
+        push_b(stack_a, stack_b, &a_count, &b_count);
+        set_min_max(*stack_b, &b_min, &b_max);
+        //printf("--- stack_a after PUSH ---\n");
+        //print_stack(*stack_a);
+	    //printf("--- stack_b after PUSH ---\n");
+	    //print_stack(*stack_b);
     }
-
-    
-    printf("\n-- stack_a after range sort --\n");
-    print_stack(*stack_a);
-    printf("\n-- stack_b after range sort --\n");
-    print_stack(*stack_b);
-
     sort_back(stack_a, stack_b);
 }
 
 void sort_back(t_stack **stack_a, t_stack **stack_b)
 {
-    printf("\n----- SORT BACK -----\n");
+    ////printf("\n----- SORT BACK -----\n");
     sort_3(stack_a, 'a');
 
-   printf("\n-- stack_a after SORT 3 --\n");
-   print_stack(*stack_a);
+   // //printf("\n-- stack_a after SORT 3 --\n");
+   // //print_stack(*stack_a);
 
     int min_a = stack_min_n(*stack_a);
     int max_a = stack_max_n(*stack_a);
@@ -900,15 +686,15 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
 
     while (*stack_b)
     {
-       // printf("--- for NUM %d ---\n", (*stack_b)->num);
+       // //printf("--- for NUM %d ---\n", (*stack_b)->num);
         if ((*stack_b)->num < min_a || (*stack_b)->num > max_a)
         {
-            printf("--- 1 ---\n");
+            ////printf("--- 1 ---\n");
             int position = stack_n_pos(*stack_a, min_a); //+
-         //   printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+         //   //printf("position: %d, counter / 2: %d\n", position, a_count / 2);
             if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
             {
-               // printf("--- + ! 1.1.1 ---\n");
+               // //printf("--- + ! 1.1.1 ---\n");
                 int i = 0;
                 while (i < position)
                 {
@@ -918,7 +704,7 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
             }
             else
             {
-            //    printf("--- ! 1.1.2 ---\n");
+            //    //printf("--- ! 1.1.2 ---\n");
                 int i = 0;
                 while (i < a_count - position)
                 {
@@ -929,24 +715,24 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
         }
         else
         {
-            printf("--- 2 ---\n");
+            ////printf("--- 2 ---\n");
             if ((*stack_b)->num < (*stack_a)->num)
             {
-               // printf("--- 2.1 ---\n");
+               // //printf("--- 2.1 ---\n");
 
                 t_stack *last = stack_last(*stack_a);
                 if (last)
                 {
                     if (last->num > (*stack_b)->num)
                     {
-                        printf("--- 2.1.1 ---\n");
+                        ////printf("--- 2.1.1 ---\n");
                         int position = sort_stack_btm_greater_n_pos(*stack_a, (*stack_b)->num, a_count); // TODO ПРОВЕРИТЬ С sort_stack_btm_greater_n_pos222
 
-                        // printf("position: %d, count: %d, counter / 2: %d\n", position, a_count, a_count / 2);
+                        // //printf("position: %d, count: %d, counter / 2: %d\n", position, a_count, a_count / 2);
 
                         if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
                         {
-                           // printf("--- + 2.1.1.11 ---\n");
+                           // //printf("--- + 2.1.1.11 ---\n");
                             int i = 0;
                             while (i < position)
                             {
@@ -956,7 +742,7 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
                         }
                         else
                         {
-                           // printf("--- + 2.1.1.22 ---\n");
+                           // //printf("--- + 2.1.1.22 ---\n");
                             int i = 0;
                             while (i < a_count - position)
                             {
@@ -967,17 +753,17 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
                     }
                     else
                     {
-                       // printf("--- ! 2.1.2 no move needed ---\n");
+                       // //printf("--- ! 2.1.2 no move needed ---\n");
                     }
                 }
             }
             else
             {
                 int position = sort_stack_top_greater_n_pos(*stack_a, (*stack_b)->num);
-                printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+                ////printf("position: %d, counter / 2: %d\n", position, a_count / 2);
                 if (position < a_count / 2 || (a_count % 2 != 0 && a_count / 2 == position))
                 {
-                    printf("--- ! 2.2.1 ---\n");
+                    ////printf("--- ! 2.2.1 ---\n");
                     int i = 0;
                     while (i < position)
                     {
@@ -992,7 +778,7 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
                     {
                         if (stack_a_last->num < (*stack_b)->num)
                         {
-                        //    printf("--- ! 2.2.2.1 ---\n");
+                        //    //printf("--- ! 2.2.2.1 ---\n");
                             int s = a_count - position;
                             int i = 0;
                             while (i < s)
@@ -1003,7 +789,7 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
                         }
                         else
                         {
-                           // printf("--- + 2.2.2.2 ---\n");
+                           // //printf("--- + 2.2.2.2 ---\n");
                             int s = a_count - position;
                             int i = 0;
                             while (i < s)
@@ -1029,17 +815,17 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
             max_a = (*stack_a)->num;
         }
 
-        printf("\n-- stack_a after sort --\n");
+        ////printf("\n-- stack_a after sort --\n");
         ////print_stack(*stack_a);
-        // printf("\n-- stack_b after sort --\n");
-        // //print_stack(*stack_b);
+        //printf("\n-- stack_b after sort --\n");
+        //print_stack(*stack_b);
     }
 
-    printf("--- 0000 last ---\n");
+    ////printf("--- 0000 last ---\n");
 
     //TODO!!!!! doublicate
     int position = stack_n_pos(*stack_a, min_a); //+
-    printf("position: %d, counter / 2: %d\n", position, a_count / 2);
+    ////printf("position: %d, counter / 2: %d\n", position, a_count / 2);
     if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
     {
         int i = 0;
@@ -1063,34 +849,34 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
 int pos_for_n_in_sort_stack(t_stack *stack, int num, int min, int max, int count)
 {
     int position = 0;
-    printf("-- position for %d in sort_stack --\n", num);
-    printf("stack: min: %d, max: %d | count: %d\n", min, max, count);
+    ////printf("-- position for %d in sort_stack --\n", num);
+    ////printf("stack: min: %d, max: %d | count: %d\n", min, max, count);
 
     if (num < min || num > max)
     {
-        printf("--- 1 ---\n");
+        ////printf("--- 1 ---\n");
         position = stack_n_pos(stack, max);
     }
     else
     {
         if (num < stack->num)
         {
-            printf("--- 2 ---\n");
-            printf("000000\n");
+            ////printf("--- 2 ---\n");
+            //printf("000000\n");
 
             t_stack *l = stack_last(stack);
             if (l)
             {
                 if (num > l->num)
                 {
-                    printf("1\n");
+                    //printf("1\n");
 
                     
                     position = sort_stack_top_less_n_pos(stack, num);
                 }
                 else
                 {
-                    printf("+2\n");
+                    //printf("+2\n");
                     position = sort_stack_top_less_n_pos(stack, num);
                 }
             }
@@ -1114,28 +900,28 @@ int pos_for_n_in_sort_stack(t_stack *stack, int num, int min, int max, int count
         }
         else
         {
-            printf("--- 222222222 ---\n");
+            //printf("--- 222222222 ---\n");
 
                 t_stack *l = stack_last(stack);
                 if (l)
                 {
                     if (num > l->num )
                     {
-                        printf("+ 1\n");
+                        //printf("+ 1\n");
 
                         position = sort_stack_btm_less_n_pos333(stack, num, count);
                     }
                     else
                     {
-                        printf("2\n");
+                        //printf("2\n");
 
                         if (num < l->num && num < l->num)
                         {
-                            printf("3\n");
+                            //printf("3\n");
                             return 0;
                         }
                         else {
-                            printf("4\n");
+                            //printf("4\n");
                             position = sort_stack_btm_greater_n_pos333(stack, num, count);
                         }
                         
@@ -1151,16 +937,13 @@ void sort(t_stack **stack_a, t_stack **stack_b)
     int a_count;
 
     a_count = stack_count(*stack_a);
-
     if (a_count == 1)
         return ;
     else if (a_count == 2)
         sort_2(stack_a);
     else if (a_count == 3)
         sort_3(stack_a, 'a');
-    else if (a_count > 3 && a_count <= 100)
-        sort_stack(stack_a, stack_b, 5);
-    else if (a_count > 100)
-        sort_stack(stack_a, stack_b, 11);
+    else
+        test(stack_a, stack_b);
     return ;
 }
