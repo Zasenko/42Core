@@ -33,10 +33,6 @@ int main(int argc, char **argv)
 
 	sort(&stack_a, &stack_b);
 
-	// printf("========== stack_a ==========\n");
-	// print_stack(stack_a);
-	// printf("======== stack_b ========\n");
-	// print_stack(stack_b);
 	// printf("--- COUNTER: %d ---\n", counter);
 
 	free_stack(&stack_b);
@@ -62,5 +58,6 @@ void print_stack(t_stack *stack)
 int return_error(void)
 {
 	printf("Error\n"); /// TODO ft_printf !!!!!
+	//write(1, "Error\n", 6);
 	return (-1);
 }
