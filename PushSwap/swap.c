@@ -15,12 +15,8 @@
 static void	swap(t_stack *stack)
 {
 	int	temp;
-	int	c;
 
-	if (!stack)
-		return ;
-	c = stack_count(stack);
-	if (c < 2)
+	if (!stack || stack_count(stack) < 2)
 		return ;
 	temp = stack->num;
 	stack->num = stack->next->num;

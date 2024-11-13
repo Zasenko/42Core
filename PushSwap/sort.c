@@ -13,23 +13,6 @@
 #include "push_swap.h"
 
 //+
-int stack_max_n(t_stack *stack)
-{
-    t_stack *tmp;
-    int max;
-
-    tmp = stack;
-    max = -2147483648;
-    while (tmp)
-    {
-        if (tmp->num > max)
-            max = tmp->num;
-        tmp = tmp->next;
-    }
-    return max;
-}
-
-//+
 int stack_min_n(t_stack *stack)
 {
     t_stack *tmp;
@@ -65,24 +48,6 @@ int num_position(t_stack *stack, int num)
 }
 
 //+
-int sort_stack_top_greater_n_pos(t_stack *stack, int num)
-{
-    t_stack *tmp;
-    int i;
-
-    tmp = stack;
-    i = 0;
-    if (!tmp)
-        return (-1);
-    while (tmp && num > tmp->num)
-    {
-        tmp = tmp->next;
-        i++;
-    }
-    return i;
-}
-
-//+
 int sort_stack_top_less_n_pos(t_stack *stack, int num)
 {
     t_stack *tmp;
@@ -98,43 +63,6 @@ int sort_stack_top_less_n_pos(t_stack *stack, int num)
         i++;
     }
     return i;
-}
-
-//+
-int sort_stack_btm_greater_n_pos(t_stack *stack, int num, int len)
-{
-    t_stack *last;
-    
-    last = stack_last(stack);
-    if (!last)
-        return (-1);
-    while (len && last->num > num)
-    {
-        len--;
-        last = stack_last_n(stack, len - 1);
-    }
-    return (len);
-}
-
-//+
-int sort_stack_btm_greater_n_pos222(t_stack *stack, int num, int len)
-{
-    t_stack *last;
-    
-    last = stack_last(stack);
-    if (!last)
-        return (-1);
-    if (last->num < num)
-    {
-        while (len && last->num > num)
-        {
-            len--;
-            last = stack_last_n(stack, len - 1);
-        }
-    }
-    else
-        return (len - 1);
-    return (len);
 }
 
 //+
@@ -175,7 +103,6 @@ int sort_stack_btm_less_n_pos333(t_stack *stack, int num, int len)
     return (len);
 }
 
-//+
 void sort_3(t_stack **stack)
 {
     int n1;
@@ -205,15 +132,14 @@ void sort_3(t_stack **stack)
     }
 }
 
-//+
 void sort_2(t_stack **stack_a)
 {
     if(!stack_a || stack_count(*stack_a) != 2)
+        return;
     if ((*stack_a)->num > (*stack_a)->next->num)
         sa(*stack_a);
 }
 
-//+
 void set_min_max(t_stack *stack, int *min, int *max)
 {
     if (!stack || !min || !max)
@@ -224,14 +150,13 @@ void set_min_max(t_stack *stack, int *min, int *max)
         *max = stack->num;
 }
 
-//+
-void push_b(t_stack **stack_a, t_stack **stack_b, int *a_count, int *b_count)
+void push_b(t_stack **stack_a, t_stack **stack_b, t_prop *prop)
 {
-    if (!stack_a || !stack_b || !a_count || !b_count)
+    if (!stack_a || !stack_b || !prop)
         return;
     pb(stack_a, stack_b);
-    *a_count -= 1;
-    *b_count += 1;
+    prop->a_count -= 1;
+    prop->b_count += 1;
 }
 
 int pos_for_n_in_stack_b(t_stack *stack, int num, t_prop prop)
@@ -333,6 +258,25 @@ t_stack *item_in_stack_by_pos(t_stack *stack, int pos)
     return tmp;
 }
 
+void rotate_stack_b_to_max(t_stack **stack_b, t_prop prop)
+{
+    int i;
+    int position;
+
+    i = 0;
+    position = num_position(*stack_b, prop.b_max);
+    if (position < prop.b_count / 2 || (prop.b_count % 2 != 0 && (prop.b_count / 2) == position))
+    {
+        while (i++ < position)
+            rb(stack_b);
+    }
+    else
+    {
+        while (i++ < prop.b_count - position)
+            rrb(stack_b);
+    }
+}
+
 void rotate_stack_a_to_min(t_stack **stack_a, t_prop prop)
 {
     int i;
@@ -352,167 +296,44 @@ void rotate_stack_a_to_min(t_stack **stack_a, t_prop prop)
     }
 }
 
-void rotate_stack_a_for_num(t_stack **stack_a, int num, t_prop prop)
-{
-
-    if (num < (*stack_a)->num)
-    {
-        t_stack *last = stack_last(*stack_a);
-        if (last)
-        {
-            if (last->num > num)
-            {
-                int position = sort_stack_btm_greater_n_pos(*stack_a, num, prop.a_count);
-                if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && (prop.a_count / 2) == position))
-                {
-                    int i = 0;
-                    while (i < position)
-                    {
-                        ra(stack_a);
-                        i++;
-                    }
-                }
-                else
-                {
-                    int i = 0;
-                    while (i < prop.a_count - position)
-                    {
-                        rra(stack_a);
-                        i++;
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        int position = sort_stack_top_greater_n_pos(*stack_a, num);
-        if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && prop.a_count / 2 == position))
-        {
-            int i = 0;
-            while (i < position)
-            {
-                ra(stack_a);
-                i++;
-            }
-        }
-        else
-        {
-            t_stack *stack_a_last = stack_last(*stack_a);
-            if (stack_a_last)
-            {
-                if (stack_a_last->num < num)
-                {
-                    int s = prop.a_count - position;
-                    int i = 0;
-                    while (i < s)
-                    {
-                        rra(stack_a);
-                        i++;
-                    }
-                }
-                else
-                {
-                    int s = prop.a_count - position;
-                    int i = 0;
-                    while (i < s)
-                    {
-                        rra(stack_a);
-                        i++;
-                    }
-                }
-            }
-        }
-    }
-}
-
 void sort_back(t_stack **stack_a, t_stack **stack_b, t_prop prop)
 {
-    sort_3(stack_a);
-    prop.min_a = stack_min_n(*stack_a);
-    prop.max_a = stack_max_n(*stack_a);
+    int count_3;
+    t_stack *last;
 
-    while (*stack_b)
+    count_3 = 0;
+    rotate_stack_b_to_max(stack_b, prop);
+    sort_3(stack_a);
+    last = NULL;
+
+    while (prop.b_count > 0)
     {
-        if ((*stack_b)->num < prop.min_a || (*stack_b)->num > prop.max_a)
-            rotate_stack_a_to_min(stack_a, prop);
+        last = stack_last(*stack_a);
+        if (last && last->num > (*stack_b)->num && count_3 < 3)
+        {
+            rra(stack_a);
+            count_3++;
+        }
         else
         {
-            if ((*stack_b)->num < (*stack_a)->num)
-            {
-                t_stack *last = stack_last(*stack_a);
-                if (last)
-                {
-                    if (last->num > (*stack_b)->num)
-                    {
-                        int position = sort_stack_btm_greater_n_pos(*stack_a, (*stack_b)->num, a_count);
-                        if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
-                        {
-                            int i = 0;
-                            while (i < position)
-                            {
-                                ra(stack_a);
-                                i++;
-                            }
-                        }
-                        else
-                        {
-                            int i = 0;
-                            while (i < a_count - position)
-                            {
-                                rra(stack_a);
-                                i++;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                int position = sort_stack_top_greater_n_pos(*stack_a, (*stack_b)->num);
-                if (position < a_count / 2 || (a_count % 2 != 0 && a_count / 2 == position))
-                {
-                    int i = 0;
-                    while (i < position)
-                    {
-                        ra(stack_a);
-                        i++;
-                    }
-                }
-                else
-                {
-                    t_stack *stack_a_last = stack_last(*stack_a);
-                    if (stack_a_last)
-                    {
-                        if (stack_a_last->num < (*stack_b)->num)
-                        {
-                            int s = a_count - position;
-                            int i = 0;
-                            while (i < s)
-                            {
-                                rra(stack_a);
-                                i++;
-                            }
-                        }
-                        else
-                        {
-                            int s = a_count - position;
-                            int i = 0;
-                            while (i < s)
-                            {
-                                rra(stack_a);
-                                i++;
-                            }
-                        }
-                    }
-                }
-            }
+            pa(stack_a, stack_b);
+            prop.b_count--;
+            prop.a_count++;
         }
-        pa(stack_a, stack_b);
-        prop.a_count++;
-        set_min_max(*stack_a, &prop.min_a, &prop.max_a);
     }
     rotate_stack_a_to_min(stack_a, prop);
+}
+
+void set_properties(t_stack *stack_a, t_prop *prop)
+{
+    if (stack_a && prop)
+    {
+        prop->a_count = stack_count(stack_a);
+        prop->b_count = 0;
+        prop->b_min = 2147483647;
+        prop->b_max = -2147483648;
+        prop->min_a = stack_min_n(stack_a);
+    }
 }
 
 void sort_alg(t_stack **stack_a, t_stack **stack_b)
@@ -520,13 +341,8 @@ void sort_alg(t_stack **stack_a, t_stack **stack_b)
     int position;
     t_stack *push_item;
     t_prop prop;
-    
-    //todo func - set properties?
-    prop.a_count = stack_count(*stack_a);
-    prop.b_count = 0;
-    prop.b_min = 2147483647;
-    prop.b_max = -2147483648;
 
+    set_properties(*stack_a, &prop);
     while (prop.a_count > 3)
     {
         if (prop.b_count > 1)
@@ -536,13 +352,12 @@ void sort_alg(t_stack **stack_a, t_stack **stack_b)
             if(push_item)
                 rotate_stacks(*push_item, stack_a, stack_b, prop);
         }
-        push_b(stack_a, stack_b, &prop.a_count, &prop.b_count);
+        push_b(stack_a, stack_b, &prop);
         set_min_max(*stack_b, &prop.b_min, &prop.b_max);
     }
-    sort_back(stack_a, stack_b);
+    sort_back(stack_a, stack_b, prop);
 }
 
-//+
 void sort(t_stack **stack_a, t_stack **stack_b)
 {
     int a_count;

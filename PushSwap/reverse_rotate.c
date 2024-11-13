@@ -31,7 +31,6 @@ static void reverse_rotate(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return;
-
 	second_last = *stack;
 	while (second_last->next && second_last->next->next)
 		second_last = second_last->next;

@@ -14,14 +14,10 @@
 
 static void	rotate(t_stack **stack)
 {
-	int		count;
 	t_stack	*last;
 	t_stack	*temp;
 
-	if (!stack || !*stack)
-		return ;
-	count = stack_count(*stack);
-	if (count < 2)
+	if (!stack || stack_count(*stack) < 2)
 		return ;
 	last = stack_last(*stack);
 	if (!last)
