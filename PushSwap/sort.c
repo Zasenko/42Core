@@ -47,7 +47,7 @@ int stack_min_n(t_stack *stack)
 }
 
 //+
-int stack_n_pos(t_stack *stack, int num)
+int num_position(t_stack *stack, int num)
 {
     t_stack *tmp;
     int i;
@@ -234,11 +234,11 @@ void push_b(t_stack **stack_a, t_stack **stack_b, int *a_count, int *b_count)
     *b_count += 1;
 }
 
-int pos_for_n_in_sort_stack(t_stack *stack, int num, t_prop prop)
+int pos_for_n_in_stack_b(t_stack *stack, int num, t_prop prop)
 {
     int position = 0;
     if (num < prop.b_min || num > prop.b_max)
-        position = stack_n_pos(stack, prop.b_max);
+        position = num_position(stack, prop.b_max);
     else
     {
         if (num < stack->num)
@@ -281,7 +281,7 @@ void set_cheapest_position(t_stack *stack_a, t_stack *stack_b, t_prop prop)
         moves.btm_moves_a = prop.a_count - moves.top_moves_a;
         if (moves.btm_moves_a == prop.a_count)
             moves.btm_moves_a = 0;
-        moves.top_moves_b = pos_for_n_in_sort_stack(stack_b, temp->num, prop);
+        moves.top_moves_b = pos_for_n_in_stack_b(stack_b, temp->num, prop);
         moves.btm_moves_b = prop.b_count - moves.top_moves_b;
         if (moves.btm_moves_b == prop.b_count)
             moves.btm_moves_b = 0;
@@ -333,40 +333,109 @@ t_stack *item_in_stack_by_pos(t_stack *stack, int pos)
     return tmp;
 }
 
-
-
-void sort_back(t_stack **stack_a, t_stack **stack_b)
+void rotate_stack_a_to_min(t_stack **stack_a, t_prop prop)
 {
-    sort_3(stack_a);
+    int i;
+    int position;
 
-    int min_a = stack_min_n(*stack_a);
-    int max_a = stack_max_n(*stack_a);
-    int a_count = stack_count(*stack_a);
-
-    while (*stack_b)
+    i = 0;
+    position = num_position(*stack_a, prop.min_a);
+    if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && (prop.a_count / 2) == position))
     {
-        if ((*stack_b)->num < min_a || (*stack_b)->num > max_a)
+        while (i++ < position)
+            ra(stack_a);
+    }
+    else
+    {
+        while (i++ < prop.a_count - position)
+            rra(stack_a);
+    }
+}
+
+void rotate_stack_a_for_num(t_stack **stack_a, int num, t_prop prop)
+{
+
+    if (num < (*stack_a)->num)
+    {
+        t_stack *last = stack_last(*stack_a);
+        if (last)
         {
-            int position = stack_n_pos(*stack_a, min_a);
-            if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
+            if (last->num > num)
             {
-                int i = 0;
-                while (i < position)
+                int position = sort_stack_btm_greater_n_pos(*stack_a, num, prop.a_count);
+                if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && (prop.a_count / 2) == position))
                 {
-                    ra(stack_a);
-                    i++;
+                    int i = 0;
+                    while (i < position)
+                    {
+                        ra(stack_a);
+                        i++;
+                    }
                 }
-            }
-            else
-            {
-                int i = 0;
-                while (i < a_count - position)
+                else
                 {
-                    rra(stack_a);
-                    i++;
+                    int i = 0;
+                    while (i < prop.a_count - position)
+                    {
+                        rra(stack_a);
+                        i++;
+                    }
                 }
             }
         }
+    }
+    else
+    {
+        int position = sort_stack_top_greater_n_pos(*stack_a, num);
+        if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && prop.a_count / 2 == position))
+        {
+            int i = 0;
+            while (i < position)
+            {
+                ra(stack_a);
+                i++;
+            }
+        }
+        else
+        {
+            t_stack *stack_a_last = stack_last(*stack_a);
+            if (stack_a_last)
+            {
+                if (stack_a_last->num < num)
+                {
+                    int s = prop.a_count - position;
+                    int i = 0;
+                    while (i < s)
+                    {
+                        rra(stack_a);
+                        i++;
+                    }
+                }
+                else
+                {
+                    int s = prop.a_count - position;
+                    int i = 0;
+                    while (i < s)
+                    {
+                        rra(stack_a);
+                        i++;
+                    }
+                }
+            }
+        }
+    }
+}
+
+void sort_back(t_stack **stack_a, t_stack **stack_b, t_prop prop)
+{
+    sort_3(stack_a);
+    prop.min_a = stack_min_n(*stack_a);
+    prop.max_a = stack_max_n(*stack_a);
+
+    while (*stack_b)
+    {
+        if ((*stack_b)->num < prop.min_a || (*stack_b)->num > prop.max_a)
+            rotate_stack_a_to_min(stack_a, prop);
         else
         {
             if ((*stack_b)->num < (*stack_a)->num)
@@ -440,31 +509,10 @@ void sort_back(t_stack **stack_a, t_stack **stack_b)
             }
         }
         pa(stack_a, stack_b);
-        a_count++;
-        set_min_max(*stack_a, &min_a, &max_a);
+        prop.a_count++;
+        set_min_max(*stack_a, &prop.min_a, &prop.max_a);
     }
-
-    ////printf("--- 0000 last ---\n");
-    //TODO!!!!! doublicate
-    int position = stack_n_pos(*stack_a, min_a);
-    if (position < a_count / 2 || (a_count % 2 != 0 && (a_count / 2) == position))
-    {
-        int i = 0;
-        while (i < position)
-        {
-            ra(stack_a);
-            i++;
-        }
-    }
-    else
-    {
-        int i = 0;
-        while (i < a_count - position)
-        {
-            rra(stack_a);
-            i++;
-        }
-    }
+    rotate_stack_a_to_min(stack_a, prop);
 }
 
 void sort_alg(t_stack **stack_a, t_stack **stack_b)

@@ -68,7 +68,7 @@ t_stack	*arr_int_to_stack(int **arr);
 int	check_int_arr(int **arr);
 t_stack	*create_stacks(int argc, char **argv);
 
-int pos_for_n_in_sort_stack(t_stack *stack, int num, t_prop prop);
+int pos_for_n_in_stack_b(t_stack *stack, int num, t_prop prop);
 void rotate_stacks(t_stack push_item, t_stack **stack_a, t_stack **stack_b, t_prop prop);
 void find_minimum_moves(t_stack *temp, t_moves moves);
 

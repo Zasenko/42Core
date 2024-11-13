@@ -76,7 +76,7 @@ void rotate_stacks(t_stack push_item, t_stack **stack_a, t_stack **stack_b, t_pr
     if (btm_moves_a == prop.a_count)
             btm_moves_a = 0;
 
-    top_moves_b = pos_for_n_in_sort_stack(*stack_b, push_item.num, prop);
+    top_moves_b = pos_for_n_in_stack_b(*stack_b, push_item.num, prop);
     btm_moves_b = prop.b_count - top_moves_b;
     if (btm_moves_b == prop.b_count)
         btm_moves_b = 0;
