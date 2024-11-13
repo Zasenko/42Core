@@ -12,9 +12,6 @@
 
 #include "push_swap.h"
 
-//TODO: Delete counter + printf
-extern int counter;
-
 static void	swap(t_stack *stack)
 {
 	int	temp;
@@ -35,14 +32,12 @@ void	sa(t_stack *stack_a)
 {
 	printf("sa\n");
 	swap(stack_a);
-	counter++;
 }
 
 void	sb(t_stack *stack_b)
 {
 	printf("sb\n");
 	swap(stack_b);
-	counter++;
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
@@ -50,5 +45,4 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	printf("ss\n");
 	swap(stack_a);
 	swap(stack_b);
-	counter++;
 }

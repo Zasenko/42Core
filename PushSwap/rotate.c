@@ -12,9 +12,6 @@
 
 #include "push_swap.h"
 
-//TODO: Delete counter + printf
-extern int counter;
-
 static void	rotate(t_stack **stack)
 {
 	int		count;
@@ -37,25 +34,19 @@ static void	rotate(t_stack **stack)
 
 void	ra(t_stack **stack_a)
 {
-	//printf("ra | ");
 	printf("ra\n");
 	rotate(stack_a);
-	counter++;
 }
 
 void	rb(t_stack **stack_b)
 {
-	//printf("rb | ");
 	printf("rb\n");
 	rotate(stack_b);
-	counter++;
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	//printf("rr | ");
 	printf("rr\n");
 	rotate(stack_a);
 	rotate(stack_b);
-	counter++;
 }

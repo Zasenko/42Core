@@ -25,14 +25,12 @@ int main(int argc, char **argv)
 	stack_a = create_stacks(argc, argv);
 	if (!stack_a)
 		return (return_error());
-	
+	sort(&stack_a, &stack_b);
+
 	// printf("========== stack_a ==========\n");
 	// print_stack(stack_a);
 	// printf("======== stack_b ========\n");
 	// print_stack(stack_b);
-
-	sort(&stack_a, &stack_b);
-
 	// printf("--- COUNTER: %d ---\n", counter);
 
 	free_stack(&stack_b);
@@ -49,7 +47,7 @@ void print_stack(t_stack *stack)
 	temp = stack;
 	while (temp != NULL)
 	{
-		printf("%d: %d | moves: %d, a_top: %d, b_top: %d\n", i, temp->num, temp->moves, temp->is_top_a, temp->is_top_b);
+		printf("%d: %d\n", i, temp->num);
 		temp = temp->next;
 		i++;
 	}
@@ -58,6 +56,5 @@ void print_stack(t_stack *stack)
 int return_error(void)
 {
 	printf("Error\n"); /// TODO ft_printf !!!!!
-	//write(1, "Error\n", 6);
 	return (-1);
 }

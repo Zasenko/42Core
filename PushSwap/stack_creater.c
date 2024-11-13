@@ -183,7 +183,7 @@ int **arr_str_to_arr_int(char **arr_str)
 	if (!arr_i)
 		return (NULL);
 	i = 0;
-	while (i <= count)
+	while ( i <= count)
 		arr_i[i++] = NULL;
 	i = 0;
 	while (arr_str[i] != NULL)
