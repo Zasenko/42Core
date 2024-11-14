@@ -21,6 +21,8 @@ int main(int argc, char **argv)
 	t_stack *stack_a;
 	t_stack *stack_b;
 
+	if (argc < 2)
+		return (0);
 	stack_b = NULL;
 	stack_a = create_stacks(argc, argv);
 	if (!stack_a)

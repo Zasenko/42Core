@@ -66,8 +66,10 @@ char *args_to_str(char **argv)
 	char *new_str;
 	int i;
 
+	if (!argv || !argv[1])
+		return (NULL);
 	str = (char *)malloc(sizeof(char));
-	if (!str || !argv || !*argv)
+	if (!str)
 		return (NULL);
 	str[0] = '\0';
 	i = 1;
@@ -312,7 +314,7 @@ t_stack *create_stacks(int argc, char **argv)
 	int **arr_i;
 	t_stack *stack;
 
-	if (argc < 2)
+	if (argc < 2 || !argv)
 		return (NULL);
 	str = args_to_str(argv);
 	if (!str)

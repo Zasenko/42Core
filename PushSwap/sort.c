@@ -12,7 +12,23 @@
 
 #include "push_swap.h"
 
-//+
+int is_stack_sorted(t_stack *stack)
+{
+    t_stack *tmp;
+
+    tmp = stack;
+    if (!tmp)
+        return -1;
+    while (tmp && tmp->next)
+    {
+        if (tmp->num < tmp->next->num)
+            tmp = tmp->next;
+        else
+            return 0;
+    }
+    return 1;
+}
+
 int stack_min_n(t_stack *stack)
 {
     t_stack *tmp;
@@ -29,7 +45,6 @@ int stack_min_n(t_stack *stack)
     return min;
 }
 
-//+
 int num_position(t_stack *stack, int num)
 {
     t_stack *tmp;
@@ -47,7 +62,6 @@ int num_position(t_stack *stack, int num)
     return i;
 }
 
-//+
 int sort_stack_top_less_n_pos(t_stack *stack, int num)
 {
     t_stack *tmp;
@@ -65,7 +79,6 @@ int sort_stack_top_less_n_pos(t_stack *stack, int num)
     return i;
 }
 
-//+
 int sort_stack_btm_greater_n_pos333(t_stack *stack, int num, int len)
 {
     t_stack *last;
@@ -84,7 +97,6 @@ int sort_stack_btm_greater_n_pos333(t_stack *stack, int num, int len)
     return (len);
 }
 
-//+
 int sort_stack_btm_less_n_pos333(t_stack *stack, int num, int len)
 {
     t_stack *last;
@@ -158,6 +170,11 @@ void push_b(t_stack **stack_a, t_stack **stack_b, t_prop *prop)
     prop->a_count -= 1;
     prop->b_count += 1;
 }
+
+// int test()
+// {
+
+// }
 
 int pos_for_n_in_stack_b(t_stack *stack, int num, t_prop prop)
 {
@@ -283,7 +300,7 @@ void rotate_stack_a_to_min(t_stack **stack_a, t_prop prop)
     int position;
 
     i = 0;
-    position = num_position(*stack_a, prop.min_a);
+    position = num_position(*stack_a, prop.min);
     if (position < prop.a_count / 2 || (prop.a_count % 2 != 0 && (prop.a_count / 2) == position))
     {
         while (i++ < position)
@@ -332,7 +349,7 @@ void set_properties(t_stack *stack_a, t_prop *prop)
         prop->b_count = 0;
         prop->b_min = 2147483647;
         prop->b_max = -2147483648;
-        prop->min_a = stack_min_n(stack_a);
+        prop->min = stack_min_n(stack_a);
     }
 }
 
@@ -363,8 +380,8 @@ void sort(t_stack **stack_a, t_stack **stack_b)
     int a_count;
 
     a_count = stack_count(*stack_a);
-    if (a_count == 1)
-        return ;
+    if (a_count == 1 || is_stack_sorted(*stack_a))
+        return;
     else if (a_count == 2)
         sort_2(stack_a);
     else if (a_count == 3)

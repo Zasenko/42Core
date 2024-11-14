@@ -32,8 +32,7 @@ typedef struct s_prop
 {
 	int a_count;
 	int b_count;
-	int min_a;
-	int max_a;
+	int min;
 	int b_min;
 	int b_max;
 } t_prop;
