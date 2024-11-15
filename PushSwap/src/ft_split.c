@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzasenko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 13:57:59 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/10/25 13:58:01 by dzasenko         ###   ########.fr       */
+/*   Created: 2024/11/14 11:37:47 by dzasenko          #+#    #+#             */
+/*   Updated: 2024/11/14 11:38:02 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	ft_words_count(char const *s, char c)
 {
-	int	count;
+	int	l;
 	int	f;
 
-	count = 0;
+	l = 0;
 	f = 1;
 	while (*s)
 	{
@@ -27,19 +27,19 @@ static int	ft_words_count(char const *s, char c)
 		{
 			if (f == 1)
 			{
-				count++;
+				l++;
 				f = 0;
 			}
 		}
 		s++;
 	}
-	return (count);
+	return (l);
 }
 
 static char	*ft_malloc_word(char const *s, char c)
 {
-	char	*word;
 	int		i;
+	char	*word;
 	int		count;
 
 	i = 0;
@@ -101,9 +101,9 @@ static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
 
 char	**ft_split(char const *s, char c)
 {
+	int		i;
 	char	**arr;
 	int		w_count;
-	int i;
 
 	if (!s)
 		return (NULL);

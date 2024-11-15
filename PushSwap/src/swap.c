@@ -26,19 +26,19 @@ static void	swap(t_stack *stack)
 
 void	sa(t_stack *stack_a)
 {
-	printf("sa\n");
+	write(1, "sa\n", 3);
 	swap(stack_a);
 }
 
 void	sb(t_stack *stack_b)
 {
-	printf("sb\n");
+	write(1, "sb\n", 3);
 	swap(stack_b);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	printf("ss\n");
+	write(1, "ss\n", 3);
 	swap(stack_a);
 	swap(stack_b);
 }

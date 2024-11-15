@@ -30,19 +30,19 @@ static void	rotate(t_stack **stack)
 
 void	ra(t_stack **stack_a)
 {
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	rotate(stack_a);
 }
 
 void	rb(t_stack **stack_b)
 {
-	printf("rb\n");
+	write(1, "rb\n", 3);
 	rotate(stack_b);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	printf("rr\n");
+	write(1, "rr\n", 3);
 	rotate(stack_a);
 	rotate(stack_b);
 }
