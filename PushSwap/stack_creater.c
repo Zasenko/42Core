@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:01:45 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/11/14 13:33:15 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/11/15 10:12:47 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,56 +80,6 @@ int	*ft_atoi(const char *nptr)
 	return (num);
 }
 
-int check_char(char c)
-{
-	int i;
-	char *s;
-
-	i = 0;
-	s = "0123456789";
-	while (s[i])
-	{
-		if (s[i] == c)
-			return 1;
-		i++;
-	}
-	return 0;
-}
-
-int check_str(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return 0;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i])
-	{
-		if (check_char(str[i]) == 0)
-			return 0;
-		i++;
-	}
-	return 1;
-}
-
-int check_str_arr(char **arr_str)
-{
-	int i;
-
-	i = 0;
-	if (!arr_str)
-		return 0;
-	while (arr_str[i])
-	{
-		if (check_str(arr_str[i]) == 0)
-			return 0;
-		i++;
-	}
-	return 1;
-}
-
 t_stack	*create_stacks(int argc, char **argv)
 {
 	char	*str;
@@ -145,7 +95,7 @@ t_stack	*create_stacks(int argc, char **argv)
 	arr_str = ft_split(str, ' ');
 	free_str(&str);
 	if (!arr_str || check_str_arr(arr_str) == 0)
-		return (free_str_arr(arr_str) , NULL);
+		return (free_str_arr(arr_str), NULL);
 	arr_i = arr_str_to_arr_int(arr_str);
 	free_str_arr(arr_str);
 	if (!arr_i || check_int_arr(arr_i) == 0)

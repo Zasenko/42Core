@@ -17,7 +17,6 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -63,6 +62,9 @@ void	stack_add_front(t_stack **stack, t_stack *new);
 t_stack	*new_stack(int i);
 t_stack	*arr_int_to_stack(int **arr);
 int		check_int_arr(int **arr);
+int		check_char(char c);
+int		check_str(char *str);
+int		check_str_arr(char **arr_str);
 t_stack	*create_stacks(int argc, char **argv);
 int		pos_for_n_in_stack_b(t_stack *stack, int num, t_prop prop);
 int		find_cheapest_position(t_stack *stack_a, t_stack *stack_b, t_prop prop);

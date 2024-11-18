@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:59:30 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/11/14 13:49:14 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/11/15 10:17:29 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,34 +77,6 @@ int	**arr_str_to_arr_int(char **arr_str)
 	return (arr_i);
 }
 
-int	check_int_arr(int **arr)
-{
-	int	c;
-	int	i;
-	int	j;
-
-	if (!arr)
-		return (0);
-	c = 0;
-	while (arr[c])
-		c++;
-	if (c == 0)
-		return (0);
-	i = 0;
-	while (i < c - 1 && arr[i])
-	{
-		j = i + 1;
-		while (arr[j])
-		{
-			if (*(arr[i]) == *(arr[j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
 t_stack	*arr_int_to_stack(int **arr)
 {
 	t_stack	*stack;
@@ -122,6 +94,6 @@ t_stack	*arr_int_to_stack(int **arr)
 			return (free_stack(&stack), NULL);
 		stack_add_back(&stack, new);
 		i++;
-		}
+	}
 	return (stack);
 }
