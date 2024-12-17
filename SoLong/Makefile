@@ -1,26 +1,29 @@
 NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -lmlx -lXext -lX11 -lm
 
-SRC = main.c read_file.c str_map_check.c check_field.c check_path.c \
-get_next_line_utils.c get_next_line.c ft_split.c
+SRC = main.c textures.c so_long_utils.c set_game.c read_file.c \
+print.c move.c img.c ft_split.c free.c exit.c ft_itoa.c \
+check_path.c check_move.c check_map.c check_map_str.c
 
-OBJ = $(SRC:%.c=%.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-MLX_DIR = minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx.a
-MLX_INC = $(MLX_DIR)
+all: $(NAME)
 
-all: $(LIBFT) $(NAME)
+$(NAME): $(OBJ_DIR) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(MLXFLAGS)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) $(MLX_LIB) -L/usr/lib -I$(MLX_INC) -lXext -lX11 -lm -lz -o $(NAME)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I/usr/include -I$(MLX_INC) -O3 -c $< -o $@
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) -f $(OBJ)
+	$(RM) -rf $(OBJ_DIR)
 
 fclean: clean
 	$(RM) -f $(NAME)

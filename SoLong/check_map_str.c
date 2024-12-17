@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_map_check.c                                    :+:      :+:    :+:   */
+/*   check_map_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:58:07 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/11/27 10:20:09 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/12 13:43:06 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,6 @@
 
 static int	check_char_map(char c);
 static int	check_count(int e, int c, int p, t_game *game);
-
-char	*make_map_str(char *str_map, char *line)
-{
-	char	*new_str;
-
-	if (!line)
-		return NULL;
-	if (!str_map)
-		str_map = "";
-	new_str = ft_strjoin(str_map, line);
-	if (!new_str)
-		return NULL;
-	return new_str;
-}
-
-char	**make_map(char *str_map)
-{
-	char	**arr;
-
-	if (!str_map)
-		return (NULL);	
-	arr = ft_split(str_map, '\n');
-	if (!arr)
-		return (NULL);
-	return (arr);
-}
 
 int	check_str_map(char *map, t_game *game)
 {
@@ -57,7 +31,7 @@ int	check_str_map(char *map, t_game *game)
 	while (map[i])
 	{
 		if (check_char_map(map[i]) == 0)
-			return (0);
+			return (print_error("Wrong simbol on map."), 0);
 		if (map[i] == 'C')
 			c++;
 		else if (map[i] == 'E')
@@ -66,7 +40,7 @@ int	check_str_map(char *map, t_game *game)
 			p++;
 		i++;
 	}
-    return (check_count(e, c, p, game));
+	return (check_count(e, c, p, game));
 }
 
 static int	check_char_map(char c)
@@ -77,19 +51,28 @@ static int	check_char_map(char c)
 	while (*s)
 	{
 		if (*s == c)
-			return 1;
+			return (1);
 		s++;
 	}
-	return 0;
+	return (0);
 }
 
 static int	check_count(int e, int c, int p, t_game *game)
 {
 	if (!game)
 		return (-1);
-	if (e != 1 || p != 1 || c < 1)
-		return (0);
+	if (e < 1)
+		return (print_error("Exit on map not found."), 0);
+	if (e > 1)
+		return (print_error("Too many exits on map."), 0);
+	if (p < 1)
+		return (print_error("Player on map not found."), 0);
+	if (p > 1)
+		return (print_error("Too many players on map."), 0);
+	if (c < 1)
+		return (print_error("Collectable on map not found."), 0);
 	game->coins_count = c;
-	game->exit_count = 1;
+	game->map_check.coins_count = c;
+	game->map_check.exit_count = 1;
 	return (1);
 }
