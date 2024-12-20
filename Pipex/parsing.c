@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:42:36 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/19 17:11:36 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:10:53 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,44 +35,40 @@ int parse(t_prog *prog, int ac, char **av, char **env)
     t_cmd **cmnds;
     char **folders;
 
-    if (!prog || !av)
-        return (0);
-    if (ac < 5)
+    if (!prog || !av || ac < 5)
         return (0);
     prog->file1_path = av[1];
     prog->file2_path = av[ac - 1];
+    //todo check files path > 0
     if (!prog->file1_path || !prog->file2_path)
         return (0);
-    // parse commands
     cmnds = parse_cmds(prog, ac, av);
     if (!cmnds)
         return (0);
     prog->commands = cmnds;
-    // parse folders
+    // todo check parse_cmds > 2 ???
     folders = parse_folders(prog, env);
     if (!folders)
-    {
-        //free
         return (0);
-    }
     prog->folders = folders;
+    // todo check folders > 0 ??? 
     return 1;
 }
 
-char *ft_strstr(const char *big, const char *little)
+char *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    int i;
-    int j;
+    size_t i;
+    size_t j;
 
     if (!big || !little)
         return (NULL);
     i = 0;
     if (little[i] == '\0')
         return ((char *)big);
-    while (big[i])
+    while (big[i] && i < len)
     {
         j = 0;
-        while (big[i + j] && big[i + j] == little[j])
+        while (big[i + j] && (i + j) < len && big[i + j] == little[j])
         {
             j++;
             if (little[j] == '\0')
@@ -105,14 +101,10 @@ char **parse_folders(t_prog *prog, char **env)
     i = 0;
     while (env[i])
     {
-        if (ft_strstr(env[i], "PATH="))
+        if (ft_strnstr(env[i], "PATH=", 5))
         {
             folders = ft_split(env[i] + 5, ':');
             if (!folders) 
-            {
-                return (NULL);
-            }
-            if (!arr_str_count(folders))
                 return (NULL);
             return (folders);
         }
@@ -120,8 +112,6 @@ char **parse_folders(t_prog *prog, char **env)
     }
     return (NULL);
 }
-
-// ./pipex "infile" "ls -l" "wc -l -w" "outfile"
 
 t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
 {
@@ -134,26 +124,30 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
     commands = (t_cmd **)malloc(sizeof(t_cmd *) * (commands_count + 1));
     if (!commands)
         return (NULL);
+    //set to NULL
     int a = 0;
     while (a <= commands_count)
     {
         commands[a] = NULL;
         a++;
     }
+
+    // parse commands
     int s = 0;
     while (s < commands_count)
     {
         t_cmd *new_cmd = malloc(sizeof(t_cmd));
         if (!new_cmd)
         {
-            //todo free commands;
+            free_commands(commands);
             return NULL;
         }
         new_cmd->args = NULL;
         commands[s] = new_cmd;
         s++;
     }
-    
+
+    // parse argums for commands
     int i = 2;
     int j = 0;
     while (i < ac - 1)
@@ -161,7 +155,7 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
         commands[j]->args = parse_cmd(av[i]);
         if (!commands[j]->args)
         {
-            //todo free commands;
+            free_commands(commands);
             return (NULL);
         }
         i++;
@@ -170,58 +164,14 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
     return (commands);
 }
 
-
-// char *clean_str(char *s)
-// {
-//     char *clean_str;
-//     int len;
-    
-//     clean_str = NULL;
-//     if (!s)
-//         return (NULL);
-//     len = ft_strlen(s);
-//     *clean_str = malloc(sizeof(char) * (len + 1));
-//     if (!clean_str)
-//         return (NULL);
-//     int i = 0;
-//     int j = 0;
-//     while (s[i] == ' ' || s[i] == '\t')
-//     {
-//         i++;
-//     }
-//     return (clean_str)
-// }
-
-// char **ft_split(char *arg)
-// {
-//     char **arr;
-    
-//     arr = NULL;
-//     if (!arg)
-//         return NULL;
-//     int arg_c;
-// }
-
-char **parse_cmd(char *arg)// "ls -l -w" 
+char **parse_cmd(char *arg)
 {
     char **args;
-    //int count;
     
     if (!arg)
         return (NULL);
-
     args = ft_split(arg, ' ');
     if (!args)
         return (NULL);
-
-       
-    // count = ft_strlen(arg);
-    // if (!count)
-    //     return (0);
-
-    // how much arg
-    //malloc + 1 NULL;
-    // split?
-
     return (args);
 }

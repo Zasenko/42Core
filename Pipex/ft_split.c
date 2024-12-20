@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:48:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/19 15:50:30 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:00:05 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,7 @@ static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
 		{
 			arr[i] = ft_malloc_word(s, c);
 			if (arr[i] == NULL)
-			return (0);
-				//return (free_str_arr(arr), 0); TODO
+				return (free_arr_str(arr), 0);
 			i++;
 			s++;
 			while (*s != c && *s)
@@ -109,8 +108,7 @@ static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
 		}
 	}
 	if (i != w_count)
-		return (0);
-				//return (free_str_arr(arr), 0); TODO
+		return (free_arr_str(arr), 0);
 	arr[i] = NULL;
 	return (1);
 }

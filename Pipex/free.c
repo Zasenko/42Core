@@ -6,13 +6,11 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:55:30 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/19 17:13:45 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:59:55 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-static void free_commands(t_cmd **commands);
 
 void free_arr_str(char **arr)
 {
@@ -25,17 +23,39 @@ void free_arr_str(char **arr)
     {
         free(arr[i]);
         arr[i] = NULL;
+        i++;
     }
     free(arr);
     return;
 }
-
+void close_fd(t_prog *prog)
+{
+    if (!prog)
+        return;
+    if (prog->fd_pipe[0] != -1)
+    {
+        close(prog->fd_pipe[0]);
+    }
+    if (prog->fd_pipe[1] != -1)
+    {
+        close(prog->fd_pipe[0]);
+    }
+    if (prog->fd_file1 != -1)
+    {
+        close(prog->fd_file1);
+    }
+    if (prog->fd_file2 != -1)
+    {
+        close(prog->fd_file2);
+    }
+}
 void free_prog(t_prog *prog)
 {
     if (!prog)
         return ;
     prog->file1_path = NULL;
     prog->file2_path = NULL;
+    close_fd(prog);
     if (prog->commands)
     {
         free_commands(prog->commands);
@@ -49,7 +69,7 @@ void free_prog(t_prog *prog)
     return ;
 }
 
-static void free_commands(t_cmd **commands)
+void free_commands(t_cmd **commands)
 {
     int i;
     
