@@ -37,5 +37,4 @@ size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 int parse(t_prog *prog, int ac, char **av);
 
-
 #endif
