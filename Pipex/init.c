@@ -12,12 +12,13 @@
 
 #include "pipex.h"
 
-void init_prog(t_prog *prog)
+int init_prog(t_prog *prog)
 {
     if (!prog)
-        return ;
+        return 0;
     prog->file1_path = NULL;
     prog->file2_path = NULL;
     prog->commands = NULL;
-    return ;
+    prog->folders = NULL;
+    return 1;
 }

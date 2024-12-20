@@ -26,11 +26,15 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+char **parse_folders(t_prog *prog, char **env);
 t_cmd **parse_cmds(t_prog *prog, int ac, char **av);
 char **parse_cmd(char *arg);
 
-int parse(t_prog *prog, int ac, char **av)
+int parse(t_prog *prog, int ac, char **av, char **env)
 {
+    t_cmd **cmnds;
+    char **folders;
+
     if (!prog || !av)
         return (0);
     if (ac < 5)
@@ -39,12 +43,82 @@ int parse(t_prog *prog, int ac, char **av)
     prog->file2_path = av[ac - 1];
     if (!prog->file1_path || !prog->file2_path)
         return (0);
-    // parse command
-    t_cmd **cmnds = parse_cmds(prog, ac, av);
+    // parse commands
+    cmnds = parse_cmds(prog, ac, av);
     if (!cmnds)
         return (0);
     prog->commands = cmnds;
+    // parse folders
+    folders = parse_folders(prog, env);
+    if (!folders)
+    {
+        //free
+        return (0);
+    }
+    prog->folders = folders;
     return 1;
+}
+
+char *ft_strstr(const char *big, const char *little)
+{
+    int i;
+    int j;
+
+    if (!big || !little)
+        return (NULL);
+    i = 0;
+    if (little[i] == '\0')
+        return ((char *)big);
+    while (big[i])
+    {
+        j = 0;
+        while (big[i + j] && big[i + j] == little[j])
+        {
+            j++;
+            if (little[j] == '\0')
+                return ((char *)&big[i]);
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+int arr_str_count(char **arr)
+{
+    int i;
+
+    if (!arr)
+        return 0;
+    i = 0;
+    while (arr[i])
+        i++;
+    return i;
+}
+
+char **parse_folders(t_prog *prog, char **env)
+{
+    char **folders;
+    int i;
+
+    if (!prog || !env)
+        return (NULL);
+    i = 0;
+    while (env[i])
+    {
+        if (ft_strstr(env[i], "PATH="))
+        {
+            folders = ft_split(env[i] + 5, ':');
+            if (!folders) 
+            {
+                return (NULL);
+            }
+            if (!arr_str_count(folders))
+                return (NULL);
+            return (folders);
+        }
+        i++;
+    }
+    return (NULL);
 }
 
 // ./pipex "infile" "ls -l" "wc -l -w" "outfile"

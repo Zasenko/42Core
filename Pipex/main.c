@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-int main(int ac, char **av,  char **env)
+int main(int ac, char **av, char **env)
 {
     t_prog prog;
 
@@ -25,25 +25,42 @@ int main(int ac, char **av,  char **env)
             d++;
         }
     }
-    init_prog(&prog);
-    if (!parse(&prog, ac, av))
+    if (!init_prog(&prog))
+    {
+        return (0);
+    }
+    if (!parse(&prog, ac, av, env))
     {
         free_prog(&prog);
         return (0);
     }
 
-    int i = 0; 
-    while (prog.commands[i] != NULL)
-    {
-        printf("PIPE %d\n", i + 1);
 
-        int j = 0;
-        while (prog.commands[i]->args[j] != NULL)
+    int i = 0;
+    if (prog.commands)
+    {
+        while (prog.commands[i] != NULL)
         {
-            printf("%d arg: %s\n", j + 1, prog.commands[i]->args[j]);
-            j++;
+            printf("PIPE %d\n", i + 1);
+
+            int j = 0;
+            while (prog.commands[i]->args[j] != NULL)
+            {
+                printf("%d arg: %s\n", j + 1, prog.commands[i]->args[j]);
+                j++;
+            }
+            i++;
         }
-        i++;
+    }
+    i = 0;
+    printf("FOLDERS:\n");
+    if (prog.folders)
+    {
+        while (prog.folders[i])
+        {
+            printf("%s\n", prog.folders[i]);
+            i++;
+        }
     }
 
     char *path_file1 = prog.file1_path;
@@ -132,7 +149,6 @@ int main(int ac, char **av,  char **env)
     if (pid2 == 0)
     {
         printf("CHILD 2\n");
-        int fd_dup_in = dup2(fd_pipe1[0], 0);
         if (dup2(fd_pipe1[0], 0) == -1 || dup2(fd_pipe2[1], 1) == -1)
         {
             close(fd_pipe1[0]);

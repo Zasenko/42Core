@@ -29,12 +29,14 @@ typedef struct s_prog
     char *file1_path;
     char *file2_path;
     t_cmd **commands;
+    char **folders;
 } t_prog;
 
-void init_prog(t_prog *prog);
+int init_prog(t_prog *prog);
+void free_arr_str(char **arr);
 void free_prog(t_prog *prog);
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
-int parse(t_prog *prog, int ac, char **av);
+int parse(t_prog *prog, int ac, char **av, char **env);
 
 #endif

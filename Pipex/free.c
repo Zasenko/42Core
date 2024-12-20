@@ -12,6 +12,24 @@
 
 #include "pipex.h"
 
+static void free_commands(t_cmd **commands);
+
+void free_arr_str(char **arr)
+{
+    int i;
+
+    if (!arr)
+        return ;
+    i = 0;
+    while (arr[i])
+    {
+        free(arr[i]);
+        arr[i] = NULL;
+    }
+    free(arr);
+    return;
+}
+
 void free_prog(t_prog *prog)
 {
     if (!prog)
@@ -20,27 +38,35 @@ void free_prog(t_prog *prog)
     prog->file2_path = NULL;
     if (prog->commands)
     {
-        int i = 0;
-        while(prog->commands[i])
-        {
-            if (prog->commands[i]->args)
-            {
-                int j = 0;
-                while(prog->commands[i]->args[j])
-                {
-                    free(prog->commands[i]->args[j]);
-                    prog->commands[i]->args[j] = NULL;
-                    j++;
-                }
-                free(prog->commands[i]->args);
-                prog->commands[i]->args = NULL;
-            }
-            free(prog->commands[i]);
-            prog->commands[i] = NULL;  
-            i++;
-        }
-        free(prog->commands);
+        free_commands(prog->commands);
         prog->commands = NULL;
     }
+    if (prog->folders)
+    {
+        free_arr_str(prog->folders);
+        prog->folders = NULL;
+    }
     return ;
+}
+
+static void free_commands(t_cmd **commands)
+{
+    int i;
+    
+    if (!commands)
+        return ;
+    i = 0;
+    while (commands[i])
+    {
+        if (commands[i]->args)
+        {
+            free_arr_str(commands[i]->args);
+            commands[i]->args = NULL;
+        }
+        free(commands[i]);
+        commands[i] = NULL;
+        i++;
+    }
+    free(commands);
+    return;
 }
