@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <stdlib.h>
 
@@ -26,8 +27,6 @@ typedef struct s_cmd
 
 typedef struct s_prog
 {
-    char *file1_path;
-    char *file2_path;
     int fd_file1;
     int fd_file2;
     int fd_pipe[2];
@@ -43,5 +42,6 @@ void close_fd(t_prog *prog);
 size_t ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 int parse(t_prog *prog, int ac, char **av, char **env);
+int check_file(char *path);
 
 #endif

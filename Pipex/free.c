@@ -32,29 +32,15 @@ void close_fd(t_prog *prog)
 {
     if (!prog)
         return;
-    if (prog->fd_pipe[0] != -1)
-    {
         close(prog->fd_pipe[0]);
-    }
-    if (prog->fd_pipe[1] != -1)
-    {
-        close(prog->fd_pipe[0]);
-    }
-    if (prog->fd_file1 != -1)
-    {
+        close(prog->fd_pipe[1]);
         close(prog->fd_file1);
-    }
-    if (prog->fd_file2 != -1)
-    {
         close(prog->fd_file2);
-    }
 }
 void free_prog(t_prog *prog)
 {
     if (!prog)
         return ;
-    prog->file1_path = NULL;
-    prog->file2_path = NULL;
     close_fd(prog);
     if (prog->commands)
     {
@@ -66,7 +52,6 @@ void free_prog(t_prog *prog)
         free_arr_str(prog->folders);
         prog->folders = NULL;
     }
-    return ;
 }
 
 void free_commands(t_cmd **commands)

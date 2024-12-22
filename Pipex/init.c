@@ -16,8 +16,6 @@ int init_prog(t_prog *prog)
 {
     if (!prog)
         return 0;
-    prog->file1_path = NULL;
-    prog->file2_path = NULL;
     prog->fd_file1 = -1;
     prog->fd_file2 = -1;
     prog->fd_pipe[0] = -1;

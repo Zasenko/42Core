@@ -12,52 +12,81 @@
 
 #include "pipex.h"
 
+int add_param(t_prog *prog, char *prog_name)
+{
+    if (!prog || !prog->folders || !prog_name)
+    {
+        return 1; // todo
+    }
+        
+    int i = 0;
+    while (prog->folders[i])
+    {
+
+        //prog->folders[i] + / ??? + prog name
+
+        // strcat?
+        if (check_file(prog->folders[i]))
+        {
+            // сохранить в параметр
+            // return 1
+        }
+        i++;
+    }
+    //exit error команда/программа не найдена
+    exit(1);
+}
+
+int add_params()
+{
+    return 1;
+}
+
 int cmnd1(t_prog *prog, int fd_pipe[2])
 {
     pid_t pid;
-    
+
+    if (!prog)
+        return -1;
     pid = fork();
     if (pid == -1)
-    {
-        free_prog(prog);
-        printf("pid 1 ERROR\n");
-        return 0;
-    }
+        return (perror("Can't create fork"), -1);//todo exit
     if (pid == 0)
     {
         if (dup2(prog->fd_file1, 0) == -1 || dup2(fd_pipe[1], 1) == -1)
         {
-            free_prog(prog);
-            printf("dup2 1 ERROR\n");
-            return 0;
+            printf("prog->fd_file1: %d, fd_pipe[1]: %d\n", prog->fd_file1, fd_pipe[1]);
+            close_fd(prog);
+            perror("Can't redirect  1 fd");
+            exit(EXIT_FAILURE);
         }
         close_fd(prog);
-        printf("COMMANDS\n");
-        int i = 0;
-        if (prog->commands)
+        char *param[] = {"/bin/cat", NULL};
+        if (execve("/bin/cat", param, NULL) == -1)
         {
-            while (prog->commands[i] != NULL)
-            {
-                printf("PIPE %d\n", i + 1);
-                int j = 0;
-                while (prog->commands[i]->args[j] != NULL)
-                {
-                    printf("%d arg: %s\n", j + 1, prog->commands[i]->args[j]);
-                    j++;
-                }
-                i++;
-            }
-        }
-        printf("COMMANDS END\n");
-        char *param[] = {"/usr/bin/cat", NULL};
-        if (execve("/usr/bin/cat", param, NULL) == -1)
-        {
-            free_prog(prog);
-            printf("execve 1 ERROR\n");
-            return 0;
+            perror("execve 1 failed");
+            exit(EXIT_FAILURE);
         }
     }
-    return 1;
+    else
+    {
+        close(fd_pipe[1]);
+        int status;
+        pid_t child_pid = waitpid(pid, &status, 0);
+        if (child_pid == -1)
+            return (perror("waitpid error"), -1);
+        if (WIFEXITED(status))
+        {
+            if (WEXITSTATUS(status) == EXIT_FAILURE)
+            {
+                perror("Child process 1 ERROR");
+                free_prog(prog);
+                exit(EXIT_FAILURE);
+            }
+            close(prog->fd_file1);
+        }
+    }
+    return (1);//todo exit remove
 }
 
 int cmnd2(t_prog *prog, int fd_pipe[2])
@@ -66,46 +95,41 @@ int cmnd2(t_prog *prog, int fd_pipe[2])
     
     pid = fork();
     if (pid == -1)
-    {
-        free_prog(prog);
-        printf("pid 2 ERROR\n");
-        return 0;
-    }
+        return (perror("Can't create fork"), -1); //todo exit!
     if (pid == 0)
     {
         if (dup2(fd_pipe[0], 0) == -1 || dup2(prog->fd_file2, 1) == -1)
         {
-            free_prog(prog);
-            printf("dup2 2 ERROR\n");
-            return 0;
+            close_fd(prog);
+            perror("Can't redirect 2 fd");
+            exit(EXIT_FAILURE);
         }
         close_fd(prog);
-        printf("COMMANDS\n");
-        int i = 0;
-        if (prog->commands)
+        char *param[] = {"/usr/bin/wc", "-w", NULL};
+        if (execve("/usr/bin/wc", param, NULL) == -1)
         {
-            while (prog->commands[i] != NULL)
-            {
-                printf("PIPE %d\n", i + 1);
-                int j = 0;
-                while (prog->commands[i]->args[j] != NULL)
-                {
-                    printf("%d arg: %s\n", j + 1, prog->commands[i]->args[j]);
-                    j++;
-                }
-                i++;
-            }
-        }
-        printf("COMMANDS END\n");
-        char *param[] = {"/usr/bin/cat", NULL};
-        if (execve("/usr/bin/cat", param, NULL) == -1)
-        {
-            free_prog(prog);
-            printf("execve 2 ERROR\n");
-            return 0;
+            perror("execve 2 failed");
+            exit(EXIT_FAILURE);
         }
     }
-    return 1;
+    else
+    {
+        close(fd_pipe[0]);
+        int status;
+        pid_t child_pid = waitpid(pid, &status, 0);
+        if (child_pid == -1)
+            return (perror("waitpid 2 error"), -1);
+        if (WIFEXITED(status))
+        {
+            if (WEXITSTATUS(status) == EXIT_FAILURE)
+            {
+                perror("Child process 2 ERROR");
+                free_prog(prog);
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+    return 1;//todo exit remove
 }
 
 int main(int ac, char **av, char **env)
@@ -113,55 +137,40 @@ int main(int ac, char **av, char **env)
     t_prog prog;
 
     if (!init_prog(&prog))
-    {
-        printf("main init_prog ERROR\n");
-        return (0);
-    }
+        return (printf("Can't init programm") , 1);
     if (!parse(&prog, ac, av, env))
     {
-        printf("main parse ERROR\n");
         free_prog(&prog);
-        return (0);
+        exit(1);
     }
-
-    char *path_file1 = prog.file1_path;
-    char *path_file2 = prog.file2_path;
-    prog.fd_file1 = open(path_file1, O_RDONLY);
-    if (prog.fd_file1 < 0)
+    if (pipe(prog.fd_pipe) == -1)
     {
         free_prog(&prog);
-        printf("ERROR fd_file1\n");
-        return 1;
+        perror("Can't create pipe");
+        exit (1);
     }
-    prog.fd_file2 = open(path_file2, O_RDWR | O_CREAT | O_TRUNC, 0644);
-    if (prog.fd_file2 < 0)
-    {
-        free_prog(&prog);
-        printf("ERROR fd_file2\n");
-        return 1;
-    }
-    int fd_pipe[2];
-    if (pipe(fd_pipe) == -1)
-    {
-        free_prog(&prog);
-        printf("fd_pipe ERROR\n");
-        return 0;
-    }
-   
-    if (!cmnd1(&prog, fd_pipe))
-    {
-        free_prog(&prog);
-        printf("cmnd1 ERROR\n");
-        return 0;
-    }
-
-    if (!cmnd2(&prog, fd_pipe))
-    {
-        free_prog(&prog);
-        printf("cmnd1 ERROR\n");
-        return 0;
-    }
-
+    if (!cmnd1(&prog, prog.fd_pipe))
+        return (free_prog(&prog), perror("error command 1"), 1);
+    if (!cmnd2(&prog, prog.fd_pipe))
+        return (free_prog(&prog), perror("error command 2"), 1);
     free_prog(&prog);
     return (0);
 }
+
+// printf("COMMANDS\n");
+// int i = 0;
+// if (prog->commands)
+// {
+//     while (prog->commands[i] != NULL)
+//     {
+//         printf("PIPE %d\n", i + 1);
+//         int j = 0;
+//         while (prog->commands[i]->args[j] != NULL)
+//         {
+//             printf("%d arg: %s\n", j + 1, prog->commands[i]->args[j]);
+//             j++;
+//         }
+//         i++;
+//     }
+// }
+// printf("COMMANDS END\n");

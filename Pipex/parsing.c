@@ -35,23 +35,51 @@ int parse(t_prog *prog, int ac, char **av, char **env)
     t_cmd **cmnds;
     char **folders;
 
-    if (!prog || !av || ac < 5)
-        return (0);
-    prog->file1_path = av[1];
-    prog->file2_path = av[ac - 1];
-    //todo check files path > 0
-    if (!prog->file1_path || !prog->file2_path)
-        return (0);
+    if (!prog || !av || ac != 5)
+    {
+        //todo print error
+        printf("ERROR PARSE\n");
+        return (-1);//todo exit
+    }
+
+    if (!ft_strlen(av[1]) || !ft_strlen(av[ac - 1]))
+    {
+        // todo print error
+        return (-1); // todo exit
+    }
+
+    prog->fd_file1 = open(av[1], O_RDONLY);
+    if (prog->fd_file1 < 0)
+    {
+        free_prog(prog);
+        perror("Can't open the file");
+        return (-1); // todo exit
+    }
+
+    prog->fd_file2 = open(av[ac - 1], O_RDWR | O_CREAT | O_TRUNC, 0644); // todo O_RDWR? or O_WRITE
+    if (prog->fd_file2 < 0)
+    {
+        free_prog(prog);
+        perror("Can't open or create the file");
+        return (-1); // todo exit
+    }
     cmnds = parse_cmds(prog, ac, av);
     if (!cmnds)
-        return (0);
+    {
+        perror("!cmnds\n");
+
+        return (-1); // todo exit
+    }
     prog->commands = cmnds;
-    // todo check parse_cmds > 2 ???
     folders = parse_folders(prog, env);
     if (!folders)
-        return (0);
+    {
+        perror("!folders\n");
+
+        return (-1); // todo exit
+    }
     prog->folders = folders;
-    // todo check folders > 0 ??? 
+    // todo check folders > 0 ???
     return 1;
 }
 
@@ -173,5 +201,6 @@ char **parse_cmd(char *arg)
     args = ft_split(arg, ' ');
     if (!args)
         return (NULL);
+    // TODO ADD FOLDER AS 1st ARG
     return (args);
 }
