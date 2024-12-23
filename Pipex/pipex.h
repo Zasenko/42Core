@@ -42,6 +42,6 @@ void close_fd(t_prog *prog);
 size_t ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 int parse(t_prog *prog, int ac, char **av, char **env);
-int check_file(char *path);
+int ft_check_file(char *path);
 
 #endif

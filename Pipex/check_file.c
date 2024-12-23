@@ -12,44 +12,49 @@
 
 #include "pipex.h"
 
-int check_file(char *path)
+int ft_check_file(char *path)
 {
    if (!path)
       return (-1);//todo error exit
+   printf("-for %s\n", path);
+   printf("F_OK\n");
    if (access(path, F_OK) == 0)
    {
-       printf("F_OK\n");
+      printf("OK\n");
    }
    else
    {
-       perror("F_OK NO\n");
-       return (-1);
+      printf("NO\n");
+      return (-1);
    }
+   printf("R_OK\n");
    if (access(path, R_OK) == 0)
    {
-       printf("R_OK\n");
+       printf("OK\n");
    }
    else
    {
-       printf("R_OK NO\n");
+       printf("NO\n");
        return (-1);
    }
+   printf("W_OK\n");
    if (access(path, W_OK) == 0)
    {
-       printf("W_OK\n");
+       printf("OK\n");
    }
    else
    {
-       printf("W_OK NO\n");
+       printf("NO\n");
    }
-   if (access(path, F_OK) == 0)
+
+   printf("X_OK\n");
+   if (access(path, X_OK) == 0)
    {
-       printf("X_OK\n");
-       return (-1);
+       printf("OK\n");
    }
    else
    {
-       printf("X_OK NO\n");
+       printf("NO\n");
        return (-1);
    }
    return 1;

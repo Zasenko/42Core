@@ -12,36 +12,6 @@
 
 #include "pipex.h"
 
-int add_param(t_prog *prog, char *prog_name)
-{
-    if (!prog || !prog->folders || !prog_name)
-    {
-        return 1; // todo
-    }
-        
-    int i = 0;
-    while (prog->folders[i])
-    {
-
-        //prog->folders[i] + / ??? + prog name
-
-        // strcat?
-        if (check_file(prog->folders[i]))
-        {
-            // сохранить в параметр
-            // return 1
-        }
-        i++;
-    }
-    //exit error команда/программа не найдена
-    exit(1);
-}
-
-int add_params()
-{
-    return 1;
-}
-
 int cmnd1(t_prog *prog, int fd_pipe[2])
 {
     pid_t pid;
@@ -61,8 +31,7 @@ int cmnd1(t_prog *prog, int fd_pipe[2])
             exit(EXIT_FAILURE);
         }
         close_fd(prog);
-        char *param[] = {"/bin/cat", NULL};
-        if (execve("/bin/cat", param, NULL) == -1)
+        if (execve(prog->commands[0]->args[0], prog->commands[0]->args, NULL) == -1)
         {
             perror("execve 1 failed");
             exit(EXIT_FAILURE);
@@ -105,8 +74,7 @@ int cmnd2(t_prog *prog, int fd_pipe[2])
             exit(EXIT_FAILURE);
         }
         close_fd(prog);
-        char *param[] = {"/usr/bin/wc", "-w", NULL};
-        if (execve("/usr/bin/wc", param, NULL) == -1)
+        if (execve(prog->commands[1]->args[0], prog->commands[1]->args, NULL) == -1)
         {
             perror("execve 2 failed");
             exit(EXIT_FAILURE);

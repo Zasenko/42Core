@@ -26,9 +26,37 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+char *ft_strjoin(char const *s1, char const *s2)
+{
+    size_t l;
+    char *s_new;
+    size_t i;
+    size_t f;
+
+    if (!s1 || !s2)
+        return (NULL);
+    l = ft_strlen(s1) + ft_strlen(s2);
+    s_new = (char *)malloc((l + 1) * sizeof(char));
+    if (s_new == NULL)
+        return (NULL);
+    i = 0;
+    while (s1[i])
+    {
+        s_new[i] = s1[i];
+        i++;
+    }
+    f = 0;
+    while (s2[f])
+    {
+        s_new[i++] = s2[f++];
+    }
+    s_new[i] = '\0';
+    return (s_new);
+}
+
 char **parse_folders(t_prog *prog, char **env);
-t_cmd **parse_cmds(t_prog *prog, int ac, char **av);
-char **parse_cmd(char *arg);
+t_cmd **parse_cmds(t_prog *prog, int ac, char **av, char **folders);
+char **parse_cmd(char *arg, char **folders);
 
 int parse(t_prog *prog, int ac, char **av, char **env)
 {
@@ -53,33 +81,31 @@ int parse(t_prog *prog, int ac, char **av, char **env)
     {
         free_prog(prog);
         perror("Can't open the file");
-        return (-1); // todo exit
+        exit(EXIT_FAILURE);
     }
-
     prog->fd_file2 = open(av[ac - 1], O_RDWR | O_CREAT | O_TRUNC, 0644); // todo O_RDWR? or O_WRITE
     if (prog->fd_file2 < 0)
     {
         free_prog(prog);
         perror("Can't open or create the file");
-        return (-1); // todo exit
+        exit(EXIT_FAILURE);
     }
-    cmnds = parse_cmds(prog, ac, av);
-    if (!cmnds)
-    {
-        perror("!cmnds\n");
-
-        return (-1); // todo exit
-    }
-    prog->commands = cmnds;
     folders = parse_folders(prog, env);
     if (!folders)
     {
-        perror("!folders\n");
-
+        printf("!folders\n");
         return (-1); // todo exit
     }
-    prog->folders = folders;
+    prog->folders = folders;//to do не нужно?
     // todo check folders > 0 ???
+
+    cmnds = parse_cmds(prog, ac, av, folders);
+    if (!cmnds)
+    {
+        printf("!cmnds\n");
+        return (-1); // todo exit
+    }
+    prog->commands = cmnds;
     return 1;
 }
 
@@ -141,17 +167,23 @@ char **parse_folders(t_prog *prog, char **env)
     return (NULL);
 }
 
-t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
+t_cmd **parse_cmds(t_prog *prog, int ac, char **av, char **folders)
 {
     t_cmd **commands;
 
     if (!prog || !av || ac < 5)
+    {
+        printf("!prog || !av || ac < 5\n");
         return (NULL);
+    }
 
     int commands_count = ac - 3;
     commands = (t_cmd **)malloc(sizeof(t_cmd *) * (commands_count + 1));
     if (!commands)
+    {
+        printf("!commands\n");
         return (NULL);
+    }
     //set to NULL
     int a = 0;
     while (a <= commands_count)
@@ -160,7 +192,7 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
         a++;
     }
 
-    // parse commands
+    // new commands
     int s = 0;
     while (s < commands_count)
     {
@@ -168,7 +200,8 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
         if (!new_cmd)
         {
             free_commands(commands);
-            return NULL;
+            printf("!new_cmd\n");
+            return (NULL);
         }
         new_cmd->args = NULL;
         commands[s] = new_cmd;
@@ -180,10 +213,11 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
     int j = 0;
     while (i < ac - 1)
     {
-        commands[j]->args = parse_cmd(av[i]);
+        commands[j]->args = parse_cmd(av[i], folders);
         if (!commands[j]->args)
         {
             free_commands(commands);
+            printf("!commands[j]->args\n");
             return (NULL);
         }
         i++;
@@ -192,15 +226,80 @@ t_cmd **parse_cmds(t_prog *prog, int ac, char **av)
     return (commands);
 }
 
-char **parse_cmd(char *arg)
+int add_path_param(char **prog_name, char **folders)
+{
+    if (!prog_name || !*prog_name || !folders)
+    {
+        return -1; // todo
+    }
+
+    int i = 0;
+    while (folders[i])
+    {
+
+        // path prog->folders[i] + / ??? + prog name
+        char *folder = ft_strjoin(folders[i], "/");
+        if (!folder)
+        {
+            //free
+            return -1;
+        }
+        char *full_path = ft_strjoin(folder, *prog_name);
+        if (!full_path)
+        {
+            free(folder);
+            return -1;
+        }
+        printf("path to check: %s\n", full_path);
+
+        int f = ft_check_file(full_path);
+        printf("result: %d\n", f);
+
+        if (f == -1) // todo path  prog->folders[i] + / ??? + prog name
+        {
+            printf("NO path: %s\n", full_path);
+            free(folder);
+            folder = NULL;
+            free(full_path);
+            full_path = NULL;
+            i++;
+        } else {
+   
+
+            printf("OK path: %s\n", full_path);
+            free(folder);
+            free(*prog_name);
+            *prog_name = full_path;
+            //////////////////////////
+            // folders[i] = full_path;
+            return 1;
+        }
+    }
+    // exit error команда/программа не найдена
+    return (-1);
+}
+
+char **parse_cmd(char *arg, char **folders)
 {
     char **args;
-    
+
     if (!arg)
         return (NULL);
     args = ft_split(arg, ' ');
     if (!args)
         return (NULL);
-    // TODO ADD FOLDER AS 1st ARG
+    int arg_count = arr_str_count(args);
+    if (arg_count < 1)
+    {
+        free_arr_str(args);
+        printf("parse_cmd arg_count < 2\n");
+        return (NULL);
+    }
+    if (!add_path_param(args, folders))
+    {
+        free_arr_str(args);
+        printf("parse_cmd add_path_param\n");
+        return (NULL);
+    }
     return (args);
 }
