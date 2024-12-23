@@ -15,7 +15,7 @@
 int ft_check_file(char *path)
 {
    if (!path)
-      return (-1);//todo error exit
+      return (0);//todo error exit
    printf("-for %s\n", path);
    printf("F_OK\n");
    if (access(path, F_OK) == 0)
@@ -25,7 +25,7 @@ int ft_check_file(char *path)
    else
    {
       printf("NO\n");
-      return (-1);
+      return (0);
    }
    printf("R_OK\n");
    if (access(path, R_OK) == 0)
@@ -35,7 +35,7 @@ int ft_check_file(char *path)
    else
    {
        printf("NO\n");
-       return (-1);
+       return (0);
    }
    printf("W_OK\n");
    if (access(path, W_OK) == 0)
@@ -55,7 +55,7 @@ int ft_check_file(char *path)
    else
    {
        printf("NO\n");
-       return (-1);
+       return (0);
    }
    return 1;
 }
