@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:51:37 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/23 13:09:31 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:26:11 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	init_prog(t_prog *prog)
 
 t_cmd	**init_commands(int count)
 {
-	t_cmd **commands;
-	int i;
+	t_cmd	**commands;
+	t_cmd	*new_cmd;
+	int		i;
 
 	commands = (t_cmd **)malloc(sizeof(t_cmd *) * (count + 1));
 	if (!commands)
@@ -42,7 +43,8 @@ t_cmd	**init_commands(int count)
 	i = 0;
 	while (i < count)
 	{
-		t_cmd *new_cmd = malloc(sizeof(t_cmd));
+		new_cmd = NULL;
+		new_cmd = malloc(sizeof(t_cmd));
 		if (!new_cmd)
 			return (free_commands(commands), printf("!new_cmd\n"), NULL);
 		new_cmd->args = NULL;

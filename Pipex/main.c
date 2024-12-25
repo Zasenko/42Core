@@ -6,11 +6,27 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:58:35 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/23 12:33:30 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/24 13:01:05 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+// void child_proccess(t_prog *prog)
+// {
+//     if (dup2(prog->fd_file1, 0) == -1 || dup2(fd_pipe[1], 1) == -1)
+//     {
+//         close_fd(prog);
+//         perror("Can't redirect  1 fd");
+//         exit(EXIT_FAILURE);
+//     }
+//     close_fd(prog);
+//     if (execve(prog->commands[0]->args[0], prog->commands[0]->args, NULL) == -1)
+//     {
+//         perror("execve 1 failed");
+//         exit(EXIT_FAILURE);
+//     }
+// }
 
 int cmnd1(t_prog *prog, int fd_pipe[2])
 {
@@ -20,11 +36,7 @@ int cmnd1(t_prog *prog, int fd_pipe[2])
         return -1;
     pid = fork();
     if (pid == -1)
-    {
-        perror("Can't create fork");
-        free_prog(prog);
-        exit(EXIT_FAILURE);
-    }
+        print_perr_exit(prog, "Can't create fork");
     if (pid == 0)
     {
         if (dup2(prog->fd_file1, 0) == -1 || dup2(fd_pipe[1], 1) == -1)
@@ -108,23 +120,19 @@ int cmnd2(t_prog *prog, int fd_pipe[2])
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes --track-origins=yes ./pipex file1 "cat" "wc -l" file2
-int main(int ac, char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
-    t_prog prog;
+	t_prog	prog;
 
-    if (!init_prog(&prog))
-        return (printf("Can't init programm"), 1);
-    parse(&prog, ac, av, env);
-    if (pipe(prog.fd_pipe) == -1)
-    {
-        free_prog(&prog);
-        perror("Can't create pipe");
-        exit(EXIT_FAILURE);
-    }
-    if (!cmnd1(&prog, prog.fd_pipe))
-        return (free_prog(&prog), perror("error command 1"), 1);
-    if (!cmnd2(&prog, prog.fd_pipe))
-        return (free_prog(&prog), perror("error command 2"), 1);
-    free_prog(&prog);
-    return (0);
+	if (!init_prog(&prog))
+		return (ft_putstr("Can't init programm\n"), 1);
+	parse(&prog, ac, av, env);
+	if (pipe(prog.fd_pipe) == -1)
+		print_perr_exit(&prog, "Can't create pipe");
+	if (!cmnd1(&prog, prog.fd_pipe))
+		return (free_prog(&prog), perror("error command 1"), 1);
+	if (!cmnd2(&prog, prog.fd_pipe))
+		return (free_prog(&prog), perror("error command 2"), 1);
+	free_prog(&prog);
+	return (0);
 }

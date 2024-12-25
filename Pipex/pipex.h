@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:58:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/23 13:10:24 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/24 12:44:38 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_prog
 
 int		init_prog(t_prog *prog);
 t_cmd	**init_commands(int count);
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	print_err_exit(t_prog *prog, char *error);
+void	print_perr_exit(t_prog *prog, char *error);
 void	free_arr_str(char **arr);
 void	free_commands(t_cmd **commands);
 void	free_prog(t_prog *prog);
