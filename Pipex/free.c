@@ -33,10 +33,14 @@ void	close_fd(t_prog *prog)
 {
 	if (!prog)
 		return ;
-	close(prog->fd_pipe[0]);
-	close(prog->fd_pipe[1]);
-	close(prog->fd_file1);
-	close(prog->fd_file2);
+	if (prog->fd_pipe[0] > 2)
+		close(prog->fd_pipe[0]);
+	if (prog->fd_pipe[1] > 2)
+		close(prog->fd_pipe[1]);
+	if (prog->fd_file1 > 2)
+		close(prog->fd_file1);
+	if (prog->fd_file2 > 2)
+		close(prog->fd_file2);
 }
 
 void	free_prog(t_prog *prog)

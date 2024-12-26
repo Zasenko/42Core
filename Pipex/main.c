@@ -12,127 +12,102 @@
 
 #include "pipex.h"
 
-// void child_proccess(t_prog *prog)
-// {
-//     if (dup2(prog->fd_file1, 0) == -1 || dup2(fd_pipe[1], 1) == -1)
-//     {
-//         close_fd(prog);
-//         perror("Can't redirect  1 fd");
-//         exit(EXIT_FAILURE);
-//     }
-//     close_fd(prog);
-//     if (execve(prog->commands[0]->args[0], prog->commands[0]->args, NULL) == -1)
-//     {
-//         perror("execve 1 failed");
-//         exit(EXIT_FAILURE);
-//     }
-// }
+void child_proccess(t_prog prog, int fd_read, int fd_write, char **args)
+{
+    if (!args || !*args)
+    {
+        close_fd(&prog);
+        ft_putstr("Child proccess error\n");
+        exit(EXIT_FAILURE);
+    }
+    if (dup2(fd_read, 0) == -1 || dup2(fd_write, 1) == -1)
+    {
+        close_fd(&prog);
+        perror("dup2 error");
+        exit(EXIT_FAILURE);
+    }
+    close_fd(&prog);
+    if (execve(*args, args, NULL) == -1)
+    {
+        perror("execve failed");
+        exit(EXIT_FAILURE);
+    }
+}
 
-int cmnd1(t_prog *prog, int fd_pipe[2])
+int perent_procces(t_prog *prog, pid_t pid, int close_fd)
+{
+    int status;
+    pid_t child_pid;
+
+    if (!prog)
+        return (ft_putstr("Perent procces error\n"), 0);
+    close(close_fd);
+    child_pid = waitpid(pid, &status, 0);
+    if (child_pid == -1)
+        return (perror("Waitpid error"), 0);
+    if (WIFEXITED(status))
+    {
+        if (WEXITSTATUS(status) == EXIT_FAILURE)
+            return (0);
+    }
+    return (1);
+}
+
+int cmnd1(t_prog *prog, int fd_pipe)
 {
     pid_t pid;
 
     if (!prog)
-        return -1;
+        return (0);
     pid = fork();
     if (pid == -1)
-        print_perr_exit(prog, "Can't create fork");
+        return (perror("Fork error"), 0);
     if (pid == 0)
-    {
-        if (dup2(prog->fd_file1, 0) == -1 || dup2(fd_pipe[1], 1) == -1)
-        {
-            close_fd(prog);
-            perror("Can't redirect  1 fd");
-            exit(EXIT_FAILURE);
-        }
-        close_fd(prog);
-        if (execve(prog->commands[0]->args[0], prog->commands[0]->args, NULL) == -1)
-        {
-            perror("execve 1 failed");
-            exit(EXIT_FAILURE);
-        }
-    }
+        child_proccess(*prog, prog->fd_file1, fd_pipe, prog->commands[0]->args);
     else
     {
-        close(fd_pipe[1]);
-        int status;
-        pid_t child_pid = waitpid(pid, &status, 0);
-        if (child_pid == -1)
-            return (perror("waitpid error"), -1);
-        if (WIFEXITED(status))
-        {
-            if (WEXITSTATUS(status) == EXIT_FAILURE)
-            {
-                perror("Child process 1 ERROR");
-                free_prog(prog);
-                exit(EXIT_FAILURE);
-            }
-            close(prog->fd_file1);
-        }
+        if (!perent_procces(prog, pid, fd_pipe))
+            return (0);
     }
-    return (1);//todo exit remove
+    return (1);
 }
 
-int cmnd2(t_prog *prog, int fd_pipe[2])
+int cmnd2(t_prog *prog, int fd_pipe)
 {
     pid_t pid;
-    
+
+    if (!prog)
+        return (0);
     pid = fork();
     if (pid == -1)
-    {
-        perror("Can't create fork");
-        free_prog(prog);
-        exit(EXIT_FAILURE);
-    }
+        return (perror("Fork error"), 0);
     if (pid == 0)
-    {
-        if (dup2(fd_pipe[0], 0) == -1 || dup2(prog->fd_file2, 1) == -1)
-        {
-            close_fd(prog);
-            perror("Can't redirect 2 fd");
-            exit(EXIT_FAILURE);
-        }
-        close_fd(prog);
-        if (execve(prog->commands[1]->args[0], prog->commands[1]->args, NULL) == -1)
-        {
-            perror("execve 2 failed");
-            exit(EXIT_FAILURE);
-        }
-    }
+        child_proccess(*prog, fd_pipe, prog->fd_file2, prog->commands[1]->args);
     else
     {
-        close(fd_pipe[0]);
-        int status;
-        pid_t child_pid = waitpid(pid, &status, 0);
-        if (child_pid == -1)
-            return (perror("waitpid 2 error"), -1);
-        if (WIFEXITED(status))
-        {
-            if (WEXITSTATUS(status) == EXIT_FAILURE)
-            {
-                perror("Child process 2 ERROR");
-                free_prog(prog);
-                exit(EXIT_FAILURE);
-            }
-        }
+        if (!perent_procces(prog, pid, fd_pipe))
+            return (0);
     }
-    return 1;//todo exit remove
+    return (1);
 }
 
 // valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes --track-origins=yes ./pipex file1 "cat" "wc -l" file2
+
 int	main(int ac, char **av, char **env)
 {
-	t_prog	prog;
+    t_prog  prog;
 
-	if (!init_prog(&prog))
-		return (ft_putstr("Can't init programm\n"), 1);
-	parse(&prog, ac, av, env);
-	if (pipe(prog.fd_pipe) == -1)
-		print_perr_exit(&prog, "Can't create pipe");
-	if (!cmnd1(&prog, prog.fd_pipe))
-		return (free_prog(&prog), perror("error command 1"), 1);
-	if (!cmnd2(&prog, prog.fd_pipe))
-		return (free_prog(&prog), perror("error command 2"), 1);
-	free_prog(&prog);
+    if (!init_prog(&prog))
+		return (ft_putstr("Can't init programm\n"), 0);
+	if (!parse(&prog, ac, av, env))
+        return (free_prog(&prog), 0);
+    if (pipe(prog.fd_pipe) == -1)
+        return (free_prog(&prog), perror("Pipe error"), 1);
+    if (!cmnd1(&prog, prog.fd_pipe[1]))
+        return (free_prog(&prog), 0);
+    close(prog.fd_file1);
+    if (!cmnd2(&prog, prog.fd_pipe[0]))
+        return (free_prog(&prog), 0);
+    free_prog(&prog);
 	return (0);
 }

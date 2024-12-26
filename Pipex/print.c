@@ -31,18 +31,7 @@ void	ft_putstr(char *s)
 	}
 }
 
-void	print_err_exit(t_prog *prog, char *error)
+void print_example()
 {
-	free_prog(prog);
-	if (error)
-		ft_putstr(error);
-	exit(EXIT_FAILURE);
-}
-
-void	print_perr_exit(t_prog *prog, char *error)
-{
-	free_prog(prog);
-	if (error)
-		perror(error);
-	exit(EXIT_FAILURE);
+	ft_putstr("Example: ./pipex infile \"ls -l\" \"wc -l\" outfile\n");
 }

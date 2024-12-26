@@ -33,7 +33,7 @@ t_cmd	**init_commands(int count)
 
 	commands = (t_cmd **)malloc(sizeof(t_cmd *) * (count + 1));
 	if (!commands)
-		return (printf("!commands\n"), NULL);
+		return (NULL);
 	i = 0;
 	while (i <= count)
 	{
@@ -46,7 +46,7 @@ t_cmd	**init_commands(int count)
 		new_cmd = NULL;
 		new_cmd = malloc(sizeof(t_cmd));
 		if (!new_cmd)
-			return (free_commands(commands), printf("!new_cmd\n"), NULL);
+			return (free_commands(commands), NULL);
 		new_cmd->args = NULL;
 		commands[i] = new_cmd;
 		i++;
