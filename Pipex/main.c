@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:58:35 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/26 17:37:39 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:20:16 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ static int	cmnd2(t_prog *prog, int fd_pipe);
 static void	child_proccess(t_prog prog, int fd_read, int fd_write, char **args);
 static int	perent_procces(t_prog *prog, pid_t pid, int close_fd);
 
-// valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes --track-origins=yes ./pipex file1 "cat -e" "wc -c" file2
 int	main(int ac, char **av, char **env)
 {
 	t_prog	prog;
 
 	if (!init_prog(&prog))
-		return (ft_putstr("Can't init programm\n"), 0);
+		return (0);
 	if (!parse(&prog, ac, av, env))
 		return (free_prog(&prog), 0);
 	if (pipe(prog.fd_pipe) == -1)
@@ -79,20 +78,20 @@ static void	child_proccess(t_prog prog, int fd_read, int fd_write, char **args)
 {
 	if (!args || !*args)
 	{
-		close_fd(&prog);
-		ft_putstr("Child proccess error\n");
+		free_prog(&prog);
 		exit(EXIT_FAILURE);
 	}
 	if (dup2(fd_read, 0) == -1 || dup2(fd_write, 1) == -1)
 	{
-		close_fd(&prog);
-		perror("dup2 error");
+		free_prog(&prog);
+		perror("Dup2 error");
 		exit(EXIT_FAILURE);
 	}
 	close_fd(&prog);
 	if (execve(*args, args, NULL) == -1)
 	{
-		perror("execve failed");
+		free_prog(&prog);
+		perror("Execve failed");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -103,7 +102,7 @@ static int	perent_procces(t_prog *prog, pid_t pid, int close_fd)
 	pid_t	child_pid;
 
 	if (!prog)
-		return (ft_putstr("Perent procces error\n"), 0);
+		return (0);
 	close(close_fd);
 	child_pid = waitpid(pid, &status, 0);
 	if (child_pid == -1)

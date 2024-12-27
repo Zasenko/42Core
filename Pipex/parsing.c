@@ -6,16 +6,16 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:42:36 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/26 17:05:32 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:10:15 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-t_cmd	**parse_cmds(t_prog *prog, int ac, char **av);
-char	**parse_cmd(char *arg, char **folders);
-int		add_path_param(char **prog_name, char **folders);
-int		add_path(char **prog_name, char *folder);
+static t_cmd	**parse_cmds(t_prog *prog, int ac, char **av);
+static char		**parse_cmd(char *arg, char **folders);
+static int		add_path_param(char **prog_name, char **folders);
+static int		add_path(char **prog_name, char *folder);
 
 int	parse(t_prog *prog, int ac, char **av, char **env)
 {
@@ -23,14 +23,14 @@ int	parse(t_prog *prog, int ac, char **av, char **env)
 	char	**folders;
 
 	if (!prog || !av || !env)
-		return (ft_putstr("Parsing error\n"), 0);
+		return (0);
 	if (ac != 5)
 		return (ft_putstr("Program need 4 arguments\n"), print_example(), 0);
 	if (!open_files(prog, av[1], av[ac - 1]))
 		return (0);
 	folders = parse_folders(prog, env);
 	if (!folders)
-		return (ft_putstr("Error: parsing folders from env\n"), 0);
+		return (0);
 	prog->folders = folders;
 	cmnds = parse_cmds(prog, ac, av);
 	if (!cmnds)
@@ -39,17 +39,17 @@ int	parse(t_prog *prog, int ac, char **av, char **env)
 	return (1);
 }
 
-t_cmd	**parse_cmds(t_prog *prog, int ac, char **av)
+static t_cmd	**parse_cmds(t_prog *prog, int ac, char **av)
 {
 	t_cmd	**commands;
 	int		i;
 	int		j;
 
-	if (!prog || !av)
-		return (ft_putstr("Commands parsing error\n"), NULL);
+	if (!prog || !av || ac != 5)
+		return (NULL);
 	commands = init_commands(ac - 3);
 	if (!commands)
-		return (ft_putstr("Init commands error\n"), NULL);
+		return (NULL);
 	i = 2;
 	j = 0;
 	while (i < ac - 1)
@@ -68,7 +68,7 @@ char	**parse_cmd(char *arg, char **folders)
 	char	**args;
 
 	if (!arg)
-		return (ft_putstr("Command parsing error\n"), NULL);
+		return (NULL);
 	args = ft_split(arg, " \t");
 	if (!args)
 		return (ft_putstr("Wrong arguments\n"), print_example(), NULL);
@@ -77,19 +77,19 @@ char	**parse_cmd(char *arg, char **folders)
 	return (args);
 }
 
-int	add_path_param(char **prog_name, char **folders)
+static int	add_path_param(char **prog_name, char **folders)
 {
 	int	i;
 	int	result;
 
 	if (!prog_name || !*prog_name || !folders)
-		return (ft_putstr("Add path error\n"), 0);
+		return (0);
 	i = 0;
 	while (folders[i])
 	{
 		result = add_path(prog_name, folders[i]);
 		if (result == -1)
-			return (ft_putstr("Add path error\n"), 0);
+			return (0);
 		else if (result == 1)
 			return (1);
 		i++;
@@ -100,7 +100,7 @@ int	add_path_param(char **prog_name, char **folders)
 	return (0);
 }
 
-int	add_path(char **prog_name, char *folder)
+static int	add_path(char **prog_name, char *folder)
 {
 	char	*path;
 	char	*full_path;

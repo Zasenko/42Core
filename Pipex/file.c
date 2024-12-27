@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:33:50 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/26 16:45:34 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:28:39 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int	ft_check_file(char *path)
 int	open_files(t_prog *prog, char *f1_path, char *f2_path)
 {
 	if (!prog || !f1_path || !f2_path)
-		return (ft_putstr("Open files error\n"), 0);
+		return (0);
 	if (!ft_strlen(f1_path))
-		return (ft_putstr("Input file path less then 1 simbol\n"), 0);
+		return (ft_putstr("Path to file1 is less then 1 simbol\n"), 0);
 	if (!ft_strlen(f2_path))
-		return (ft_putstr("Output file path less then 1 simbol\n"), 0);
+		return (ft_putstr("Path to file2 is less then 1 simbol\n"), 0);
 	prog->fd_file1 = open(f1_path, O_RDONLY);
 	if (prog->fd_file1 < 0)
-		return (perror("Can't open the input file"), 0);
+		return (perror("Can't open file1"), 0);
 	prog->fd_file2 = open(f2_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (prog->fd_file2 < 0)
-		return (perror("Can't open the output file"), 0);
+		return (perror("Can't open file2"), 0);
 	return (1);
 }

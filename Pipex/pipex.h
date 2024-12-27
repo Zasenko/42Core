@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:58:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/26 17:08:04 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:20:59 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <stdio.h>
 # include <unistd.h>
-// # include <sys/types.h> todo?
-// # include <sys/wait.h> todo?
+# include <sys/wait.h>
 # include <fcntl.h>
 # include <stdlib.h>
 

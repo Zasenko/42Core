@@ -6,17 +6,18 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 13:48:55 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/24 10:15:30 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:51:15 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static int ft_words_count(char const *s, char *c);
-static char *ft_malloc_word(char const *s, char *c);
-static int ft_malloc_words(char const *s, int w_count, char *c, char **arr);
+static int	ft_words_count(char const *s, char *c);
+static int	is_char_is_sep(char c, char *sep);
+static char	*ft_malloc_word(char const *s, char *c);
+static int	ft_malloc_words(char const *s, int w_count, char *c, char **arr);
 
-char **ft_split(char const *s, char *c)
+char	**ft_split(char const *s, char *c)
 {
 	char	**arr;
 	int		w_count;
@@ -41,9 +42,9 @@ char **ft_split(char const *s, char *c)
 	return (arr);
 }
 
-int is_char_is_sep(char c, char *sep)
+static int	is_char_is_sep(char c, char *sep)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!sep)
@@ -57,7 +58,7 @@ int is_char_is_sep(char c, char *sep)
 	return (0);
 }
 
-static int ft_words_count(char const *s, char *c)
+static int	ft_words_count(char const *s, char *c)
 {
 	int	count;
 
@@ -80,7 +81,7 @@ static int ft_words_count(char const *s, char *c)
 	return (count);
 }
 
-static char *ft_malloc_word(char const *s, char *c)
+static char	*ft_malloc_word(char const *s, char *c)
 {
 	char	*word;
 	int		i;
@@ -108,7 +109,7 @@ static char *ft_malloc_word(char const *s, char *c)
 	return (word);
 }
 
-static int ft_malloc_words(char const *s, int w_count, char *c, char **arr)
+static int	ft_malloc_words(char const *s, int w_count, char *c, char **arr)
 {
 	int	i;
 
