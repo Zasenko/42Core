@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 12:30:23 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/24 13:00:07 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:54:23 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,23 @@ void	ft_putstr(char *s)
 	}
 }
 
-void print_example()
+void	print_example(void)
 {
 	ft_putstr("Example: ./pipex infile \"ls -l\" \"wc -l\" outfile\n");
+}
+
+void	print_err_exit(t_prog *prog, char *error)
+{
+	free_prog(prog);
+	if (error)
+		ft_putstr(error);
+	exit(EXIT_FAILURE);
+}
+
+void	print_perr_exit(t_prog *prog, char *error)
+{
+	free_prog(prog);
+	if (error)
+		perror(error);
+	exit(EXIT_FAILURE);
 }

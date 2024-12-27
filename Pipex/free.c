@@ -6,7 +6,7 @@
 /*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:55:30 by dzasenko          #+#    #+#             */
-/*   Updated: 2024/12/24 10:15:51 by dzasenko         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:17:14 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,26 @@ void	close_fd(t_prog *prog)
 {
 	if (!prog)
 		return ;
-	if (prog->fd_pipe[0] > 2)
+	if (prog->fd_pipe[0] != -1)
+	{
 		close(prog->fd_pipe[0]);
-	if (prog->fd_pipe[1] > 2)
+		prog->fd_pipe[0] = -1;
+	}
+	if (prog->fd_pipe[1] != -1)
+	{
 		close(prog->fd_pipe[1]);
-	if (prog->fd_file1 > 2)
+		prog->fd_pipe[1] = -1;
+	}
+	if (prog->fd_file1 != -1)
+	{
 		close(prog->fd_file1);
-	if (prog->fd_file2 > 2)
+		prog->fd_file1 = -1;
+	}
+	if (prog->fd_file2 != -1)
+	{
 		close(prog->fd_file2);
+		prog->fd_file2 = -1;
+	}
 }
 
 void	free_prog(t_prog *prog)
