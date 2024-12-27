@@ -12,18 +12,18 @@
 
 #include "pipex.h"
 
-static int	ft_words_count(char const *s, char c);
-static char	*ft_malloc_word(char const *s, char c);
-static int	ft_malloc_words(char const *s, int w_count, char c, char **arr);
+static int ft_words_count(char const *s, char *c);
+static char *ft_malloc_word(char const *s, char *c);
+static int ft_malloc_words(char const *s, int w_count, char *c, char **arr);
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char *c)
 {
 	char	**arr;
 	int		w_count;
 	int		i;
 
 	i = 0;
-	if (!s)
+	if (!s || !c)
 		return (NULL);
 	w_count = ft_words_count(s, c);
 	if (w_count < 1)
@@ -41,25 +41,46 @@ char	**ft_split(char const *s, char c)
 	return (arr);
 }
 
-static int	ft_words_count(char const *s, char c)
+int is_char_is_sep(char c, char *sep)
+{
+	int i;
+
+	i = 0;
+	if (!sep)
+		return (i);
+	while (sep[i])
+	{
+		if (sep[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int ft_words_count(char const *s, char *c)
 {
 	int	count;
 
-	count = 1;
-	if (!s)
+	count = 0;
+	if (!s || !c)
 		return (0);
+	while (*s && is_char_is_sep(*s, c))
+		s++;
 	while (*s)
 	{
-		if (*s == c)
+		if (!is_char_is_sep(*s, c))
 		{
 			count++;
+			while (*s && !is_char_is_sep(*s, c))
+				s++;
 		}
-		s++;
+		while (*s && is_char_is_sep(*s, c))
+			s++;
 	}
 	return (count);
 }
 
-static char	*ft_malloc_word(char const *s, char c)
+static char *ft_malloc_word(char const *s, char *c)
 {
 	char	*word;
 	int		i;
@@ -67,9 +88,9 @@ static char	*ft_malloc_word(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	if (!s)
+	if (!s || !c)
 		return (NULL);
-	while (s[i] && s[i] != c)
+	while (s[i] && !is_char_is_sep(s[i], c))
 	{
 		count++;
 		i++;
@@ -78,7 +99,7 @@ static char	*ft_malloc_word(char const *s, char c)
 	if (word == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && !is_char_is_sep(s[i], c))
 	{
 		word[i] = s[i];
 		i++;
@@ -87,14 +108,16 @@ static char	*ft_malloc_word(char const *s, char c)
 	return (word);
 }
 
-static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
+static int ft_malloc_words(char const *s, int w_count, char *c, char **arr)
 {
 	int	i;
 
 	i = 0;
+	if (!s || !c || !arr)
+		return (free_arr_str(arr), 0);
 	while (*s && i < w_count)
 	{
-		if (*s == c)
+		if (is_char_is_sep(*s, c))
 			s++;
 		else
 		{
@@ -103,7 +126,7 @@ static int	ft_malloc_words(char const *s, int w_count, char c, char **arr)
 				return (free_arr_str(arr), 0);
 			i++;
 			s++;
-			while (*s != c && *s)
+			while (*s && !is_char_is_sep(*s, c))
 				s++;
 		}
 	}

@@ -66,15 +66,10 @@ t_cmd	**parse_cmds(t_prog *prog, int ac, char **av)
 char	**parse_cmd(char *arg, char **folders)
 {
 	char	**args;
-	char	*new;
 
 	if (!arg)
 		return (ft_putstr("Command parsing error\n"), NULL);
-	new = ft_trim(arg, " \t", " ");
-	if (!new)
-		return (ft_putstr("Command parsing error: trimm\n"), NULL);
-	args = ft_split(new, ' ');
-	free(new);
+	args = ft_split(arg, " \t");
 	if (!args)
 		return (ft_putstr("Wrong arguments\n"), print_example(), NULL);
 	if (!add_path_param(args, folders))

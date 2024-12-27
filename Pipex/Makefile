@@ -2,7 +2,7 @@ NAME = pipex
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c init.c free.c parsing.c ft_split.c file.c utils.c print.c trim.c \
+SRC = main.c init.c free.c parsing.c ft_split.c file.c utils.c print.c \
 parse_folders.c
 
 OBJ_DIR = obj

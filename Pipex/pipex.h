@@ -15,8 +15,8 @@
 
 # include <stdio.h>
 # include <unistd.h>
-# include <sys/types.h>
-# include <sys/wait.h>
+// # include <sys/types.h> todo?
+// # include <sys/wait.h> todo?
 # include <fcntl.h>
 # include <stdlib.h>
 
@@ -43,8 +43,7 @@ void	free_arr_str(char **arr);
 void	free_commands(t_cmd **commands);
 void	free_prog(t_prog *prog);
 void	close_fd(t_prog *prog);
-char	*ft_trim(char *str, char *sep, char *c);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char *c);
 char	**parse_folders(t_prog *prog, char **env);
 int		parse(t_prog *prog, int ac, char **av, char **env);
 int		ft_check_file(char *path);

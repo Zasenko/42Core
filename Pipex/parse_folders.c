@@ -24,7 +24,7 @@ char	**parse_folders(t_prog *prog, char **env)
 	{
 		if (ft_strnstr(env[i], "PATH=", 5))
 		{
-			folders = ft_split(env[i] + 5, ':');
+			folders = ft_split(env[i] + 5, ":");
 			if (!folders)
 				return (NULL);
 			return (folders);
