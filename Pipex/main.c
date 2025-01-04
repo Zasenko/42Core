@@ -87,10 +87,9 @@ static void	child_proccess(t_prog prog, int fd_read, int fd_write, char **args)
 		perror("Dup2 error");
 		exit(EXIT_FAILURE);
 	}
-	close_fd(&prog);
+	free_prog(&prog);
 	if (execve(*args, args, NULL) == -1)
 	{
-		free_prog(&prog);
 		perror("Execve failed");
 		exit(EXIT_FAILURE);
 	}
